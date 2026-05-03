@@ -34,14 +34,6 @@ export type AgencyTask = {
   optional?: boolean;
 };
 
-export type FlightEvidence = {
-  route: string;
-  verdict: string;
-  evidence: string;
-  instruction: string;
-  category: TransportCategory;
-};
-
 export type AttractionCard = {
   placeId: string;
   optional?: boolean;
@@ -70,9 +62,6 @@ export const planningText = {
     snapshotEyebrow: "Trip snapshot",
     snapshotTitle: "Days, nights and transport at a glance",
     totalTrip: "16 calendar days / 15 nights",
-    routeReality: "Route reality",
-    routeRealityCopy:
-      "Jaipur to Rishikesh is a nonstop flight to Dehradun plus a taxi, not a layover. Rishikesh to Udaipur is the only connected-flight caution.",
     nightsByPlace: "Nights by place",
     fullTableTitle: "Full itinerary table",
     mustSeeHeader: "Must-see focus",
@@ -82,21 +71,12 @@ export const planningText = {
     agencyIntro:
       "Use this table for the travel agency. Optional items are clearly marked, and Ajanta is not part of the core booking unless the family confirms it.",
     exportCsv: "Export agency CSV",
-    vipTitle: "VIP / guide requests",
     optionalLabel: "Optional",
     coreLabel: "Core",
     pickup: "Pickup",
     dropoff: "Dropoff",
     service: "Service",
     action: "Action required",
-    routeEvidenceTitle: "Route evidence / flight reality",
-    routeEvidenceIntro:
-      "Current public route evidence is planning guidance only; airline schedules can change before Oct/Nov 2026.",
-    evidence: "Evidence",
-    bookingInstruction: "Booking instruction",
-    whyNotReorder: "Why not reorder?",
-    whyNotReorderCopy:
-      "Moving Udaipur before Rishikesh changes the direction but does not remove the problem: UDR -> DED also has no nonstop service. Removing the connected flight means dropping either Rishikesh or Udaipur, which conflicts with the trip goals.",
     attractionTicket: "Tickets / guide",
     attractionOptional: "Optional add-on",
   },
@@ -104,9 +84,6 @@ export const planningText = {
     snapshotEyebrow: "Sintesi viaggio",
     snapshotTitle: "Giorni, notti e trasporti in un colpo d'occhio",
     totalTrip: "16 giorni di calendario / 15 notti",
-    routeReality: "Realta del percorso",
-    routeRealityCopy:
-      "Jaipur-Rishikesh e un volo senza scalo fino a Dehradun piu taxi, non uno scalo. Rishikesh-Udaipur e l'unica tratta delicata con coincidenza.",
     nightsByPlace: "Notti per luogo",
     fullTableTitle: "Tabella completa dell'itinerario",
     mustSeeHeader: "Focus da vedere",
@@ -116,21 +93,12 @@ export const planningText = {
     agencyIntro:
       "Usare questa tabella per l'agenzia. Gli elementi opzionali sono marcati chiaramente e Ajanta non fa parte della prenotazione base senza conferma della famiglia.",
     exportCsv: "Esporta CSV agenzia",
-    vipTitle: "Richieste VIP / guida",
     optionalLabel: "Opzionale",
     coreLabel: "Base",
     pickup: "Partenza",
     dropoff: "Arrivo",
     service: "Servizio",
     action: "Azione richiesta",
-    routeEvidenceTitle: "Prove percorso / realta voli",
-    routeEvidenceIntro:
-      "Le prove pubbliche attuali sono solo guida di pianificazione; gli orari aerei possono cambiare prima di ottobre/novembre 2026.",
-    evidence: "Prova",
-    bookingInstruction: "Istruzione di prenotazione",
-    whyNotReorder: "Perche non riordinare?",
-    whyNotReorderCopy:
-      "Mettere Udaipur prima di Rishikesh cambia la direzione ma non elimina il problema: anche UDR -> DED non ha volo senza scalo. Eliminare la coincidenza significa togliere Rishikesh o Udaipur, contro gli obiettivi del viaggio.",
     attractionTicket: "Biglietti / guida",
     attractionOptional: "Aggiunta opzionale",
   },
@@ -334,51 +302,6 @@ export const transportSegments: TransportSegment[] = [
   },
 ];
 
-export const flightEvidence: FlightEvidence[] = [
-  {
-    route: "BOM -> IXU",
-    verdict: "Nonstop flight exists in current public schedules.",
-    evidence: "https://www.flightconnections.com/flights-from-bom-to-ixu",
-    instruction: "Book nonstop only for Mumbai to Aurangabad.",
-    category: "flight-direct",
-  },
-  {
-    route: "IXU -> DEL",
-    verdict: "Nonstop flight exists in current public schedules.",
-    evidence: "https://www.flightsfrom.com/IXU-DEL",
-    instruction: "Book nonstop only for Aurangabad to Delhi.",
-    category: "flight-direct",
-  },
-  {
-    route: "JAI -> DED",
-    verdict: "Nonstop flight exists; Rishikesh is reached afterward by taxi.",
-    evidence: "https://www.flightsfrom.com/JAI-DED",
-    instruction: "Represent this as nonstop flight plus taxi, not a layover.",
-    category: "flight-direct",
-  },
-  {
-    route: "DED -> UDR",
-    verdict: "No nonstop flight in current public route evidence.",
-    evidence: "https://www.flightconnections.com/flights-from-ded-to-udr",
-    instruction: "Use only a clean same-ticket connection or reconsider this leg close to booking.",
-    category: "flight-connection",
-  },
-  {
-    route: "UDR -> BOM",
-    verdict: "Nonstop flight exists in current public schedules.",
-    evidence: "https://www.flightsfrom.com/UDR-BOM",
-    instruction: "Book nonstop only to protect the Mumbai buffer.",
-    category: "flight-direct",
-  },
-  {
-    route: "JAI -> UDR / DED -> BOM comparison",
-    verdict: "These nonstops exist, but UDR -> DED still has no nonstop, so reordering does not remove the Rishikesh-Udaipur problem.",
-    evidence: "https://www.flightsfrom.com/JAI-UDR",
-    instruction: "Keep current route unless a required stop is removed.",
-    category: "optional",
-  },
-];
-
 const transportSegmentsIt: TransportSegment[] = transportSegments.map((segment, index) => {
   const translations = [
     ["Trasferimento aeroporto", "Prenotare trasferimento privato arrivo", "Accoglienza autista, flessibile per ritardi immigrazione"],
@@ -404,39 +327,6 @@ const transportSegmentsIt: TransportSegment[] = transportSegments.map((segment, 
     action: translations[2],
   };
 });
-
-const flightEvidenceIt: FlightEvidence[] = [
-  {
-    ...flightEvidence[0],
-    verdict: "Il volo senza scalo esiste negli orari pubblici attuali.",
-    instruction: "Prenotare solo senza scalo da Mumbai ad Aurangabad.",
-  },
-  {
-    ...flightEvidence[1],
-    verdict: "Il volo senza scalo esiste negli orari pubblici attuali.",
-    instruction: "Prenotare solo senza scalo da Aurangabad a Delhi.",
-  },
-  {
-    ...flightEvidence[2],
-    verdict: "Il volo senza scalo esiste; Rishikesh si raggiunge dopo in taxi.",
-    instruction: "Rappresentarlo come volo senza scalo piu taxi, non come scalo.",
-  },
-  {
-    ...flightEvidence[3],
-    verdict: "Nessun volo senza scalo nelle prove pubbliche attuali.",
-    instruction: "Usare solo una coincidenza pulita sullo stesso biglietto o rivalutare vicino alla prenotazione.",
-  },
-  {
-    ...flightEvidence[4],
-    verdict: "Il volo senza scalo esiste negli orari pubblici attuali.",
-    instruction: "Prenotare solo senza scalo per proteggere il cuscinetto a Mumbai.",
-  },
-  {
-    ...flightEvidence[5],
-    verdict: "Questi voli senza scalo esistono, ma UDR -> DED resta senza volo diretto: riordinare non elimina il problema.",
-    instruction: "Tenere il percorso attuale salvo rimuovere una tappa necessaria.",
-  },
-];
 
 export const agencyTasks: AgencyTask[] = [
   { date: "Oct 24", city: "Mumbai", pickup: "BOM airport", dropoff: "Mumbai hotel", service: "Arrival transfer", category: "taxi", duration: "45-90m", action: "Private meet-and-greet transfer" },
@@ -725,10 +615,6 @@ export function getAttractions(placeId: string, language: Language) {
 
 export function getTransportSegments(language: Language) {
   return language === "it" ? transportSegmentsIt : transportSegments;
-}
-
-export function getFlightEvidence(language: Language) {
-  return language === "it" ? flightEvidenceIt : flightEvidence;
 }
 
 export function getAgencyTasks(language: Language) {
