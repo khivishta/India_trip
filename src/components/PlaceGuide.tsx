@@ -1,9 +1,11 @@
 import { ExternalLink } from "lucide-react";
 import { places } from "../data/trip";
+import { getAttractions, planningText } from "../data/planning";
 import { type Language, placeDetails, uiText } from "../data/placeDetails";
 
 export function PlaceGuide({ language }: { language: Language }) {
   const t = uiText[language];
+  const pt = planningText[language];
   return (
     <section className="section" id="places">
       <div className="section__heading">
@@ -14,6 +16,7 @@ export function PlaceGuide({ language }: { language: Language }) {
       <div className="place-grid">
         {places.map((place) => {
           const detail = placeDetails[place.id][language];
+          const attractions = getAttractions(place.id, language);
           return (
           <article className={`place-card place-card--${place.accent}`} key={place.id}>
             <img src={place.image} alt={`${detail.name} visual preview`} loading="lazy" />
@@ -37,13 +40,18 @@ export function PlaceGuide({ language }: { language: Language }) {
                 </section>
               </div>
               <div className="location-list">
-                {detail.locations.map((location) => (
-                  <section className="location-card" key={location.name}>
-                    <h4>{location.name}</h4>
+                {attractions.map((location) => (
+                  <section className="location-card attraction-card" key={location.name}>
+                    <img src={location.image} alt={`${location.name} visual preview`} loading="lazy" />
+                    <div className="attraction-card__content">
+                    <h4>
+                      {location.name}
+                      {location.optional && <span>{pt.attractionOptional}</span>}
+                    </h4>
                     <div className="location-card__grid">
                       <div>
                         <strong>{t.what}</strong>
-                        <p>{location.what}</p>
+                        <p>{location.description}</p>
                       </div>
                       <div>
                         <strong>{t.why}</strong>
@@ -53,14 +61,15 @@ export function PlaceGuide({ language }: { language: Language }) {
                         <strong>{t.history}</strong>
                         <p>{location.history}</p>
                       </div>
-                      <div>
-                        <strong>{t.notice}</strong>
-                        <p>{location.notice}</p>
-                      </div>
                       <div className="location-card__pace">
                         <strong>{t.pace}</strong>
                         <p>{location.pace}</p>
                       </div>
+                      <div className="location-card__ticket">
+                        <strong>{pt.attractionTicket}</strong>
+                        <p>{location.ticket}</p>
+                      </div>
+                    </div>
                     </div>
                   </section>
                 ))}

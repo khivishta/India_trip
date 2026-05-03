@@ -1,20 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AgencyPlanner } from "./components/AgencyPlanner";
 import { Gallery } from "./components/Gallery";
 import { Hero } from "./components/Hero";
 import { Hotels } from "./components/Hotels";
 import { Itinerary } from "./components/Itinerary";
 import { PlaceGuide } from "./components/PlaceGuide";
 import { RouteFlow } from "./components/RouteFlow";
+import { TripSnapshot } from "./components/TripSnapshot";
 import { Transport } from "./components/Transport";
 import { type Language, uiText } from "./data/placeDetails";
 
+const languageStorageKey = "india-trip-language";
+
+function getInitialLanguage(): Language {
+  const stored = window.localStorage.getItem(languageStorageKey);
+
+  if (stored === "en" || stored === "it") {
+    return stored;
+  }
+
+  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  return browserLanguages.some((value) => value.toLowerCase().startsWith("it")) ? "it" : "en";
+}
+
 export default function App() {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(() => getInitialLanguage());
   const t = uiText[language];
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
+  function chooseLanguage(nextLanguage: Language) {
+    window.localStorage.setItem(languageStorageKey, nextLanguage);
+    setLanguage(nextLanguage);
+  }
+
   const navItems = [
     [t.route, "#route"],
+    [t.snapshot, "#snapshot"],
     [t.dailyPlan, "#itinerary"],
     [t.transport, "#transport"],
+    [t.agency, "#agency"],
     [t.places, "#places"],
     [t.gallery, "#gallery"],
     [t.hotels, "#hotels"],
@@ -34,10 +61,10 @@ export default function App() {
           ))}
         </div>
         <div className="language-toggle" aria-label={t.language}>
-          <button className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")} type="button">
+          <button className={language === "en" ? "active" : ""} onClick={() => chooseLanguage("en")} type="button">
             {t.english}
           </button>
-          <button className={language === "it" ? "active" : ""} onClick={() => setLanguage("it")} type="button">
+          <button className={language === "it" ? "active" : ""} onClick={() => chooseLanguage("it")} type="button">
             {t.italian}
           </button>
         </div>
@@ -45,8 +72,10 @@ export default function App() {
       <main>
         <Hero language={language} />
         <RouteFlow language={language} />
+        <TripSnapshot language={language} />
         <Itinerary language={language} />
         <Transport language={language} />
+        <AgencyPlanner language={language} />
         <PlaceGuide language={language} />
         <Gallery language={language} />
         <Hotels language={language} />

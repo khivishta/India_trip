@@ -22,8 +22,10 @@ export const uiText = {
   en: {
     brand: "India 2026",
     route: "Route",
+    snapshot: "Snapshot",
     dailyPlan: "Daily Plan",
     transport: "Transport",
+    agency: "Agency",
     places: "Places",
     gallery: "Gallery",
     hotels: "Hotels",
@@ -91,8 +93,10 @@ export const uiText = {
   it: {
     brand: "India 2026",
     route: "Percorso",
+    snapshot: "Sintesi",
     dailyPlan: "Programma",
     transport: "Trasporti",
+    agency: "Agenzia",
     places: "Luoghi",
     gallery: "Galleria",
     hotels: "Hotel",
