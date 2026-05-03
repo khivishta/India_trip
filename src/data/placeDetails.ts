@@ -1,0 +1,667 @@
+export type Language = "en" | "it";
+
+export type LocalizedLocation = {
+  name: string;
+  what: string;
+  why: string;
+  history: string;
+  notice: string;
+  pace: string;
+};
+
+export type LocalizedPlaceDetail = {
+  name: string;
+  role: string;
+  overview: string;
+  context: string;
+  bestUse: string;
+  locations: LocalizedLocation[];
+};
+
+export const uiText = {
+  en: {
+    brand: "India 2026",
+    route: "Route",
+    dailyPlan: "Daily Plan",
+    transport: "Transport",
+    places: "Places",
+    gallery: "Gallery",
+    hotels: "Hotels",
+    language: "Language",
+    eyebrow: "India 2026 relaxed family route",
+    heroTitle: "Mumbai to mountains, palaces, caves and lake country",
+    heroLead:
+      "A comfort-first itinerary for Oct 24-Nov 8, 2026, keeping Ellora Caves, Rishikesh, Udaipur and a protected Mumbai buffer.",
+    dailyPlanCta: "Daily plan",
+    placeGuideCta: "Place guide",
+    routeCheckCta: "Route check",
+    dates: "Oct 24-Nov 8, 2026",
+    nights: "15 nights",
+    flights: "5 planned flight legs",
+    drives: "6 short or moderate drives",
+    rishikeshIncluded: "Rishikesh included as the mountain/river stop",
+    buffer: "Protected Mumbai buffer on Nov 7 in Mumbai",
+    placeEyebrow: "Place detail guide",
+    placeTitle: "Specific places, history, and how to enjoy them calmly",
+    placeIntro:
+      "Each chapter explains the destination and the exact sights inside it, so the plan is about real places rather than just city names.",
+    overview: "Overview",
+    context: "History / context",
+    bestUse: "How to use the stop",
+    what: "What it is",
+    why: "Why visit",
+    history: "History",
+    notice: "What to notice",
+    pace: "Pacing advice",
+    imageLink: "Open image inspiration",
+    footer:
+      "Comfort rule: protect the Rishikesh mountain stop, keep Ellora focused, and preserve the final Mumbai buffer.",
+  },
+  it: {
+    brand: "India 2026",
+    route: "Percorso",
+    dailyPlan: "Programma",
+    transport: "Trasporti",
+    places: "Luoghi",
+    gallery: "Galleria",
+    hotels: "Hotel",
+    language: "Lingua",
+    eyebrow: "India 2026, itinerario rilassato in famiglia",
+    heroTitle: "Da Mumbai alle montagne, palazzi, grotte e città sul lago",
+    heroLead:
+      "Un itinerario comodo dal 24 ottobre all'8 novembre 2026, con Ellora, Rishikesh, Udaipur e un giorno cuscinetto a Mumbai.",
+    dailyPlanCta: "Programma",
+    placeGuideCta: "Guida luoghi",
+    routeCheckCta: "Controllo percorso",
+    dates: "24 ottobre-8 novembre 2026",
+    nights: "15 notti",
+    flights: "5 tratte aeree pianificate",
+    drives: "6 spostamenti brevi o moderati in auto",
+    rishikeshIncluded: "Rishikesh incluso come tappa montagna/fiume",
+    buffer: "Giorno cuscinetto protetto a Mumbai il 7 novembre",
+    placeEyebrow: "Guida dettagliata",
+    placeTitle: "Luoghi specifici, storia e come visitarli con calma",
+    placeIntro:
+      "Ogni capitolo spiega la destinazione e i singoli luoghi da vedere, così il programma non resta solo un elenco di città.",
+    overview: "Panoramica",
+    context: "Storia / contesto",
+    bestUse: "Come usare la tappa",
+    what: "Che cos'e",
+    why: "Perche visitarlo",
+    history: "Storia",
+    notice: "Cosa osservare",
+    pace: "Consiglio di ritmo",
+    imageLink: "Apri immagini",
+    footer:
+      "Regola di comfort: proteggere Rishikesh, tenere Ellora focalizzata e conservare il cuscinetto finale a Mumbai.",
+  },
+} satisfies Record<Language, Record<string, string>>;
+
+export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>> = {
+  mumbai: {
+    en: {
+      name: "Mumbai",
+      role: "Arrival city, final buffer, sea-facing urban energy",
+      overview:
+        "Mumbai works best as the trip's soft landing and final reset. It is busy and layered, but it also has flexible sightseeing: you can do a coastal drive, a historic gateway, a cafe neighborhood, or simply rest after international travel.",
+      context:
+        "The modern city grew from seven islands into a major port, first under Portuguese control and then under the British East India Company and the British Raj. That history shows up in Gothic, Indo-Saracenic, Art Deco, and port-city architecture.",
+      bestUse:
+        "Use Mumbai for arrival recovery and the protected final buffer. Do not over-schedule it; let it absorb jet lag, laundry, shopping, traffic, or flight delays.",
+      locations: [
+        {
+          name: "Marine Drive",
+          what: "A long seaside promenade curving along Back Bay.",
+          why: "It gives an easy first impression of Mumbai without needing a complicated sightseeing day.",
+          history: "The Art Deco apartment blocks nearby reflect Bombay's 20th-century growth and coastal urban planning.",
+          notice: "Go near sunset for the sea wall, lights, and slower evening pace.",
+          pace: "Easy. Pair with dinner or a short drive, not a full day of touring.",
+        },
+        {
+          name: "Gateway of India and Colaba",
+          what: "A ceremonial waterfront arch beside the harbor, close to Colaba's cafes and shops.",
+          why: "It is one of the clearest visual symbols of Mumbai and easy to combine with a gentle walk.",
+          history: "The Gateway was built to commemorate the 1911 royal visit of King George V and Queen Mary.",
+          notice: "Look at the harbor setting, the Taj Mahal Palace Hotel facade, and the mix of local visitors and travelers.",
+          pace: "Easy to moderate depending on heat and crowds. Keep it short if arrival fatigue is high.",
+        },
+        {
+          name: "Kala Ghoda",
+          what: "A compact arts and heritage district with galleries, cafes, museums, and colonial buildings.",
+          why: "It is a good low-pressure way to experience Mumbai's culture without long drives between sights.",
+          history: "The district sits among South Mumbai's historic civic and commercial architecture.",
+          notice: "Street-scale details: facades, bookshops, gallery signage, and cafes.",
+          pace: "Good for a half-day if everyone is rested; optional if the buffer day is needed for recovery.",
+        },
+      ],
+    },
+    it: {
+      name: "Mumbai",
+      role: "Citta di arrivo, cuscinetto finale, energia urbana sul mare",
+      overview:
+        "Mumbai funziona come ingresso morbido nel viaggio e come reset finale. E intensa, ma permette visite flessibili: passeggiata sul mare, architettura storica, quartieri con cafe oppure semplice riposo dopo il volo.",
+      context:
+        "La citta moderna nasce da sette isole trasformate in un grande porto, prima sotto influenza portoghese e poi britannica. Questa storia si vede nell'architettura gotica, indo-saracena, Art Deco e portuale.",
+      bestUse:
+        "Usarla per recuperare all'arrivo e per il cuscinetto finale. Non riempirla troppo: deve assorbire jet lag, bucato, shopping, traffico o ritardi.",
+      locations: [
+        {
+          name: "Marine Drive",
+          what: "Un lungo lungomare curvo affacciato su Back Bay.",
+          why: "Da una prima impressione di Mumbai senza richiedere una giornata impegnativa.",
+          history: "Gli edifici Art Deco vicini raccontano la crescita di Bombay nel Novecento.",
+          notice: "Meglio al tramonto, per il mare, le luci e il ritmo piu lento della sera.",
+          pace: "Facile. Abbinarlo a cena o a un breve giro in auto.",
+        },
+        {
+          name: "Gateway of India e Colaba",
+          what: "Un arco monumentale sul porto, vicino ai cafe e negozi di Colaba.",
+          why: "E uno dei simboli piu riconoscibili di Mumbai ed e semplice da visitare.",
+          history: "Fu costruito per commemorare la visita reale del 1911 di Giorgio V e della regina Mary.",
+          notice: "Osservare il porto, la facciata del Taj Mahal Palace Hotel e la vita locale.",
+          pace: "Facile o moderato a seconda di caldo e folla. Tenerlo breve se c'e stanchezza.",
+        },
+        {
+          name: "Kala Ghoda",
+          what: "Distretto compatto di arte, gallerie, musei, cafe e palazzi storici.",
+          why: "Permette di capire il lato culturale di Mumbai senza troppi spostamenti.",
+          history: "Si trova tra edifici civici e commerciali storici di South Mumbai.",
+          notice: "Dettagli di facciate, librerie, gallerie e cafe.",
+          pace: "Mezza giornata se si e riposati; opzionale se serve il giorno cuscinetto.",
+        },
+      ],
+    },
+  },
+  ellora: {
+    en: {
+      name: "Aurangabad / Ellora Caves",
+      role: "UNESCO cave complex and protected highlight",
+      overview:
+        "Ellora is the reason for the Aurangabad stop. It is not just a temple visit; it is a vast rock-cut complex where Buddhist, Hindu, and Jain monuments sit close together in one landscape.",
+      context:
+        "The caves were carved between roughly the 6th and 10th centuries. The most famous monument, Kailasa Temple, was excavated from a single rock mass from the top down.",
+      bestUse:
+        "Make Ellora the main day and resist adding Ajanta. A focused Ellora visit is more memorable and keeps the trip from becoming exhausting.",
+      locations: [
+        {
+          name: "Kailasa Temple, Cave 16",
+          what: "A monumental Hindu temple carved out of one continuous rock mass.",
+          why: "It is one of the most astonishing architectural moments of the trip.",
+          history: "Associated with the Rashtrakuta period, it represents Mount Kailash, the mythic home of Shiva.",
+          notice: "Look at the vertical excavation logic: courtyards, elephants, towers, and carved panels all cut from rock.",
+          pace: "Start here while energy is highest. Give it unhurried time before seeing other caves.",
+        },
+        {
+          name: "Buddhist caves",
+          what: "Monastic halls, shrines, and prayer spaces carved into the rock.",
+          why: "They show Ellora's religious range and quieter atmosphere beyond Kailasa.",
+          history: "These caves connect to earlier Buddhist monastic traditions in western India.",
+          notice: "Notice columns, seated Buddhas, simple cells, and the shift from functional monastery to sacred space.",
+          pace: "Choose a few representative caves rather than trying to see all of them.",
+        },
+        {
+          name: "Jain caves",
+          what: "Later caves with refined carving and a calmer scale.",
+          why: "They complete the picture of Ellora as a multi-faith complex.",
+          history: "The Jain caves reflect the continued importance of patronage and devotional carving after the major Hindu works.",
+          notice: "Look for delicate ornament, smaller spaces, and a different devotional mood.",
+          pace: "Visit if energy remains after Kailasa and selected Buddhist caves.",
+        },
+      ],
+    },
+    it: {
+      name: "Aurangabad / Grotte di Ellora",
+      role: "Complesso UNESCO e momento culturale da proteggere",
+      overview:
+        "Ellora e il motivo della tappa ad Aurangabad. Non e una semplice visita a un tempio: e un grande complesso scavato nella roccia con monumenti buddhisti, induisti e giainisti nello stesso paesaggio.",
+      context:
+        "Le grotte furono scavate circa tra il VI e il X secolo. Il tempio piu famoso, Kailasa, fu ricavato da un unico blocco roccioso, lavorando dall'alto verso il basso.",
+      bestUse:
+        "Fare di Ellora la giornata principale e non aggiungere Ajanta. Una visita focalizzata e piu memorabile e meno stancante.",
+      locations: [
+        {
+          name: "Tempio Kailasa, grotta 16",
+          what: "Un tempio induista monumentale ricavato da un'unica massa di roccia.",
+          why: "E uno dei momenti architettonici piu impressionanti del viaggio.",
+          history: "Legato al periodo Rashtrakuta, rappresenta il Monte Kailash, dimora mitica di Shiva.",
+          notice: "Osservare cortili, elefanti, torri e pannelli scolpiti tutti nella roccia.",
+          pace: "Iniziare da qui con energia alta e senza fretta.",
+        },
+        {
+          name: "Grotte buddhiste",
+          what: "Sale monastiche, santuari e spazi di preghiera scavati nella roccia.",
+          why: "Mostrano la varieta religiosa di Ellora e un'atmosfera piu silenziosa.",
+          history: "Rimandano alle tradizioni monastiche buddhiste dell'India occidentale.",
+          notice: "Colonne, Buddha seduti, celle semplici e passaggio da monastero a spazio sacro.",
+          pace: "Sceglierne alcune rappresentative, senza cercare di vedere tutto.",
+        },
+        {
+          name: "Grotte giainiste",
+          what: "Grotte piu tarde, con incisioni raffinate e scala piu intima.",
+          why: "Completano l'idea di Ellora come complesso multi-religioso.",
+          history: "Riflettono la continuita del mecenatismo e della devozione dopo le grandi opere induiste.",
+          notice: "Decorazioni fini, spazi piu piccoli e un tono devozionale diverso.",
+          pace: "Da fare se resta energia dopo Kailasa e alcune grotte buddhiste.",
+        },
+      ],
+    },
+  },
+  delhi: {
+    en: {
+      name: "Delhi",
+      role: "Capital layers: Mughal gardens, old markets, and civic monuments",
+      overview:
+        "Delhi is the trip's historical bridge. It prepares you for Agra and Jaipur by showing how many capitals, empires, neighborhoods, and religious communities overlap in North India.",
+      context:
+        "The city has been remade repeatedly by sultanates, the Mughals, the British, and modern India. That is why the stops feel so different from one another even within the same day.",
+      bestUse:
+        "Pick two or three strong places and keep Old Delhi bounded. Delhi rewards focus more than checklist sightseeing.",
+      locations: [
+        {
+          name: "Humayun's Tomb",
+          what: "A Mughal garden-tomb set in a formal charbagh garden.",
+          why: "It is beautiful, calm, and historically important before seeing the Taj Mahal.",
+          history: "Built in the 16th century for Emperor Humayun, it helped shape later Mughal tomb architecture.",
+          notice: "Look at the symmetry, red sandstone, white marble details, garden axis, and elevated platform.",
+          pace: "Prioritize this as the main Delhi monument; it is rewarding without being chaotic.",
+        },
+        {
+          name: "Lodhi Garden",
+          what: "A landscaped park with 15th-century tombs and local walking paths.",
+          why: "It gives Delhi breathing room between heavier sightseeing stops.",
+          history: "The tombs are from the Sayyid and Lodi periods, before the high Mughal era.",
+          notice: "Notice how monuments are integrated into daily city life: walkers, families, and gardens.",
+          pace: "Easy. Use it as a calmer morning or late-afternoon stop.",
+        },
+        {
+          name: "Old Delhi",
+          what: "Dense lanes, markets, food streets, mosques, and rickshaw energy.",
+          why: "It is memorable and atmospheric, but it can be tiring.",
+          history: "Old Delhi grew around Shahjahanabad, the 17th-century Mughal capital founded by Shah Jahan.",
+          notice: "Focus on one guided block rather than wandering endlessly: food, spice market, Jama Masjid exterior, or Chandni Chowk.",
+          pace: "Moderate to intense. Limit the time and pair it with a quieter stop.",
+        },
+        {
+          name: "India Gate / New Delhi axis",
+          what: "Ceremonial avenues and civic architecture from imperial and modern Delhi.",
+          why: "It shows the contrast between Old Delhi and planned New Delhi.",
+          history: "The area was planned under British rule and later became central to independent India's capital identity.",
+          notice: "Look at scale, symmetry, open space, and the shift from market density to civic formality.",
+          pace: "Best as a drive-by or short stop, not a long visit.",
+        },
+      ],
+    },
+    it: {
+      name: "Delhi",
+      role: "Strati di capitale: giardini moghul, mercati antichi e monumenti civici",
+      overview:
+        "Delhi e il ponte storico del viaggio. Prepara ad Agra e Jaipur mostrando capitali, imperi, quartieri e comunita religiose sovrapposte.",
+      context:
+        "La citta e stata trasformata da sultanati, Moghul, britannici e India moderna. Per questo le tappe della stessa giornata sembrano mondi diversi.",
+      bestUse:
+        "Scegliere due o tre luoghi forti e limitare Old Delhi. Delhi funziona meglio con focus, non come lista infinita.",
+      locations: [
+        {
+          name: "Tomba di Humayun",
+          what: "Tomba-giardino moghul in un giardino formale charbagh.",
+          why: "E bella, relativamente calma e importante prima del Taj Mahal.",
+          history: "Costruita nel XVI secolo per l'imperatore Humayun, influenzo l'architettura funeraria moghul successiva.",
+          notice: "Simmetria, arenaria rossa, marmo bianco, assi del giardino e piattaforma rialzata.",
+          pace: "Da mettere come monumento principale di Delhi.",
+        },
+        {
+          name: "Lodhi Garden",
+          what: "Parco paesaggistico con tombe del XV secolo e percorsi per passeggiare.",
+          why: "Da respiro tra visite piu intense.",
+          history: "Le tombe appartengono ai periodi Sayyid e Lodi, precedenti al grande periodo moghul.",
+          notice: "Monumenti integrati nella vita quotidiana: persone che camminano, famiglie, giardini.",
+          pace: "Facile. Ideale al mattino o nel tardo pomeriggio.",
+        },
+        {
+          name: "Old Delhi",
+          what: "Vicoli fitti, mercati, cibo di strada, moschee e riscio.",
+          why: "E memorabile e piena di atmosfera, ma puo stancare.",
+          history: "Cresce intorno a Shahjahanabad, capitale moghul del XVII secolo fondata da Shah Jahan.",
+          notice: "Meglio un blocco guidato: cibo, mercato delle spezie, esterno della Jama Masjid o Chandni Chowk.",
+          pace: "Moderato-intenso. Limitare il tempo e abbinarlo a una tappa calma.",
+        },
+        {
+          name: "India Gate / asse di New Delhi",
+          what: "Viali cerimoniali e architettura civica.",
+          why: "Mostra il contrasto tra Old Delhi e la New Delhi pianificata.",
+          history: "L'area fu pianificata sotto il dominio britannico e poi divenne centrale per l'India indipendente.",
+          notice: "Scala, simmetria, spazi aperti e passaggio dai mercati alla forma civica.",
+          pace: "Meglio come breve stop o giro in auto.",
+        },
+      ],
+    },
+  },
+  agra: {
+    en: {
+      name: "Agra",
+      role: "Taj Mahal sunrise and Mughal riverfront power",
+      overview:
+        "Agra is included for the Taj Mahal, but the overnight makes the difference. It turns a rushed monument check into a calm sunrise experience and leaves room for Agra Fort.",
+      context:
+        "Agra was one of the great Mughal capitals. Its monuments are tied to imperial ambition, riverfront planning, military power, and personal memory.",
+      bestUse:
+        "Keep Agra to one night. Do the Taj well, see Agra Fort, and avoid adding too much before the Jaipur drive.",
+      locations: [
+        {
+          name: "Taj Mahal",
+          what: "A white marble mausoleum on the Yamuna River.",
+          why: "It is the iconic visual and emotional highlight of Agra.",
+          history: "Built in the 17th century by Shah Jahan for Mumtaz Mahal, it combines Persianate, Mughal, and garden-tomb traditions.",
+          notice: "Look beyond the postcard view: inlay work, calligraphy scale, changing light, and the garden axis.",
+          pace: "Go at sunrise if possible. Keep the visit focused and unrushed.",
+        },
+        {
+          name: "Agra Fort",
+          what: "A massive red sandstone fort-palace complex.",
+          why: "It explains the political and military side of Mughal Agra.",
+          history: "Developed especially under Akbar and later Mughal rulers, it served as a seat of power and residence.",
+          notice: "Notice the transition from defensive walls to delicate palace spaces and river views.",
+          pace: "Moderate. Visit after breakfast or before sunset depending on Taj timing.",
+        },
+        {
+          name: "Mehtab Bagh",
+          what: "A garden across the Yamuna from the Taj Mahal.",
+          why: "It gives a quieter, more distant view of the Taj and the river setting.",
+          history: "The garden sits within the Mughal riverfront landscape that framed monuments from both banks.",
+          notice: "Watch how the Taj aligns across the river, especially late in the day.",
+          pace: "Optional and easy. Good if the group wants a calm sunset rather than another heavy monument.",
+        },
+      ],
+    },
+    it: {
+      name: "Agra",
+      role: "Taj Mahal all'alba e potere moghul sul fiume",
+      overview:
+        "Agra e inclusa per il Taj Mahal, ma dormire li cambia tutto: invece di una visita corsa diventa un'alba calma, con spazio anche per Agra Fort.",
+      context:
+        "Agra fu una grande capitale moghul. I suoi monumenti parlano di ambizione imperiale, paesaggio fluviale, potere militare e memoria personale.",
+      bestUse:
+        "Tenere Agra a una notte. Fare bene il Taj, vedere Agra Fort e non caricare troppo prima della strada per Jaipur.",
+      locations: [
+        {
+          name: "Taj Mahal",
+          what: "Mausoleo in marmo bianco sul fiume Yamuna.",
+          why: "E il simbolo visivo ed emotivo di Agra.",
+          history: "Costruito nel XVII secolo da Shah Jahan per Mumtaz Mahal, unisce tradizioni persiane, moghul e del giardino funerario.",
+          notice: "Non solo la foto classica: intarsi, calligrafia, luce che cambia e asse del giardino.",
+          pace: "Andare all'alba se possibile. Visita focalizzata e senza fretta.",
+        },
+        {
+          name: "Agra Fort",
+          what: "Grande complesso fortificato in arenaria rossa.",
+          why: "Spiega il lato politico e militare dell'Agra moghul.",
+          history: "Sviluppato soprattutto sotto Akbar e altri sovrani moghul, fu sede di potere e residenza.",
+          notice: "Dal muro difensivo agli spazi di palazzo piu delicati e alle viste sul fiume.",
+          pace: "Moderato. Dopo colazione o verso sera, secondo l'orario del Taj.",
+        },
+        {
+          name: "Mehtab Bagh",
+          what: "Giardino sull'altra riva dello Yamuna rispetto al Taj Mahal.",
+          why: "Offre una vista piu tranquilla e distante del Taj nel paesaggio fluviale.",
+          history: "Fa parte del sistema moghul di giardini e monumenti lungo il fiume.",
+          notice: "L'allineamento del Taj dall'altra riva, specialmente nel tardo pomeriggio.",
+          pace: "Opzionale e facile, buono per un tramonto calmo.",
+        },
+      ],
+    },
+  },
+  jaipur: {
+    en: {
+      name: "Jaipur",
+      role: "Rajasthan forts, palace culture, color, craft, and planned-city geometry",
+      overview:
+        "Jaipur gives the trip its Rajasthan chapter: hill forts, pink facades, royal courtyards, textiles, jewelry, and a very different urban rhythm from Delhi or Mumbai.",
+      context:
+        "Founded in 1727 by Maharaja Sawai Jai Singh II, Jaipur was planned with organized markets and broad streets. It sits between older Rajput hill power and a more formal planned capital.",
+      bestUse:
+        "Start with Amber Fort, then choose palace/city stops based on energy. Shopping is optional because it can easily stretch the day.",
+      locations: [
+        {
+          name: "Amber Fort",
+          what: "A hilltop fort-palace complex outside the old city.",
+          why: "It is Jaipur's strongest architectural stop and gives the best sense of Rajput power and setting.",
+          history: "Amber was the older seat of the Kachwaha rulers before Jaipur city became the planned capital.",
+          notice: "Courtyards, mirror work, defensive hills, gateways, and views back across the landscape.",
+          pace: "Go early. Treat it as the main event of the day.",
+        },
+        {
+          name: "City Palace",
+          what: "A palace complex in the heart of Jaipur's old city.",
+          why: "It connects royal history to the planned city and gives a softer counterpoint to Amber Fort.",
+          history: "The palace became the administrative and ceremonial center after Jaipur was founded.",
+          notice: "Look for painted gates, courtyards, textiles, arms displays, and the blend of Rajput and Mughal influence.",
+          pace: "Moderate. Good after lunch if energy remains.",
+        },
+        {
+          name: "Hawa Mahal",
+          what: "The famous facade with many small windows facing the street.",
+          why: "It is a quick, highly visual Jaipur moment.",
+          history: "Built in 1799, it allowed royal women to observe street life while remaining screened from public view.",
+          notice: "The facade is the main moment; the street context matters as much as the building.",
+          pace: "Short photo stop unless the group specifically wants to enter.",
+        },
+        {
+          name: "Jantar Mantar",
+          what: "An outdoor astronomical observatory with monumental instruments.",
+          why: "It shows Jaipur's scientific and planning side, not only palaces.",
+          history: "Built by Sawai Jai Singh II, who was deeply interested in astronomy and measurement.",
+          notice: "The scale of the instruments and how architecture becomes a measuring device.",
+          pace: "Optional. Best with a guide; otherwise it can feel abstract.",
+        },
+      ],
+    },
+    it: {
+      name: "Jaipur",
+      role: "Fortezze del Rajasthan, cultura di palazzo, colore, artigianato e citta pianificata",
+      overview:
+        "Jaipur e il capitolo Rajasthan del viaggio: fortezze sulle colline, facciate rosa, cortili reali, tessuti, gioielli e un ritmo urbano diverso da Delhi o Mumbai.",
+      context:
+        "Fondata nel 1727 da Maharaja Sawai Jai Singh II, Jaipur fu pianificata con mercati organizzati e strade ampie. Collega il potere Rajput delle colline a una capitale formale.",
+      bestUse:
+        "Iniziare con Amber Fort, poi scegliere palazzo e citta secondo l'energia. Lo shopping resta opzionale perche puo allungare molto la giornata.",
+      locations: [
+        {
+          name: "Amber Fort",
+          what: "Complesso fortezza-palazzo su una collina fuori dalla citta vecchia.",
+          why: "E la visita architettonica piu forte di Jaipur e mostra potere Rajput e paesaggio.",
+          history: "Amber era la sede piu antica dei sovrani Kachwaha prima della capitale pianificata di Jaipur.",
+          notice: "Cortili, specchi, colline difensive, portali e viste sul territorio.",
+          pace: "Andare presto. Considerarlo il momento principale della giornata.",
+        },
+        {
+          name: "City Palace",
+          what: "Complesso di palazzi nel cuore della citta vecchia.",
+          why: "Collega la storia reale alla citta pianificata e bilancia Amber Fort.",
+          history: "Divenne centro amministrativo e cerimoniale dopo la fondazione di Jaipur.",
+          notice: "Porte dipinte, cortili, tessuti, armi e influenze Rajput e Moghul.",
+          pace: "Moderato. Buono dopo pranzo se resta energia.",
+        },
+        {
+          name: "Hawa Mahal",
+          what: "La celebre facciata con molte piccole finestre sulla strada.",
+          why: "E un momento visivo rapido e molto riconoscibile.",
+          history: "Costruito nel 1799, permetteva alle donne reali di osservare la strada restando schermate.",
+          notice: "La facciata e il contesto della strada sono il punto principale.",
+          pace: "Breve stop fotografico, salvo interesse specifico a entrare.",
+        },
+        {
+          name: "Jantar Mantar",
+          what: "Osservatorio astronomico all'aperto con strumenti monumentali.",
+          why: "Mostra il lato scientifico e pianificatore di Jaipur.",
+          history: "Costruito da Sawai Jai Singh II, appassionato di astronomia e misurazione.",
+          notice: "La scala degli strumenti e come l'architettura diventa misurazione.",
+          pace: "Opzionale. Meglio con guida.",
+        },
+      ],
+    },
+  },
+  rishikesh: {
+    en: {
+      name: "Rishikesh",
+      role: "Required mountain/river stop and restorative reset",
+      overview:
+        "Rishikesh is not just a city checkbox; it is the trip's nature and river chapter. The value is the Ganga, foothill air, suspension bridges, ashram culture, and a slower day between Rajasthan and Udaipur.",
+      context:
+        "Rishikesh is a pilgrimage and yoga center where the Ganga comes out of the Himalayan foothills toward the plains. Its modern travel identity mixes spirituality, riverfront stays, cafes, and light adventure.",
+      bestUse:
+        "Keep this stop gentle. The point is not to drive deep into the mountains, but to feel the foothills and river without exhausting the group.",
+      locations: [
+        {
+          name: "Ganga riverfront",
+          what: "The river banks, ghats, bridges, and walking areas around the Ganga.",
+          why: "This is the emotional center of the Rishikesh stop.",
+          history: "The Ganga is sacred across Hindu tradition; Rishikesh is one of the places where pilgrimage, river ritual, and Himalayan geography meet.",
+          notice: "Notice water color, sound, temple bells, evening light, and the mountains tightening around the river.",
+          pace: "Easy. Build the day around slow river time rather than distant excursions.",
+        },
+        {
+          name: "Ganga Aarti",
+          what: "An evening river ritual with lamps, chanting, and offerings.",
+          why: "It gives the stop atmosphere and a sense of place without needing a long tour.",
+          history: "Aarti is a devotional ritual of light; in Rishikesh it is tied directly to the river.",
+          notice: "Watch the lamps, rhythm of chanting, families gathering, and reflection of light on the water.",
+          pace: "Arrive early enough to settle. Keep dinner simple afterward.",
+        },
+        {
+          name: "Beatles Ashram / Chaurasi Kutia",
+          what: "A former ashram site made famous by the Beatles' 1968 stay.",
+          why: "It adds a cultural layer beyond temples and river views.",
+          history: "The Beatles studied Transcendental Meditation here, and the site became part of Rishikesh's global yoga story.",
+          notice: "Look for mural art, meditation cells, forested paths, and the contrast between ruin and pop-culture memory.",
+          pace: "Optional half-day element. Skip if the group wants pure rest.",
+        },
+        {
+          name: "Lakshman Jhula / river bridges",
+          what: "Suspension bridge area over the Ganga with temples, views, and foot traffic.",
+          why: "It gives the classic Rishikesh visual: river, bridge, temples, and foothills in one view.",
+          history: "The bridge area is associated with pilgrimage routes and local legends connected to Lakshmana from the Ramayana tradition.",
+          notice: "Look downriver and upriver; the composition of bridge, river, temples, and hills is the main point.",
+          pace: "Best as a scenic walk, not a rushed transfer stop.",
+        },
+      ],
+    },
+    it: {
+      name: "Rishikesh",
+      role: "Tappa montagna/fiume necessaria e momento di recupero",
+      overview:
+        "Rishikesh non e solo una citta da segnare: e il capitolo natura e fiume del viaggio. Il valore e il Ganga, l'aria delle colline, i ponti sospesi, gli ashram e una giornata piu lenta tra Rajasthan e Udaipur.",
+      context:
+        "Rishikesh e centro di pellegrinaggio e yoga, dove il Ganga esce dai contrafforti himalayani verso la pianura. Oggi unisce spiritualita, soggiorni sul fiume, cafe e leggera avventura.",
+      bestUse:
+        "Mantenere la tappa dolce. Non serve andare molto dentro le montagne: basta sentire fiume e colline senza stancarsi.",
+      locations: [
+        {
+          name: "Lungofiume del Ganga",
+          what: "Sponde, ghat, ponti e passeggiate intorno al Ganga.",
+          why: "E il centro emotivo della tappa a Rishikesh.",
+          history: "Il Ganga e sacro nella tradizione induista; a Rishikesh pellegrinaggio, rituale fluviale e geografia himalayana si incontrano.",
+          notice: "Colore e suono dell'acqua, campane, luce serale e montagne intorno al fiume.",
+          pace: "Facile. Costruire la giornata intorno al fiume, non a escursioni lontane.",
+        },
+        {
+          name: "Ganga Aarti",
+          what: "Rituale serale sul fiume con lampade, canti e offerte.",
+          why: "Da atmosfera e senso del luogo senza richiedere un tour lungo.",
+          history: "L'aarti e un rituale devozionale della luce; a Rishikesh e legato direttamente al fiume.",
+          notice: "Lampade, ritmo dei canti, famiglie riunite e riflessi sull'acqua.",
+          pace: "Arrivare un po' prima. Cena semplice dopo.",
+        },
+        {
+          name: "Beatles Ashram / Chaurasi Kutia",
+          what: "Ex ashram reso famoso dal soggiorno dei Beatles nel 1968.",
+          why: "Aggiunge un livello culturale oltre a templi e fiume.",
+          history: "I Beatles studiarono qui la Meditazione Trascendentale, rendendo il luogo parte della storia globale dello yoga.",
+          notice: "Murales, celle di meditazione, sentieri nel verde e contrasto tra rovina e memoria pop.",
+          pace: "Opzionale mezza giornata. Saltare se serve riposo puro.",
+        },
+        {
+          name: "Lakshman Jhula / ponti sul fiume",
+          what: "Area dei ponti sospesi sul Ganga, con templi, viste e passaggio pedonale.",
+          why: "Da l'immagine classica di Rishikesh: fiume, ponte, templi e colline.",
+          history: "L'area e legata a percorsi di pellegrinaggio e leggende locali connesse a Lakshmana del Ramayana.",
+          notice: "Guardare a monte e a valle: ponte, fiume, templi e colline insieme.",
+          pace: "Meglio come passeggiata panoramica, non come stop di fretta.",
+        },
+      ],
+    },
+  },
+  udaipur: {
+    en: {
+      name: "Udaipur",
+      role: "Lake city, palaces, Aravalli views, and a graceful finish",
+      overview:
+        "Udaipur is the scenic exhale after the Rishikesh connection. It is visually rich but softer than Jaipur: lake reflections, palace terraces, old lanes, temples, and dinners with water views.",
+      context:
+        "Founded in the 16th century by Maharana Udai Singh II, Udaipur became the capital of Mewar. Its identity comes from Rajput resilience, lake planning, and the defensive geography of the Aravalli hills.",
+      bestUse:
+        "Do fewer things slowly. The lake setting is the reason to be here, so avoid distant day trips unless everyone is unusually energetic.",
+      locations: [
+        {
+          name: "City Palace",
+          what: "A large palace complex rising above Lake Pichola.",
+          why: "It is the main architectural and historical anchor of Udaipur.",
+          history: "Built and expanded over generations of Mewar rulers, it shows Rajput court life and lakefront strategy.",
+          notice: "Terraces, mirrored rooms, courtyards, lake views, and how the palace uses height.",
+          pace: "Moderate. Go early or later in the day and avoid rushing the museum route.",
+        },
+        {
+          name: "Lake Pichola",
+          what: "The central lake that shapes Udaipur's most famous views.",
+          why: "It gives Udaipur its beauty and calm; the city makes most sense from the water or lakeside.",
+          history: "The lake predates the formal city and was expanded as Udaipur developed.",
+          notice: "Watch the palace silhouettes, ghats, islands, and Aravalli hills.",
+          pace: "Easy. A boat ride or lakeside dinner is enough; do not overload the day.",
+        },
+        {
+          name: "Jagdish Temple and old city lanes",
+          what: "A central temple and surrounding streets near the palace.",
+          why: "They add human scale after the grand palace and lake views.",
+          history: "Jagdish Temple dates to the 17th century and is dedicated to Vishnu.",
+          notice: "Carved exterior, steps, street activity, small shops, and old-city rhythm.",
+          pace: "Short to moderate walk. Best when heat is manageable.",
+        },
+      ],
+    },
+    it: {
+      name: "Udaipur",
+      role: "Citta del lago, palazzi, viste sugli Aravalli e finale elegante",
+      overview:
+        "Udaipur e il respiro scenico dopo la connessione da Rishikesh. E ricca visivamente ma piu morbida di Jaipur: riflessi sul lago, terrazze di palazzo, vicoli, templi e cene sull'acqua.",
+      context:
+        "Fondata nel XVI secolo da Maharana Udai Singh II, Udaipur divenne capitale del Mewar. La sua identita nasce dalla storia Rajput, dai laghi e dalla geografia difensiva degli Aravalli.",
+      bestUse:
+        "Fare meno cose e farle lentamente. Il lago e il motivo della tappa; evitare escursioni lontane se non c'e molta energia.",
+      locations: [
+        {
+          name: "City Palace",
+          what: "Grande complesso di palazzi sopra Lake Pichola.",
+          why: "E l'ancora architettonica e storica principale di Udaipur.",
+          history: "Costruito ed espanso da generazioni di sovrani Mewar, mostra vita di corte e strategia sul lago.",
+          notice: "Terrazze, sale con specchi, cortili, viste sul lago e uso dell'altezza.",
+          pace: "Moderato. Meglio presto o tardi, senza correre nel percorso museale.",
+        },
+        {
+          name: "Lake Pichola",
+          what: "Il lago centrale che definisce le viste piu famose di Udaipur.",
+          why: "Da bellezza e calma alla citta; Udaipur si capisce meglio dall'acqua o dalla riva.",
+          history: "Il lago precede la citta formale e fu ampliato con lo sviluppo di Udaipur.",
+          notice: "Sagome dei palazzi, ghat, isole e colline Aravalli.",
+          pace: "Facile. Giro in barca o cena sul lago bastano.",
+        },
+        {
+          name: "Jagdish Temple e vicoli della citta vecchia",
+          what: "Tempio centrale e strade intorno al palazzo.",
+          why: "Danno scala umana dopo i palazzi e le viste ampie.",
+          history: "Jagdish Temple risale al XVII secolo ed e dedicato a Vishnu.",
+          notice: "Esterno scolpito, scalinate, vita di strada, piccoli negozi e ritmo della citta vecchia.",
+          pace: "Passeggiata breve o moderata, meglio con caldo gestibile.",
+        },
+      ],
+    },
+  },
+};

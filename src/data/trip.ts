@@ -535,7 +535,7 @@ export const places: Place[] = [
     history: "Rishikesh has long been associated with pilgrimage, yoga, ashrams, and the Ganga. In modern travel it is also known for riverfront stays and access to the lower Himalayas.",
     focus: "Ganga Aarti, river walk, Beatles Ashram or yoga/spa, cafe time with river views.",
     comfort: "This should stay relaxed. Do not add a distant hill station or long excursion; the point is the river, foothills, and recovery.",
-    image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ganga%20Aarti%2C%20Rishikesh.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/56/The_Ganga_at_Rishikesh.jpg",
     imageCredit: "Wikimedia Commons",
     visualLink: "https://www.google.com/search?tbm=isch&q=Rishikesh+Ganga+Aarti+Himalayan+foothills",
     accent: "mountain",

@@ -1,46 +1,44 @@
 import { CalendarDays, Car, Map, Mountain, Plane, ShieldCheck } from "lucide-react";
-import { tripStats } from "../data/trip";
+import { type Language, uiText } from "../data/placeDetails";
 
-export function Hero() {
+export function Hero({ language }: { language: Language }) {
+  const t = uiText[language];
   return (
     <header className="hero" id="top">
       <div className="hero__content">
-        <p className="eyebrow">India 2026 relaxed family route</p>
-        <h1>Mumbai to mountains, palaces, caves and lake country</h1>
-        <p className="hero__lede">
-          A comfort-first itinerary for {tripStats.dates}, keeping Ellora Caves,
-          Rishikesh, Udaipur and a protected Mumbai buffer.
-        </p>
+        <p className="eyebrow">{t.eyebrow}</p>
+        <h1>{t.heroTitle}</h1>
+        <p className="hero__lede">{t.heroLead}</p>
         <div className="hero__actions" aria-label="Page sections">
-          <a href="#itinerary">Daily plan</a>
-          <a href="#places">Place guide</a>
-          <a href="#transport">Route check</a>
+          <a href="#itinerary">{t.dailyPlanCta}</a>
+          <a href="#places">{t.placeGuideCta}</a>
+          <a href="#transport">{t.routeCheckCta}</a>
         </div>
       </div>
       <div className="hero__panel" aria-label="Trip summary">
         <div className="stat">
           <CalendarDays size={20} />
-          <span>{tripStats.dates}</span>
+          <span>{t.dates}</span>
         </div>
         <div className="stat">
           <Map size={20} />
-          <span>{tripStats.nights}</span>
+          <span>{t.nights}</span>
         </div>
         <div className="stat">
           <Plane size={20} />
-          <span>{tripStats.flights} planned flight legs</span>
+          <span>{t.flights}</span>
         </div>
         <div className="stat">
           <Car size={20} />
-          <span>{tripStats.privateDrives} short or moderate drives</span>
+          <span>{t.drives}</span>
         </div>
         <div className="stat stat--mountain">
           <Mountain size={20} />
-          <span>Rishikesh included as the mountain/river stop</span>
+          <span>{t.rishikeshIncluded}</span>
         </div>
         <div className="stat">
           <ShieldCheck size={20} />
-          <span>Protected Mumbai buffer on {tripStats.buffer}</span>
+          <span>{t.buffer}</span>
         </div>
       </div>
     </header>

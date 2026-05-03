@@ -79,6 +79,32 @@ a {
   border: 1px solid rgba(15, 76, 129, 0.12);
 }
 
+.language-toggle {
+  flex-wrap: nowrap !important;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid rgba(15, 76, 129, 0.16);
+  border-radius: 999px;
+}
+
+.language-toggle button {
+  min-width: 78px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--blue);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.language-toggle button.active {
+  background: var(--blue);
+  color: #fff;
+}
+
 .brand {
   font-size: 1.05rem !important;
   white-space: nowrap;
@@ -505,12 +531,12 @@ h3 {
 
 .place-grid {
   display: grid;
-  gap: 24px;
+  gap: 34px;
 }
 
 .place-card {
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
   overflow: hidden;
   background: #fff;
   border-radius: 8px;
@@ -540,23 +566,6 @@ h3 {
   font-weight: 900;
 }
 
-dl {
-  display: grid;
-  gap: 12px;
-  margin: 0;
-}
-
-dt {
-  color: var(--blue);
-  font-weight: 900;
-}
-
-dd {
-  margin: -8px 0 0;
-  color: #334155;
-  line-height: 1.55;
-}
-
 .place-card__links {
   display: flex;
   flex-wrap: wrap;
@@ -574,6 +583,72 @@ dd {
   align-items: center;
   color: var(--blue);
   font-weight: 900;
+}
+
+.chapter-summary {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.chapter-summary section {
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+}
+
+.chapter-summary h4,
+.location-card h4 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: 1rem;
+}
+
+.chapter-summary p,
+.location-card p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.56;
+}
+
+.location-list {
+  display: grid;
+  gap: 16px;
+}
+
+.location-card {
+  padding: 16px;
+  background: #fffdf7;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.location-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.location-card__grid div {
+  padding: 12px;
+  background: #fff;
+  border: 1px solid rgba(216, 222, 233, 0.85);
+  border-radius: 8px;
+}
+
+.location-card__grid strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.location-card__pace {
+  grid-column: 1 / -1;
+  background: var(--green-soft) !important;
 }
 
 .gallery {
@@ -712,6 +787,7 @@ footer {
   }
 
   .meta-grid,
+  .location-card__grid,
   .gallery,
   .hotel-grid {
     grid-template-columns: 1fr;

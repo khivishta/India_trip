@@ -1,41 +1,80 @@
 import { ExternalLink } from "lucide-react";
 import { places } from "../data/trip";
+import { type Language, placeDetails, uiText } from "../data/placeDetails";
 
-export function PlaceGuide() {
+export function PlaceGuide({ language }: { language: Language }) {
+  const t = uiText[language];
   return (
     <section className="section" id="places">
       <div className="section__heading">
-        <p className="eyebrow">Place detail guide</p>
-        <h2>What each stop is about and why it belongs</h2>
+        <p className="eyebrow">{t.placeEyebrow}</p>
+        <h2>{t.placeTitle}</h2>
+        <p>{t.placeIntro}</p>
       </div>
       <div className="place-grid">
-        {places.map((place) => (
+        {places.map((place) => {
+          const detail = placeDetails[place.id][language];
+          return (
           <article className={`place-card place-card--${place.accent}`} key={place.id}>
-            <img src={place.image} alt={`${place.name} visual preview`} loading="lazy" />
+            <img src={place.image} alt={`${detail.name} visual preview`} loading="lazy" />
             <div className="place-card__body">
-              <span className="place-card__role">{place.role}</span>
+              <span className="place-card__role">{detail.role}</span>
               <h3>
-                {place.emoji} {place.name}
+                {place.emoji} {detail.name}
               </h3>
-              <dl>
-                <dt>Why visit</dt>
-                <dd>{place.why}</dd>
-                <dt>History / context</dt>
-                <dd>{place.history}</dd>
-                <dt>What to focus on</dt>
-                <dd>{place.focus}</dd>
-                <dt>Comfort note</dt>
-                <dd>{place.comfort}</dd>
-              </dl>
+              <div className="chapter-summary">
+                <section>
+                  <h4>{t.overview}</h4>
+                  <p>{detail.overview}</p>
+                </section>
+                <section>
+                  <h4>{t.context}</h4>
+                  <p>{detail.context}</p>
+                </section>
+                <section>
+                  <h4>{t.bestUse}</h4>
+                  <p>{detail.bestUse}</p>
+                </section>
+              </div>
+              <div className="location-list">
+                {detail.locations.map((location) => (
+                  <section className="location-card" key={location.name}>
+                    <h4>{location.name}</h4>
+                    <div className="location-card__grid">
+                      <div>
+                        <strong>{t.what}</strong>
+                        <p>{location.what}</p>
+                      </div>
+                      <div>
+                        <strong>{t.why}</strong>
+                        <p>{location.why}</p>
+                      </div>
+                      <div>
+                        <strong>{t.history}</strong>
+                        <p>{location.history}</p>
+                      </div>
+                      <div>
+                        <strong>{t.notice}</strong>
+                        <p>{location.notice}</p>
+                      </div>
+                      <div className="location-card__pace">
+                        <strong>{t.pace}</strong>
+                        <p>{location.pace}</p>
+                      </div>
+                    </div>
+                  </section>
+                ))}
+              </div>
               <div className="place-card__links">
                 <a href={place.visualLink} target="_blank" rel="noreferrer">
-                  Open image inspiration <ExternalLink size={15} />
+                  {t.imageLink} <ExternalLink size={15} />
                 </a>
                 <span>{place.imageCredit}</span>
               </div>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
