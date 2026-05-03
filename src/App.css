@@ -1004,9 +1004,7 @@ h3 {
 }
 
 .attraction-card {
-  display: grid;
-  grid-template-columns: 230px minmax(0, 1fr);
-  gap: 0;
+  display: block;
   overflow: hidden;
   padding: 0;
   background: #fff;
@@ -1014,16 +1012,15 @@ h3 {
 
 .attraction-card > img {
   width: 100%;
-  height: 280px;
-  min-height: 0;
-  align-self: start;
+  height: clamp(240px, 28vw, 380px);
+  display: block;
   object-fit: cover;
   object-position: center;
   background: var(--blue-soft);
 }
 
 .attraction-card__content {
-  padding: 16px;
+  padding: clamp(16px, 2.4vw, 24px);
 }
 
 .attraction-card h4 {
@@ -1069,6 +1066,7 @@ h3 {
 
 .history-copy {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1082,6 +1080,11 @@ h3 {
   border: 1px solid rgba(216, 222, 233, 0.85);
   border-left: 4px solid var(--gold);
   border-radius: 8px;
+}
+
+.detail-copy-section:first-child,
+.detail-copy-section:last-child {
+  grid-column: 1 / -1;
 }
 
 .detail-copy-section h5 {
@@ -1199,6 +1202,7 @@ footer {
 
   .meta-grid,
   .location-card__grid,
+  .history-copy,
   .hotel-grid,
   .stay-grid {
     grid-template-columns: 1fr;
@@ -1211,10 +1215,6 @@ footer {
   .night-bar__segment {
     flex-basis: 112px;
     flex-shrink: 0;
-  }
-
-  .attraction-card {
-    grid-template-columns: 1fr;
   }
 
   .place-card img {

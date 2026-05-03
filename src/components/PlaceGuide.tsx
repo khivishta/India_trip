@@ -77,14 +77,6 @@ export function PlaceGuide({ language }: { language: Language }) {
                           ))}
                         </div>
                       </div>
-                      <div className="location-card__pace">
-                        <strong>{t.pace}</strong>
-                        <p>{location.pace}</p>
-                      </div>
-                      <div className="location-card__ticket">
-                        <strong>{pt.attractionTicket}</strong>
-                        <p>{location.ticket}</p>
-                      </div>
                     </div>
                     </div>
                   </section>

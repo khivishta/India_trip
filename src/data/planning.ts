@@ -62,6 +62,22 @@ type DetailSection = {
   body: string;
 };
 
+function buildPaceDetail(name: string, text: string, language: Language) {
+  if (language === "it") {
+    return `${text} Per ${name}, il punto è proteggere energia e attenzione: meglio una visita ben guidata, con un inizio e una fine chiari, che aggiungere tempo solo per riempire la giornata.`;
+  }
+
+  return `${text} For ${name}, the point is to protect energy and attention: a well-guided visit with a clear start and finish is better than adding time just to fill the day.`;
+}
+
+function buildTicketDetail(name: string, text: string, language: Language) {
+  if (language === "it") {
+    return `${text} La prenotazione per ${name} deve ridurre attriti sul posto: ingresso, guida, autista e tempi vanno coordinati in modo che la visita resti fluida e non diventi una coda di decisioni.`;
+  }
+
+  return `${text} Booking support for ${name} should remove friction on the ground: entry, guide, driver and timing should be coordinated so the visit feels smooth rather than a chain of small decisions.`;
+}
+
 const detailNotes: Partial<Record<string, Record<Language, string[]>>> = {
   "mumbai:Marine Drive": {
     en: [
@@ -291,7 +307,7 @@ const detailNotes: Partial<Record<string, Record<Language, string[]>>> = {
       "Andare presto e considerarlo l'evento principale. Una guida aiuta a collegare percorso militare, spazi reali e dettagli decorativi; senza ritmo, salita e folla possono pesare.",
     ],
   },
-  "jaipur:City Palace": {
+  "jaipur:City Palace (Jaipur)": {
     en: [
       "City Palace shows Jaipur after the move from hill fort to planned city. It sits inside the old city grid and represents administration, ceremony, residence and collections rather than battlefield power.",
       "The palace is useful because it links architecture to living court culture: painted gates, courtyards, textiles, arms, royal objects and the continuing presence of Jaipur's royal legacy.",
@@ -411,7 +427,7 @@ const detailNotes: Partial<Record<string, Record<Language, string[]>>> = {
       "Va vissuto come passeggiata panoramica, non come trasferimento. I momenti migliori sono guardare a monte e a valle, fermarsi per foto e sentire come il ponte unisce le due rive della città.",
     ],
   },
-  "udaipur:City Palace": {
+  "udaipur:City Palace (Udaipur)": {
     en: [
       "Udaipur City Palace is the main narrative stop of the lake city. Built and expanded by generations of Mewar rulers, it rises above Lake Pichola as palace, museum, viewpoint and statement of continuity.",
       "The palace is best read vertically and visually: terraces, courtyards, balconies, mirrored rooms, painted details and windows that frame the lake. Its position explains how power, defense and beauty worked together in Mewar.",
@@ -479,6 +495,9 @@ export function polishItalianText(text: string) {
     .replace(/\battivita\b/g, "attività")
     .replace(/\bAttivita\b/g, "Attività")
     .replace(/\bflessibilita\b/g, "flessibilità")
+    .replace(/\binfluenzo\b/g, "influenzò")
+    .replace(/\bDa scala\b/g, "Dà scala")
+    .replace(/\bmeta giornata\b/g, "metà giornata")
     .replace(/\bcafe\b/g, "caffè")
     .replace(/\bCafe\b/g, "Caffè")
     .replace(/\briscio\b/g, "risciò")
@@ -492,6 +511,23 @@ export function polishItalianText(text: string) {
     .replace(/\bNon e\b/g, "Non è")
     .replace(/\bIl valore e\b/g, "Il valore è")
     .replace(/\bIl lago e\b/g, "Il lago è")
+    .replace(/\bE il\b/g, "È il")
+    .replace(/\bE la\b/g, "È la")
+    .replace(/\bE uno\b/g, "È uno")
+    .replace(/\bE una\b/g, "È una")
+    .replace(/\bed e\b/g, "ed è")
+    .replace(/\be forte\b/g, "è forte")
+    .replace(/\be famoso\b/g, "è famoso")
+    .replace(/\be famosa\b/g, "è famosa")
+    .replace(/\be facile da\b/g, "è facile da")
+    .replace(/\be già\b/g, "è già")
+    .replace(/\be l'evento\b/g, "è l'evento")
+    .replace(/\be associata\b/g, "è associata")
+    .replace(/\be dedicato\b/g, "è dedicato")
+    .replace(/\be un rituale\b/g, "è un rituale")
+    .replace(/\be una delle\b/g, "è una delle")
+    .replace(/\be uno dei\b/g, "è uno dei")
+    .replace(/\be utile storicamente\b/g, "è utile storicamente")
     .replace(/\bRishikesh e inclusa\b/g, "Rishikesh è inclusa")
     .replace(/\bRishikesh e associata\b/g, "Rishikesh è associata")
     .replace(/\bAgra e inclusa\b/g, "Agra è inclusa")
@@ -849,21 +885,21 @@ export const attractionCards: AttractionCard[] = [
   },
   {
     placeId: "ellora",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kailasa%20Temple%20at%20Ellora%20%28Cave%2016%29.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg/960px-Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Kailasa Temple", description: "A monumental Hindu temple carved downward from one rock mass, with courtyards, towers, elephant sculptures and panels all excavated from the same stone.", why: "This is the architectural heart of Ellora and a protected trip highlight; it feels more like a mountain carved into a temple than a building assembled from parts.", history: "Associated with the Rashtrakuta period and Mount Kailash symbolism, it is one of the great achievements of Indian rock-cut architecture.", pace: "Start here with full energy and let the guide slow the visit down.", ticket: "Book Ellora guide; focus the day here first." },
     it: { name: "Tempio Kailasa", description: "Tempio induista monumentale scavato dall'alto in un'unica massa rocciosa, con cortili, torri, elefanti e pannelli ricavati dalla stessa pietra.", why: "E il cuore architettonico di Ellora e una tappa da proteggere; sembra una montagna trasformata in tempio.", history: "Legato al periodo Rashtrakuta e al simbolismo del Monte Kailash, e una delle grandi opere dell'architettura rupestre indiana.", pace: "Iniziare qui con energia piena e lasciare che la guida rallenti la visita.", ticket: "Prenotare guida Ellora; iniziare da qui." },
   },
   {
     placeId: "ellora",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/P1060701_ellora_cave_number_10_ASI_number_N-MH-A51.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/P1060701_ellora_cave_number_10_ASI_number_N-MH-A51.jpg/960px-P1060701_ellora_cave_number_10_ASI_number_N-MH-A51.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Buddhist caves", description: "Monastic halls, shrines, cells and prayer spaces cut into rock, quieter and more contemplative than the main Hindu caves.", why: "They show Ellora beyond the famous Kailasa Temple and help explain why the complex matters as a multi-faith landscape.", history: "They connect to western India's Buddhist monastic traditions, when caves served both practical living and sacred functions.", pace: "Pick a few representative caves instead of trying to see every chamber.", ticket: "Included with Ellora visit; guide should curate." },
     it: { name: "Grotte buddhiste", description: "Sale monastiche, santuari, celle e spazi di preghiera scavati nella roccia, piu silenziosi rispetto alle grotte induiste principali.", why: "Mostrano Ellora oltre al famoso Tempio Kailasa e spiegano il valore multi-religioso del complesso.", history: "Rimandano alle tradizioni monastiche buddhiste dell'India occidentale, dove le grotte erano spazi pratici e sacri.", pace: "Scegliere alcune grotte rappresentative, non tutte.", ticket: "Incluse nella visita Ellora; la guida deve selezionare." },
   },
   {
     placeId: "ellora",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ellora_Cave_32_si0339.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ellora_Cave_32_si0339.jpg/960px-Ellora_Cave_32_si0339.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Jain caves", description: "Later caves with refined carving and calmer scale.", why: "They complete Ellora's multi-faith story.", history: "They reflect later Jain patronage and devotional carving.", pace: "Add only after Kailasa and selected Buddhist caves.", ticket: "Included with Ellora visit; optional within the day." },
     it: { name: "Grotte giainiste", description: "Grotte piu tarde con incisioni raffinate e scala piu calma.", why: "Completano il racconto multi-religioso di Ellora.", history: "Riflettono mecenatismo giainista e scultura devozionale piu tarda.", pace: "Aggiungere solo dopo Kailasa e alcune grotte buddhiste.", ticket: "Incluse nella visita Ellora; opzionali nella giornata." },
@@ -871,14 +907,14 @@ export const attractionCards: AttractionCard[] = [
   {
     placeId: "ellora",
     optional: true,
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/1_Ajanta_Caves_Viewpoint.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/1_Ajanta_Caves_Viewpoint.jpg/960px-1_Ajanta_Caves_Viewpoint.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Ajanta Caves", description: "Rock-cut Buddhist caves known especially for ancient paintings.", why: "Very meaningful, but it adds a long full-day excursion from Aurangabad.", history: "The caves date from roughly the 2nd century BCE to the 5th century CE.", pace: "Keep optional; book only if the group wants a second cave day.", ticket: "Optional car + guide; about 2.5h each way from Aurangabad." },
     it: { name: "Grotte di Ajanta", description: "Grotte buddhiste scavate nella roccia, celebri per pitture antiche.", why: "Molto importanti, ma aggiungono una lunga giornata da Aurangabad.", history: "Le grotte vanno circa dal II secolo a.C. al V secolo d.C.", pace: "Restano opzionali; prenotare solo se si vuole una seconda giornata grotte.", ticket: "Auto + guida opzionali; circa 2,5h per tratta da Aurangabad." },
   },
   {
     placeId: "delhi",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Humayun%27s%20tomb%201569-70.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Humayun%27s_tomb_1569-70.jpg/960px-Humayun%27s_tomb_1569-70.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Humayun's Tomb", description: "A Mughal garden tomb set in a formal charbagh garden.", why: "Beautiful, calm and historically useful before the Taj Mahal.", history: "Built in the 16th century, it helped shape later Mughal tomb design.", pace: "Make it the main Delhi monument.", ticket: "Book tickets/guide if using a Delhi guide day." },
     it: { name: "Tomba di Humayun", description: "Tomba-giardino moghul in un giardino formale charbagh.", why: "Bella, calma e utile storicamente prima del Taj Mahal.", history: "Costruita nel XVI secolo, influenzo le tombe moghul successive.", pace: "Metterla come monumento principale di Delhi.", ticket: "Biglietti/guida se si usa una guida per Delhi." },
@@ -886,21 +922,21 @@ export const attractionCards: AttractionCard[] = [
   {
     placeId: "delhi",
     optional: true,
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Qutb_Minar_2011.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qutb_Minar_2011.jpg/960px-Qutb_Minar_2011.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Qutub Minar complex", description: "A tall minaret and early Indo-Islamic monument complex in South Delhi, visually very different from Mughal garden tombs.", why: "It is one of Delhi's most important historic sites and is worth considering if the group wants one more strong monument.", history: "The complex began in the Delhi Sultanate period and shows layers of early Islamic architecture in North India.", pace: "Optional; add only if it does not crowd Humayun's Tomb and Old Delhi.", ticket: "Ticketed site; guide useful for context." },
     it: { name: "Complesso Qutub Minar", description: "Alto minareto e complesso indo-islamico antico a South Delhi, molto diverso dalle tombe-giardino moghul.", why: "E uno dei siti storici piu importanti di Delhi e vale se si vuole un altro monumento forte.", history: "Il complesso nasce nel periodo del Sultanato di Delhi e mostra strati dell'architettura islamica antica nel Nord India.", pace: "Opzionale; aggiungere solo se non appesantisce Tomba di Humayun e Old Delhi.", ticket: "Sito con biglietto; guida utile." },
   },
   {
     placeId: "delhi",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Bara_gumbad%2C_Lodhi_Garden.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bara_gumbad%2C_Lodhi_Garden.jpg/960px-Bara_gumbad%2C_Lodhi_Garden.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Lodhi Garden", description: "Landscaped park with 15th-century tombs and local walking paths.", why: "It gives breathing room between heavier Delhi stops.", history: "The tombs belong to the Sayyid and Lodi periods.", pace: "Easy morning or late-afternoon stop.", ticket: "No major ticket; local car timing only." },
     it: { name: "Lodhi Garden", description: "Parco con tombe del XV secolo e percorsi per camminare.", why: "Da respiro tra tappe piu intense a Delhi.", history: "Le tombe appartengono ai periodi Sayyid e Lodi.", pace: "Stop facile al mattino o tardo pomeriggio.", ticket: "Nessun biglietto importante; solo tempi auto." },
   },
   {
     placeId: "delhi",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/A_market_in_Chandni_Chowk%2C_Delhi.JPG",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/A_market_in_Chandni_Chowk%2C_Delhi.JPG/960px-A_market_in_Chandni_Chowk%2C_Delhi.JPG",
     imageCredit: "Wikimedia Commons",
     en: { name: "Old Delhi", description: "Dense lanes, markets, food streets and rickshaw energy.", why: "Atmospheric and memorable, but tiring if left unbounded.", history: "It grew around Shahjahanabad, Shah Jahan's 17th-century Mughal capital.", pace: "Limit to one guided block.", ticket: "Book a guide/rickshaw block; avoid open-ended wandering." },
     it: { name: "Old Delhi", description: "Vicolo densi, mercati, strade di cibo e riscio.", why: "Atmosferica e memorabile, ma stancante se non limitata.", history: "Cresce intorno a Shahjahanabad, capitale moghul del XVII secolo.", pace: "Limitare a un blocco guidato.", ticket: "Prenotare guida/risciò; evitare visita senza limite." },
@@ -908,56 +944,56 @@ export const attractionCards: AttractionCard[] = [
   {
     placeId: "delhi",
     optional: true,
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jama_Masjid_2011.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Jama_Masjid_2011.jpg/960px-Jama_Masjid_2011.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Jama Masjid exterior / Chandni Chowk block", description: "A focused Old Delhi block around the great mosque, market lanes and rickshaw movement.", why: "It gives the strongest sense of Old Delhi without needing to wander for hours.", history: "Jama Masjid was built under Shah Jahan and anchors the old Mughal city of Shahjahanabad.", pace: "Optional inside visit; exterior plus market block may be enough.", ticket: "Use a guide; confirm dress and camera rules if entering." },
     it: { name: "Esterno Jama Masjid / blocco Chandni Chowk", description: "Blocco mirato di Old Delhi intorno alla grande moschea, ai mercati e ai riscio.", why: "Da il senso piu forte di Old Delhi senza girare per ore.", history: "Jama Masjid fu costruita sotto Shah Jahan e ancora la citta moghul di Shahjahanabad.", pace: "Ingresso opzionale; esterno e mercato possono bastare.", ticket: "Usare guida; verificare regole abbigliamento e foto se si entra." },
   },
   {
     placeId: "delhi",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/India_Gate_in_New_Delhi_03-2016.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/India_Gate_in_New_Delhi_03-2016.jpg/960px-India_Gate_in_New_Delhi_03-2016.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "India Gate / New Delhi axis", description: "Ceremonial civic axis and monumental planned-city scale.", why: "Shows the contrast between Old Delhi and New Delhi.", history: "The area was planned under British rule and later became central to independent India.", pace: "Best as a drive-by or short stop.", ticket: "No ticket; include in city drive." },
     it: { name: "India Gate / asse di New Delhi", description: "Asse civico cerimoniale e scala monumentale pianificata.", why: "Mostra il contrasto tra Old Delhi e New Delhi.", history: "Area pianificata sotto i britannici e poi centrale nell'India indipendente.", pace: "Meglio come giro in auto o stop breve.", ticket: "Nessun biglietto; includere nel giro in citta." },
   },
   {
     placeId: "agra",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Taj%20Mahal%2C%20Agra%2C%20India%20edit2.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Taj_Mahal%2C_Agra%2C_India_edit2.jpg/960px-Taj_Mahal%2C_Agra%2C_India_edit2.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Taj Mahal", description: "White marble mausoleum on the Yamuna River.", why: "The iconic visual and emotional highlight of Agra.", history: "Built by Shah Jahan in the 17th century for Mumtaz Mahal.", pace: "Go at sunrise; do not rush.", ticket: "Book sunrise guide and tickets in advance." },
     it: { name: "Taj Mahal", description: "Mausoleo in marmo bianco sul fiume Yamuna.", why: "Il simbolo visivo ed emotivo di Agra.", history: "Costruito da Shah Jahan nel XVII secolo per Mumtaz Mahal.", pace: "Andare all'alba; non correre.", ticket: "Prenotare guida alba e biglietti in anticipo." },
   },
   {
     placeId: "agra",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Agra_Fort_Rempart.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Agra_Fort_Rempart.jpg/960px-Agra_Fort_Rempart.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Agra Fort", description: "Large red sandstone fort-palace complex.", why: "Explains the political and military side of Mughal Agra.", history: "Developed under Akbar and later Mughal rulers.", pace: "Moderate; avoid pairing with too many extras.", ticket: "Book with Agra guide or ticket support." },
     it: { name: "Agra Fort", description: "Grande complesso fortezza-palazzo in arenaria rossa.", why: "Spiega il lato politico e militare dell'Agra moghul.", history: "Sviluppato sotto Akbar e altri sovrani moghul.", pace: "Moderato; non aggiungere troppe tappe.", ticket: "Prenotare con guida Agra o supporto biglietti." },
   },
   {
     placeId: "agra",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Taj_Mahal_from_Mehtab_Bagh.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Taj_Mahal_from_Mehtab_Bagh.jpg/960px-Taj_Mahal_from_Mehtab_Bagh.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Mehtab Bagh", description: "Garden across the Yamuna from the Taj Mahal.", why: "A calmer sunset view of the Taj and river setting.", history: "Part of the Mughal riverfront landscape.", pace: "Optional easy sunset.", ticket: "Optional entry; guide can decide based on energy." },
     it: { name: "Mehtab Bagh", description: "Giardino sull'altra riva dello Yamuna rispetto al Taj.", why: "Vista piu calma del Taj e del paesaggio fluviale.", history: "Parte del paesaggio fluviale moghul.", pace: "Tramonto facile opzionale.", ticket: "Ingresso opzionale; la guida decide secondo energia." },
   },
   {
     placeId: "jaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jaipur%2003-2016%2004%20Amber%20Fort.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaipur_03-2016_04_Amber_Fort.jpg/960px-Jaipur_03-2016_04_Amber_Fort.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Amber Fort", description: "Hilltop fort-palace outside the old city.", why: "Jaipur's strongest architectural stop.", history: "Amber was the older Kachwaha seat before planned Jaipur.", pace: "Go early and treat as the main event.", ticket: "Book guide and entry support." },
     it: { name: "Amber Fort", description: "Fortezza-palazzo su una collina fuori dalla citta vecchia.", why: "La tappa architettonica piu forte di Jaipur.", history: "Amber era la sede Kachwaha prima della Jaipur pianificata.", pace: "Andare presto; e l'evento principale.", ticket: "Prenotare guida e supporto ingresso." },
   },
   {
     placeId: "jaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg/960px-Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg",
     imageCredit: "Wikimedia Commons",
-    en: { name: "City Palace", description: "Palace complex at the heart of Jaipur's old city.", why: "Connects royal history to Jaipur's planned city.", history: "The palace became the ceremonial center after Jaipur's founding.", pace: "Moderate; good after Amber if energy remains.", ticket: "Book palace ticket/guide." },
-    it: { name: "City Palace", description: "Complesso di palazzi nel cuore della citta vecchia.", why: "Collega storia reale e citta pianificata.", history: "Divenne centro cerimoniale dopo la fondazione di Jaipur.", pace: "Moderato; dopo Amber se resta energia.", ticket: "Prenotare biglietto/guida del palazzo." },
+    en: { name: "City Palace (Jaipur)", description: "Palace complex at the heart of Jaipur's old city.", why: "Connects royal history to Jaipur's planned city.", history: "The palace became the ceremonial center after Jaipur's founding.", pace: "Moderate; good after Amber if energy remains.", ticket: "Book palace ticket/guide." },
+    it: { name: "City Palace di Jaipur", description: "Complesso di palazzi nel cuore della citta vecchia.", why: "Collega storia reale e citta pianificata.", history: "Divenne centro cerimoniale dopo la fondazione di Jaipur.", pace: "Moderato; dopo Amber se resta energia.", ticket: "Prenotare biglietto/guida del palazzo." },
   },
   {
     placeId: "jaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hawa_Mahal_2011.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Hawa_Mahal_2011.jpg/960px-Hawa_Mahal_2011.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Hawa Mahal", description: "Famous pink facade with many small windows.", why: "Quick, highly visual Jaipur moment.", history: "Built in 1799 for screened royal viewing of street life.", pace: "Short photo stop unless entering is specifically wanted.", ticket: "Usually no need to pre-book unless entering." },
     it: { name: "Hawa Mahal", description: "Celebre facciata rosa con molte piccole finestre.", why: "Momento visivo rapido e molto riconoscibile.", history: "Costruito nel 1799 per osservare la strada restando schermati.", pace: "Breve stop fotografico, salvo interesse a entrare.", ticket: "Di solito non serve prenotare salvo ingresso." },
@@ -965,14 +1001,14 @@ export const attractionCards: AttractionCard[] = [
   {
     placeId: "jaipur",
     optional: true,
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jantar_Mantar_at_Jaipur.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jantar_Mantar_at_Jaipur.jpg/960px-Jantar_Mantar_at_Jaipur.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Jantar Mantar", description: "Outdoor astronomical observatory with monumental instruments.", why: "Shows Jaipur's scientific side beyond palaces.", history: "Built by Sawai Jai Singh II for astronomy and measurement.", pace: "Optional; best with guide.", ticket: "Optional ticket; add only if the group is curious." },
     it: { name: "Jantar Mantar", description: "Osservatorio astronomico all'aperto con strumenti monumentali.", why: "Mostra il lato scientifico di Jaipur oltre ai palazzi.", history: "Costruito da Sawai Jai Singh II per astronomia e misurazione.", pace: "Opzionale; meglio con guida.", ticket: "Biglietto opzionale; aggiungere solo se interessa." },
   },
   {
     placeId: "jaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Johari_Bazaar%2C_Jaipur.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Johari_Bazaar%2C_Jaipur.jpg/960px-Johari_Bazaar%2C_Jaipur.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Johari / Bapu Bazaar", description: "Old-city shopping streets for jewelry, textiles, block prints, scarves and small gifts.", why: "Markets are part of Jaipur's visual identity, not just shopping; they add color and craft after the palace stops.", history: "Jaipur was planned with organized bazaars, and craft trade remains central to the old city's character.", pace: "Keep bounded; one curated shopping block is enough.", ticket: "Ask agency/guide for a reputable, no-pressure shopping route." },
     it: { name: "Johari / Bapu Bazaar", description: "Strade commerciali della citta vecchia per gioielli, tessuti, stampe, sciarpe e piccoli regali.", why: "I mercati sono parte dell'identita visiva di Jaipur, non solo shopping; aggiungono colore e artigianato.", history: "Jaipur fu pianificata con bazar organizzati e il commercio artigianale resta centrale.", pace: "Tenere limitato; un blocco curato basta.", ticket: "Chiedere all'agenzia/guida un percorso serio e senza pressione." },
@@ -980,7 +1016,7 @@ export const attractionCards: AttractionCard[] = [
   {
     placeId: "jaipur",
     optional: true,
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Galtaji%20temple%20jaipur.png",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Galtaji_temple_jaipur.png/960px-Galtaji_temple_jaipur.png",
     imageCredit: "Wikimedia Commons",
     en: { name: "Galta Ji temple", description: "A temple complex set in the hills outside Jaipur, with tanks, pavilions and a different landscape feeling from the old city.", why: "It can add a temple-and-hill layer if everyone still has energy after Amber and City Palace.", history: "The complex is associated with Vaishnavite pilgrimage and historic water tanks in the Aravalli hills.", pace: "Optional; skip if the Jaipur day is already full.", ticket: "Ask guide about timing, crowds and road conditions." },
     it: { name: "Tempio Galta Ji", description: "Complesso templare nelle colline fuori Jaipur, con vasche, padiglioni e atmosfera diversa dalla citta vecchia.", why: "Aggiunge templi e colline se resta energia dopo Amber e City Palace.", history: "Il complesso e legato al pellegrinaggio vaishnavita e alle vasche storiche degli Aravalli.", pace: "Opzionale; saltare se Jaipur e gia piena.", ticket: "Chiedere alla guida tempi, folla e condizioni strada." },
@@ -994,49 +1030,49 @@ export const attractionCards: AttractionCard[] = [
   },
   {
     placeId: "rishikesh",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Morning%20Yoga%20class%20at%20Parmarth%20Niketan%2C%20Muni%20Ki%20Reti%2C%20Rishikesh.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Morning_Yoga_class_at_Parmarth_Niketan%2C_Muni_Ki_Reti%2C_Rishikesh.jpg/960px-Morning_Yoga_class_at_Parmarth_Niketan%2C_Muni_Ki_Reti%2C_Rishikesh.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Yoga / ashram time", description: "A gentle yoga, meditation, spa or ashram visit block that makes Rishikesh feel restorative rather than just scenic.", why: "This is exactly why Rishikesh belongs in the route: foothills, Ganga, quiet practice and recovery between heavier cities.", history: "Rishikesh is internationally associated with yoga and ashram culture, layered on top of older pilgrimage traditions.", pace: "Core activity, but keep it low-pressure. Choose one calm morning session or spa block.", ticket: "Ask hotel/agency for a reputable beginner-friendly private or small-group option." },
     it: { name: "Yoga / tempo in ashram", description: "Blocco leggero di yoga, meditazione, spa o visita in ashram per rendere Rishikesh rigenerante, non solo panoramica.", why: "E il motivo per cui Rishikesh sta bene nel percorso: colline, Ganga, pratica tranquilla e recupero tra citta piu intense.", history: "Rishikesh e associata globalmente a yoga e ashram, sopra tradizioni di pellegrinaggio piu antiche.", pace: "Attivita base ma senza pressione. Scegliere una sessione calma al mattino o spa.", ticket: "Chiedere a hotel/agenzia un'opzione seria e adatta a principianti." },
   },
   {
     placeId: "rishikesh",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ganga_Aarti_Rishikesh.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Ganga_Aarti_Rishikesh.jpg/960px-Ganga_Aarti_Rishikesh.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Ganga Aarti", description: "Evening river ritual with lamps, chanting and offerings.", why: "Gives Rishikesh atmosphere without a long excursion.", history: "Aarti is a devotional ritual of light tied here directly to the river.", pace: "Arrive early and keep dinner simple.", ticket: "Ask agency for calm viewing support if possible." },
     it: { name: "Ganga Aarti", description: "Rituale serale sul fiume con lampade, canti e offerte.", why: "Da atmosfera a Rishikesh senza una lunga escursione.", history: "L'aarti e un rituale di luce qui legato direttamente al fiume.", pace: "Arrivare presto e cena semplice dopo.", ticket: "Chiedere all'agenzia supporto per vedere con calma se possibile." },
   },
   {
     placeId: "rishikesh",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Beatles_Ashram_At_Rishikesh.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Beatles_Ashram_At_Rishikesh.jpg/960px-Beatles_Ashram_At_Rishikesh.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Beatles Ashram", description: "Former ashram site made famous by the Beatles' 1968 stay.", why: "Adds cultural texture beyond river views.", history: "Part of Rishikesh's global yoga and meditation story.", pace: "Optional half-day if the group wants more than pure rest.", ticket: "Check current entry/guide options." },
     it: { name: "Beatles Ashram", description: "Ex ashram famoso per il soggiorno dei Beatles nel 1968.", why: "Aggiunge cultura oltre alle viste sul fiume.", history: "Parte della storia globale di yoga e meditazione di Rishikesh.", pace: "Mezza giornata opzionale se si vuole altro oltre al riposo.", ticket: "Verificare ingresso/guida attuali." },
   },
   {
     placeId: "rishikesh",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lakshman_Jhula_Rishikesh.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lakshman_Jhula_Rishikesh.jpg/960px-Lakshman_Jhula_Rishikesh.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Lakshman Jhula / river bridges", description: "Suspension bridge area over the Ganga with temples and hill views.", why: "The classic Rishikesh visual of river, bridge and foothills.", history: "Associated with pilgrimage routes and Ramayana-linked local legend.", pace: "Scenic walk, not a rushed transfer stop.", ticket: "No fixed ticket; local guide optional." },
     it: { name: "Lakshman Jhula / ponti sul fiume", description: "Area dei ponti sospesi sul Ganga con templi e viste sulle colline.", why: "L'immagine classica di Rishikesh: fiume, ponte e colline.", history: "Legata a percorsi di pellegrinaggio e leggende del Ramayana.", pace: "Passeggiata panoramica, non stop di fretta.", ticket: "Nessun biglietto fisso; guida locale opzionale." },
   },
   {
     placeId: "udaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20view%20of%20City%20Palace%20%28Udaipur%29%2C%20Rajasthan%2C%20India%20-2.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg/960px-Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg",
     imageCredit: "Wikimedia Commons",
-    en: { name: "City Palace", description: "Large palace complex rising above Lake Pichola.", why: "The architectural and historical anchor of Udaipur.", history: "Expanded by generations of Mewar rulers.", pace: "Moderate; avoid rushing the museum route.", ticket: "Book City Palace guide/ticket support." },
-    it: { name: "City Palace", description: "Grande complesso di palazzi sopra Lake Pichola.", why: "L'ancora architettonica e storica di Udaipur.", history: "Espanso da generazioni di sovrani Mewar.", pace: "Moderato; non correre nel museo.", ticket: "Prenotare guida/biglietti City Palace." },
+    en: { name: "City Palace (Udaipur)", description: "Large palace complex rising above Lake Pichola.", why: "The architectural and historical anchor of Udaipur.", history: "Expanded by generations of Mewar rulers.", pace: "Moderate; avoid rushing the museum route.", ticket: "Book City Palace guide/ticket support." },
+    it: { name: "City Palace di Udaipur", description: "Grande complesso di palazzi sopra Lake Pichola.", why: "L'ancora architettonica e storica di Udaipur.", history: "Espanso da generazioni di sovrani Mewar.", pace: "Moderato; non correre nel museo.", ticket: "Prenotare guida/biglietti City Palace." },
   },
   {
     placeId: "udaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Pichola%2C_Udaipur.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Lake_Pichola%2C_Udaipur.jpg/960px-Lake_Pichola%2C_Udaipur.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Lake Pichola", description: "The central lake that shapes Udaipur's famous views.", why: "It gives Udaipur its calm and beauty.", history: "The lake predates the formal city and was expanded as Udaipur grew.", pace: "Easy boat ride or lakeside dinner.", ticket: "Optional boat; book with weather flexibility." },
     it: { name: "Lake Pichola", description: "Il lago centrale che definisce le viste famose di Udaipur.", why: "Da calma e bellezza a Udaipur.", history: "Il lago precede la citta formale e fu ampliato con la crescita di Udaipur.", pace: "Giro in barca o cena sul lago, facile.", ticket: "Barca opzionale; prenotare con flessibilita meteo." },
   },
   {
     placeId: "udaipur",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jagdish_Temple_Udaipur.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Jagdish_Temple_Udaipur.jpg/960px-Jagdish_Temple_Udaipur.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Jagdish Temple / old city lanes", description: "Central temple and surrounding old-city streets near the palace.", why: "Adds human scale after the grand palace and lake.", history: "Jagdish Temple dates to the 17th century and is dedicated to Vishnu.", pace: "Short to moderate walk.", ticket: "No complex booking; local guide optional." },
     it: { name: "Jagdish Temple / vicoli vecchi", description: "Tempio centrale e strade della citta vecchia vicino al palazzo.", why: "Da scala umana dopo palazzo e lago.", history: "Jagdish Temple risale al XVII secolo ed e dedicato a Vishnu.", pace: "Passeggiata breve o moderata.", ticket: "Nessuna prenotazione complessa; guida locale opzionale." },
@@ -1044,7 +1080,7 @@ export const attractionCards: AttractionCard[] = [
   {
     placeId: "udaipur",
     optional: true,
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Saheliyon_ki_Bari_Udaipur.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Saheliyon_ki_Bari_Udaipur.jpg/960px-Saheliyon_ki_Bari_Udaipur.jpg",
     imageCredit: "Wikimedia Commons",
     en: { name: "Saheliyon ki Bari", description: "A garden with fountains, pavilions and a calmer royal leisure atmosphere away from the densest old-city streets.", why: "Good optional soft stop if the group wants something pretty without another heavy monument.", history: "The garden is associated with the royal women of Mewar and courtly leisure culture.", pace: "Optional easy add-on; skip if lake time feels better.", ticket: "Low-complexity ticket; guide optional." },
     it: { name: "Saheliyon ki Bari", description: "Giardino con fontane e padiglioni, piu calmo rispetto ai vicoli della citta vecchia.", why: "Buona aggiunta leggera se si vuole qualcosa di bello senza un altro monumento intenso.", history: "Il giardino e associato alle donne reali del Mewar e alla cultura di corte.", pace: "Opzionale facile; saltare se si preferisce tempo sul lago.", ticket: "Biglietto semplice; guida opzionale." },
@@ -1061,18 +1097,18 @@ export function getAttractions(placeId: string, language: Language) {
       const sectionTitles =
         language === "it"
           ? [
-              "Orientamento",
+              "Contesto",
               "Perché merita",
-              "Contesto specifico",
               "Cosa osservare",
-              "Come viverlo bene",
+              "Ritmo consigliato",
+              "Guida e biglietti",
             ]
           : [
-              "Orientation",
+              "Background",
               "Why visit",
-              "Specific context",
               "What to notice",
-              "How to visit well",
+              "Pacing",
+              "Guide and tickets",
             ];
       const polished =
         language === "it"
@@ -1090,11 +1126,11 @@ export function getAttractions(placeId: string, language: Language) {
         ...attraction,
         ...polished,
         detailSections: [
-          `${polished.description} ${polished.why}`,
           `${polished.history} ${notes[0] ?? ""}`.trim(),
           notes[1] ?? polished.history,
           notes[2] ?? polished.why,
-          `${polished.pace} ${polished.ticket}`.trim(),
+          buildPaceDetail(polished.name, polished.pace, language),
+          buildTicketDetail(polished.name, polished.ticket, language),
         ].map((body, index) => ({
           title: sectionTitles[index] ?? sectionTitles[sectionTitles.length - 1],
           body,
