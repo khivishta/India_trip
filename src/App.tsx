@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { AgencyPlanner } from "./components/AgencyPlanner";
-import { Gallery } from "./components/Gallery";
 import { Hero } from "./components/Hero";
 import { Hotels } from "./components/Hotels";
 import { Itinerary } from "./components/Itinerary";
@@ -43,7 +42,6 @@ export default function App() {
     [t.transport, "#transport"],
     [t.agency, "#agency"],
     [t.places, "#places"],
-    [t.gallery, "#gallery"],
     [t.hotels, "#hotels"],
   ];
 
@@ -77,7 +75,6 @@ export default function App() {
         <Transport language={language} />
         <AgencyPlanner language={language} />
         <PlaceGuide language={language} />
-        <Gallery language={language} />
         <Hotels language={language} />
       </main>
       <footer>

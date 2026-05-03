@@ -279,38 +279,32 @@ h3 {
 }
 
 .route-stop--heritage,
-.place-card--heritage .place-card__role,
-.gallery-card--heritage div {
+.place-card--heritage .place-card__role {
   background: #755235;
 }
 
 .route-stop--capital,
-.place-card--capital .place-card__role,
-.gallery-card--capital div {
+.place-card--capital .place-card__role {
   background: #7c2d12;
 }
 
 .route-stop--taj,
-.place-card--taj .place-card__role,
-.gallery-card--taj div {
+.place-card--taj .place-card__role {
   background: #b91c1c;
 }
 
 .route-stop--palace,
-.place-card--palace .place-card__role,
-.gallery-card--palace div {
+.place-card--palace .place-card__role {
   background: var(--pink);
 }
 
 .route-stop--mountain,
-.place-card--mountain .place-card__role,
-.gallery-card--mountain div {
+.place-card--mountain .place-card__role {
   background: var(--green);
 }
 
 .route-stop--lake,
-.place-card--lake .place-card__role,
-.gallery-card--lake div {
+.place-card--lake .place-card__role {
   background: #1d4ed8;
 }
 
@@ -1050,49 +1044,6 @@ h3 {
   background: var(--purple-soft) !important;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.gallery-card {
-  min-height: 280px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 8px;
-  text-decoration: none;
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 34px rgba(31, 41, 55, 0.1);
-}
-
-.gallery-card img {
-  height: 170px;
-  width: 100%;
-  object-fit: cover;
-  background: var(--blue-soft);
-}
-
-.gallery-card div {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 14px;
-  color: #fff;
-  background: var(--blue);
-}
-
-.gallery-card span {
-  font-size: 1.8rem;
-}
-
-.gallery-card small {
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .hotel-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1150,7 +1101,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .gallery,
   .hotel-grid,
   .stay-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1198,7 +1148,6 @@ footer {
 
   .meta-grid,
   .location-card__grid,
-  .gallery,
   .hotel-grid,
   .stay-grid {
     grid-template-columns: 1fr;
