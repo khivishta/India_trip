@@ -69,8 +69,11 @@ export function PlaceGuide({ language }: { language: Language }) {
                       <div className="location-card__history">
                         <strong>{t.history}</strong>
                         <div className="history-copy">
-                          {location.historyParagraphs.map((paragraph) => (
-                            <p key={paragraph}>{paragraph}</p>
+                          {location.detailSections.map((section) => (
+                            <section className="detail-copy-section" key={`${location.name}-${section.title}`}>
+                              <h5>{section.title}</h5>
+                              <p>{section.body}</p>
+                            </section>
                           ))}
                         </div>
                       </div>

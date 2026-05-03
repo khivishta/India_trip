@@ -1069,11 +1069,26 @@ h3 {
 
 .history-copy {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .history-copy p {
   margin: 0;
+}
+
+.detail-copy-section {
+  padding: 10px 12px;
+  background: #fffdf7;
+  border: 1px solid rgba(216, 222, 233, 0.85);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+}
+
+.detail-copy-section h5 {
+  margin: 0 0 6px;
+  color: var(--blue);
+  font-size: 0.84rem;
+  text-transform: uppercase;
 }
 
 .location-card__pace {
