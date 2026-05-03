@@ -459,7 +459,7 @@ export const places: Place[] = [
   {
     id: "mumbai",
     name: "Mumbai",
-    emoji: "ðŸŒŠ",
+    emoji: "🌊",
     role: "Arrival city, final buffer, sea-facing urban energy",
     why: "Mumbai is the best soft landing and ending point for this route: international access, strong hotels, good food, and flexible sightseeing that can expand or contract depending on energy.",
     history: "Modern Mumbai grew from a group of islands into a major port city under Portuguese and then British influence. Its colonial architecture, trading history, film industry, and coastal neighborhoods make it cosmopolitan and layered.",
@@ -473,7 +473,7 @@ export const places: Place[] = [
   {
     id: "ellora",
     name: "Ellora Caves",
-    emoji: "ðŸª¨",
+    emoji: "🪨",
     role: "Protected UNESCO highlight and one of the trip's strongest cultural anchors",
     why: "Ellora is worth protecting because it is not just another monument stop. The caves show Buddhist, Hindu, and Jain traditions in one dramatic complex, with Kailasa Temple standing out.",
     history: "The caves were carved between roughly the 6th and 10th centuries. Kailasa Temple was excavated downward from a single rock mass, which is why it feels more like a carved mountain than a built temple.",
@@ -487,7 +487,7 @@ export const places: Place[] = [
   {
     id: "delhi",
     name: "Delhi",
-    emoji: "ðŸ›ï¸",
+    emoji: "🏛️",
     role: "Capital city history, Mughal architecture, gardens, and old-city texture",
     why: "Delhi gives the route historical depth before Agra and Jaipur. It is the place to feel the long arc of North Indian capitals, imperial tombs, old markets, and calm garden spaces.",
     history: "Delhi has been the site of several historic cities, shaped by sultanates, the Mughal Empire, British rule, and independent India. Humayun's Tomb helped influence later Mughal monuments.",
@@ -501,7 +501,7 @@ export const places: Place[] = [
   {
     id: "agra",
     name: "Agra",
-    emoji: "ðŸ•Œ",
+    emoji: "🕌",
     role: "Taj Mahal sunrise without a punishing day trip",
     why: "Agra is included for the Taj Mahal, but the overnight is the key comfort choice. Sleeping in Agra makes sunrise realistic and removes the pressure of a same-day Delhi return.",
     history: "Agra was a major Mughal capital. The Taj Mahal was built in the 17th century by Shah Jahan as a mausoleum for Mumtaz Mahal; Agra Fort shows the imperial side of the same period.",
@@ -515,7 +515,7 @@ export const places: Place[] = [
   {
     id: "jaipur",
     name: "Jaipur",
-    emoji: "ðŸ°",
+    emoji: "🏰",
     role: "Rajasthan forts, palaces, color, craft, and classic architecture",
     why: "Jaipur adds the palace-and-fort layer of Rajasthan without overcomplicating the route. It is visually rich, easy to understand in one full day, and pairs naturally after Agra.",
     history: "Founded in 1727 by Maharaja Sawai Jai Singh II, Jaipur was planned with wide streets and organized markets. The old city is famous for pink-toned facades, while Amber Fort connects to older Rajput history.",
@@ -529,7 +529,7 @@ export const places: Place[] = [
   {
     id: "rishikesh",
     name: "Rishikesh",
-    emoji: "â›°ï¸",
+    emoji: "⛰️",
     role: "Required mountain/river stop and the trip's restorative reset",
     why: "Rishikesh is the mountain-adjacent place in this version: Himalayan foothills, the Ganga river, suspension bridges, evening aarti, and a slower atmosphere.",
     history: "Rishikesh has long been associated with pilgrimage, yoga, ashrams, and the Ganga. In modern travel it is also known for riverfront stays and access to the lower Himalayas.",
@@ -543,7 +543,7 @@ export const places: Place[] = [
   {
     id: "udaipur",
     name: "Udaipur",
-    emoji: "ðŸžï¸",
+    emoji: "🏞️",
     role: "Scenic lake city, palaces, Aravalli views, and a graceful finish before Mumbai",
     why: "Udaipur adds beauty without the intensity of a larger city. The lakes, palaces, old lanes, and Aravalli setting make it one of the most visually rewarding stops.",
     history: "Udaipur was founded in the 16th century by Maharana Udai Singh II and became the capital of Mewar. Its identity is tied to Rajput history, lakefront palaces, and defensive geography.",

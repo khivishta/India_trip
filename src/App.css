@@ -933,21 +933,11 @@ h3 {
 }
 
 .place-card {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
   overflow: hidden;
   background: #fff;
   border-radius: 8px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-}
-
-.place-card img {
-  width: 100%;
-  height: 100%;
-  min-height: 440px;
-  object-fit: cover;
-  background: var(--blue-soft);
 }
 
 .place-card__body {
@@ -1034,9 +1024,11 @@ h3 {
 
 .attraction-card > img {
   width: 100%;
-  height: 100%;
-  min-height: 270px;
+  height: 280px;
+  min-height: 0;
+  align-self: start;
   object-fit: cover;
+  object-position: center;
   background: var(--blue-soft);
 }
 
@@ -1187,8 +1179,7 @@ footer {
 }
 
 @media (max-width: 1100px) {
-  .hero,
-  .place-card {
+  .hero {
     grid-template-columns: 1fr;
   }
 

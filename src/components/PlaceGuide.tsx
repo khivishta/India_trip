@@ -19,7 +19,6 @@ export function PlaceGuide({ language }: { language: Language }) {
           const attractions = getAttractions(place.id, language);
           return (
           <article className={`place-card place-card--${place.accent}`} key={place.id}>
-            <img src={place.image} alt={`${detail.name} visual preview`} loading="lazy" />
             <div className="place-card__body">
               <span className="place-card__role">{detail.role}</span>
               <h3>
