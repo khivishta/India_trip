@@ -1,4 +1,4 @@
-import { AlertTriangle, CalendarDays, Hotel, Route } from "lucide-react";
+import { CalendarDays, Hotel, Route } from "lucide-react";
 import { type CSSProperties } from "react";
 import { getStaySummaries, planningText } from "../data/planning";
 import { type Language } from "../data/placeDetails";
@@ -23,12 +23,9 @@ export function TripSnapshot({ language }: { language: Language }) {
         <article className="snapshot-card">
           <Hotel size={24} />
           <strong>{t.nightsByPlace}</strong>
-          <span>{totalNights} {language === "it" ? "notti totali" : "total nights"}</span>
-        </article>
-        <article className="snapshot-card snapshot-card--caution">
-          <AlertTriangle size={24} />
-          <strong>{t.routeReality}</strong>
-          <span>{t.routeRealityCopy}</span>
+          <span>
+            {totalNights} {language === "it" ? "notti totali" : "total nights"}
+          </span>
         </article>
       </div>
       <div className="night-bar" aria-label={t.nightsByPlace}>
@@ -50,7 +47,8 @@ export function TripSnapshot({ language }: { language: Language }) {
             <div>
               <strong>{stay.city}</strong>
               <span>
-                {stay.checkIn} {"->"} {stay.checkOut} · {stay.nights} {language === "it" ? (stay.nights === 1 ? "notte" : "notti") : (stay.nights === 1 ? "night" : "nights")}
+                {stay.checkIn} {"->"} {stay.checkOut} {" · "} {stay.nights}{" "}
+                {language === "it" ? (stay.nights === 1 ? "notte" : "notti") : stay.nights === 1 ? "night" : "nights"}
               </span>
             </div>
           </article>

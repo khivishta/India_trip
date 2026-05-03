@@ -1,4 +1,4 @@
-import { Download, Star } from "lucide-react";
+import { Download } from "lucide-react";
 import { getAgencyTasks, planningText, type AgencyTask } from "../data/planning";
 import { type Language } from "../data/placeDetails";
 
@@ -35,13 +35,13 @@ export function AgencyPlanner({ language }: { language: Language }) {
 
   return (
     <section className="section agency-section" id="agency">
-      <div className="section__heading section__heading--action">
+      <div className="agency-ribbon">
         <div>
           <p className="eyebrow">{t.agencyEyebrow}</p>
-          <h2>{t.agencyTitle}</h2>
-          <p>{t.agencyIntro}</p>
+          <strong>{t.agencyTitle}</strong>
+          <small>{t.agencyIntro}</small>
         </div>
-        <button className="export-button" onClick={() => downloadAgencyCsv(agencyTasks)} type="button">
+        <button className="export-button export-button--ribbon" onClick={() => downloadAgencyCsv(agencyTasks)} type="button">
           <Download size={18} /> {t.exportCsv}
         </button>
       </div>
@@ -72,22 +72,6 @@ export function AgencyPlanner({ language }: { language: Language }) {
           </div>
         ))}
       </div>
-      <article className="vip-panel">
-        <h3>
-          <Star size={19} /> {t.vipTitle}
-        </h3>
-        <div className="vip-grid">
-          {agencyTasks
-            .filter((task) => task.category === "vip" || task.category === "optional")
-            .map((task) => (
-              <div className={`vip-item transport-row--${task.category}`} key={`${task.date}-${task.service}-vip`}>
-                <strong>{task.service}</strong>
-                <span>{task.date} · {task.city}</span>
-                <small>{task.action}</small>
-              </div>
-            ))}
-        </div>
-      </article>
     </section>
   );
 }
