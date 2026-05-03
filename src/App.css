@@ -478,27 +478,12 @@ h3 {
   font-weight: 650;
 }
 
-.transport-table {
-  border: 1px solid var(--line);
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.transport-table__header,
 .transport-row {
   display: grid;
   grid-template-columns: 86px 1.7fr 1fr 1.1fr 1fr;
 }
 
-.transport-table__header {
-  background: var(--blue);
-  color: #fff;
-  font-weight: 900;
-}
-
-.transport-table__header span,
-.transport-row span {
+.transport-row > span {
   padding: 13px;
   border-bottom: 1px solid var(--line);
 }
@@ -706,22 +691,18 @@ h3 {
   margin-top: 30px;
 }
 
-.itinerary-table-wrap h3 {
-  margin-bottom: 12px;
-}
-
 .itinerary-table {
   overflow-x: auto;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 0 0 8px 8px;
   background: #fff;
 }
 
 .itinerary-table__header,
 .itinerary-table__row {
   display: grid;
-  grid-template-columns: 132px 104px 150px 120px 1.25fr 170px 170px 120px 1.35fr;
-  min-width: 1320px;
+  grid-template-columns: 132px 104px 150px 120px 1.2fr 1.45fr 160px 120px 1.25fr;
+  min-width: 1480px;
 }
 
 .itinerary-table__header {
@@ -741,7 +722,7 @@ h3 {
   background: #f8fafc;
 }
 
-.agency-ribbon {
+.table-ribbon {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -754,22 +735,22 @@ h3 {
   border-radius: 8px 8px 0 0;
 }
 
-.agency-ribbon div {
+.table-ribbon div {
   display: grid;
   gap: 5px;
   max-width: 920px;
 }
 
-.agency-ribbon .eyebrow {
+.table-ribbon .eyebrow {
   margin: 0;
   color: #ffe8a3;
 }
 
-.agency-ribbon strong {
+.table-ribbon strong {
   font-size: 1.2rem;
 }
 
-.agency-ribbon small {
+.table-ribbon small {
   color: rgba(255, 255, 255, 0.84);
   line-height: 1.45;
 }
@@ -858,6 +839,10 @@ h3 {
   background: #c05621;
 }
 
+.mode-pill--transfer {
+  background: #c05621;
+}
+
 .mode-pill--vip,
 .mode-pill--optional {
   background: var(--purple);
@@ -873,6 +858,63 @@ h3 {
 
 .mode-pill--boat {
   background: var(--teal);
+}
+
+.route-check-cell {
+  display: grid;
+  gap: 7px;
+}
+
+.route-leg-pill {
+  display: grid;
+  gap: 4px;
+  padding: 8px 9px;
+  border-radius: 8px;
+  border-left: 5px solid var(--blue);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.route-leg-pill strong {
+  font-size: 0.88rem;
+}
+
+.route-leg-pill small {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.route-leg-pill a {
+  display: inline-flex;
+  color: var(--blue);
+}
+
+.route-leg-pill--flight-direct {
+  border-left-color: var(--blue);
+}
+
+.route-leg-pill--flight-connection {
+  border-left-color: var(--red);
+  background: rgba(254, 228, 226, 0.72);
+}
+
+.route-leg-pill--car {
+  border-left-color: var(--gold);
+}
+
+.route-leg-pill--taxi {
+  border-left-color: #c05621;
+}
+
+.route-leg-pill--boat {
+  border-left-color: var(--teal);
+}
+
+.route-leg-pill--vip,
+.route-leg-pill--optional {
+  border-left-color: var(--purple);
 }
 
 .place-grid {
@@ -1106,22 +1148,16 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .transport-table,
   .agency-table,
   .itinerary-table {
     overflow-x: auto;
-  }
-
-  .transport-table__header,
-  .transport-row {
-    min-width: 940px;
   }
 
   .snapshot-grid {
     grid-template-columns: 1fr;
   }
 
-  .agency-ribbon {
+  .table-ribbon {
     align-items: flex-start;
     flex-direction: column;
   }

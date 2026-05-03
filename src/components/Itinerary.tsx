@@ -1,6 +1,6 @@
-import { Clock, MapPin } from "lucide-react";
+import { Clock, ExternalLink, MapPin } from "lucide-react";
 import { getItinerary, type LocalizedItineraryDay } from "../data/localizedTrip";
-import { mustSeeByDate, mustSeeByDateIt, planningText } from "../data/planning";
+import { getTransportSegments, mustSeeByDate, mustSeeByDateIt, planningText, type TransportSegment } from "../data/planning";
 import { type Language, uiText } from "../data/placeDetails";
 
 const transportEmoji = {
@@ -60,10 +60,15 @@ function DayCard({ day, language }: { day: LocalizedItineraryDay; language: Lang
   );
 }
 
+function transportForDay(dayDate: string, segments: TransportSegment[]) {
+  return segments.filter((segment) => dayDate.startsWith(segment.date));
+}
+
 export function Itinerary({ language }: { language: Language }) {
   const t = uiText[language];
   const pt = planningText[language];
   const localizedItinerary = getItinerary(language);
+  const transportSegments = getTransportSegments(language);
   const mustSee = language === "it" ? mustSeeByDateIt : mustSeeByDate;
 
   return (
@@ -90,7 +95,13 @@ export function Itinerary({ language }: { language: Language }) {
         ))}
       </div>
       <div className="itinerary-table-wrap">
-        <h3>{pt.fullTableTitle}</h3>
+        <div className="table-ribbon">
+          <div>
+            <p className="eyebrow">{pt.fullTableTitle}</p>
+            <strong>{language === "it" ? "Itinerario completo + controllo percorso" : "Full itinerary + route check"}</strong>
+            <small>{t.routeCheckIntro}</small>
+          </div>
+        </div>
         <div className="itinerary-table" role="table" aria-label={pt.fullTableTitle}>
           <div className="itinerary-table__header" role="row">
             <span>{t.dateHeader}</span>
@@ -98,26 +109,51 @@ export function Itinerary({ language }: { language: Language }) {
             <span>{language === "it" ? "Base" : "Base"}</span>
             <span>{t.sleepIn}</span>
             <span>{pt.mustSeeHeader}</span>
-            <span>{t.transport}</span>
+            <span>{language === "it" ? "Controllo percorso" : "Route check"}</span>
             <span>{t.lengthHeader}</span>
             <span>{language === "it" ? "Ritmo" : "Pace"}</span>
             <span>{pt.notesHeader}</span>
           </div>
-          {localizedItinerary.map((day) => (
-            <div className={`itinerary-table__row transport-row--${day.transportKind}`} role="row" key={`${day.date}-${day.day}-table`}>
-              <span>{day.date}</span>
-              <span>{day.day}</span>
-              <span>{day.baseCity}</span>
-              <span>{day.sleepIn}</span>
-              <span>{mustSee[day.date] ?? day.plan}</span>
-              <span>{day.transport}</span>
-              <span>{day.travelTime}</span>
-              <span>
-                <span className={`pace pace--${paceClassName(day.pace, language)}`}>{day.pace}</span>
-              </span>
-              <span>{day.notes}</span>
-            </div>
-          ))}
+          {localizedItinerary.map((day) => {
+            const daySegments = transportForDay(day.date, transportSegments);
+            return (
+              <div className={`itinerary-table__row transport-row--${day.transportKind}`} role="row" key={`${day.date}-${day.day}-table`}>
+                <span>{day.date}</span>
+                <span>{day.day}</span>
+                <span>{day.baseCity}</span>
+                <span>{day.sleepIn}</span>
+                <span>{mustSee[day.date] ?? day.plan}</span>
+                <span className="route-check-cell">
+                  {daySegments.length > 0 ? (
+                    daySegments.map((leg) => (
+                      <span className={`route-leg-pill route-leg-pill--${leg.category}`} key={`${leg.date}-${leg.from}-${leg.to}`}>
+                        <strong>
+                          {leg.from} {"->"} {leg.to}
+                        </strong>
+                        <small>
+                          {leg.mode} · {leg.status}
+                          {leg.evidence && (
+                            <a href={leg.evidence} target="_blank" rel="noreferrer" aria-label={`${t.sourceFor} ${leg.from} ${leg.to}`}>
+                              <ExternalLink size={13} />
+                            </a>
+                          )}
+                        </small>
+                      </span>
+                    ))
+                  ) : (
+                    <span className={`mode-pill mode-pill--${day.transportKind === "flight" ? "flight-direct" : day.transportKind}`}>
+                      {day.transport}
+                    </span>
+                  )}
+                </span>
+                <span>{daySegments.length > 0 ? daySegments.map((leg) => leg.duration).join(" + ") : day.travelTime}</span>
+                <span>
+                  <span className={`pace pace--${paceClassName(day.pace, language)}`}>{day.pace}</span>
+                </span>
+                <span>{day.notes}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

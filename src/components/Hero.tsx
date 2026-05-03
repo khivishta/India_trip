@@ -12,7 +12,7 @@ export function Hero({ language }: { language: Language }) {
         <div className="hero__actions" aria-label="Page sections">
           <a href="#itinerary">{t.dailyPlanCta}</a>
           <a href="#places">{t.placeGuideCta}</a>
-          <a href="#transport">{t.routeCheckCta}</a>
+          <a href="#itinerary">{t.routeCheckCta}</a>
         </div>
       </div>
       <div className="hero__panel" aria-label="Trip summary">

@@ -35,7 +35,7 @@ export function AgencyPlanner({ language }: { language: Language }) {
 
   return (
     <section className="section agency-section" id="agency">
-      <div className="agency-ribbon">
+      <div className="table-ribbon agency-ribbon">
         <div>
           <p className="eyebrow">{t.agencyEyebrow}</p>
           <strong>{t.agencyTitle}</strong>
