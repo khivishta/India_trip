@@ -1,9 +1,16 @@
 import { hotels, itinerary, places, routeLegs, tripStats, type HotelStay, type ItineraryDay, type Place, type RouteLeg } from "./trip";
 import { type Language, placeDetails } from "./placeDetails";
+import { polishItalianText } from "./planning";
 
 type LocalizedTripStats = typeof tripStats;
 export type LocalizedItineraryDay = Omit<ItineraryDay, "pace"> & { pace: string };
 type LocalizedRouteLeg = RouteLeg;
+
+function polishItalianRecord<T extends Record<string, unknown>>(record: T): T {
+  return Object.fromEntries(
+    Object.entries(record).map(([key, value]) => [key, typeof value === "string" ? polishItalianText(value) : value]),
+  ) as T;
+}
 
 const statsIt: LocalizedTripStats = {
   ...tripStats,
@@ -365,22 +372,22 @@ export function getTripStats(language: Language): LocalizedTripStats {
 }
 
 export function getItinerary(language: Language): LocalizedItineraryDay[] {
-  return language === "it" ? itineraryIt : itinerary;
+  return language === "it" ? itineraryIt.map(polishItalianRecord) : itinerary;
 }
 
 export function getRouteLegs(language: Language): LocalizedRouteLeg[] {
-  return language === "it" ? routeLegsIt : routeLegs;
+  return language === "it" ? routeLegsIt.map(polishItalianRecord) : routeLegs;
 }
 
 export function getHotels(language: Language): HotelStay[] {
-  return language === "it" ? hotelsIt : hotels;
+  return language === "it" ? hotelsIt.map(polishItalianRecord) : hotels;
 }
 
 export function getPlaces(language: Language): Place[] {
   return places.map((place) => ({
     ...place,
     name: placeDetails[place.id][language].name,
-    role: placeDetails[place.id][language].role,
+    role: language === "it" ? polishItalianText(placeDetails[place.id][language].role) : placeDetails[place.id][language].role,
   }));
 }
 

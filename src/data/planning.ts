@@ -57,6 +57,150 @@ export type AttractionCard = {
   };
 };
 
+const historyContext: Record<string, Record<Language, string[]>> = {
+  mumbai: {
+    en: [
+      "Mumbai grew from a chain of coastal islands into one of South Asia's most important port cities. The places on this itinerary sit inside that layered story: fishing communities, colonial trade, shipping, railways, cotton wealth, cinema, finance and everyday street life all overlap in a compact waterfront city.",
+      "The South Mumbai stops are useful because they show the city's public face without turning the first days into exhausting sightseeing. The harbor, Colaba, Kala Ghoda and Marine Drive are close enough to combine gently, and they reveal why Bombay became a gateway between India, the Arabian Sea and the wider world.",
+      "Much of the architecture nearby belongs to the period when Bombay expanded as a colonial commercial capital. Gothic civic buildings, Indo-Saracenic landmarks and later Art Deco apartments show different moments of ambition, wealth and urban planning, which is why the city reads as both Indian and ocean-facing international.",
+      "For this trip, Mumbai should be treated as arrival, recovery and final buffer, not as a city to conquer. The history is best absorbed through short walks, sea views, a few landmark facades and carefully chosen market or cafe stops, leaving energy for Ellora, Agra, Jaipur, Rishikesh and Udaipur.",
+    ],
+    it: [
+      "Mumbai è cresciuta da un gruppo di isole costiere fino a diventare una delle città portuali più importanti dell'Asia meridionale. I luoghi scelti in questo itinerario stanno dentro questa storia stratificata: comunità di pescatori, commercio coloniale, porto, ferrovie, cotone, cinema, finanza e vita di strada convivono nello stesso spazio urbano.",
+      "Le tappe di South Mumbai sono utili perché mostrano il volto pubblico della città senza trasformare i primi giorni in visite pesanti. Porto, Colaba, Kala Ghoda e Marine Drive sono abbastanza vicini da poterli unire con calma e fanno capire perché Bombay sia diventata una porta tra l'India, il Mare Arabico e il mondo.",
+      "Molte architetture della zona appartengono al periodo in cui Bombay si espanse come capitale commerciale coloniale. Edifici gotici, monumenti indo-saraceni e appartamenti Art Deco raccontano momenti diversi di ambizione, ricchezza e pianificazione urbana.",
+      "Per questo viaggio Mumbai va vissuta come arrivo, recupero e cuscinetto finale, non come una città da esaurire. La sua storia si assorbe meglio con brevi passeggiate, viste sul mare, facciate simboliche e qualche mercato o caffè scelto con cura.",
+    ],
+  },
+  ellora: {
+    en: [
+      "Ellora is one of India's clearest examples of a sacred landscape carved directly into living rock. The caves were made over centuries, and the complex brings Buddhist, Hindu and Jain monuments into one long escarpment rather than separating them into isolated sites.",
+      "The historical value is not only that the caves are old, but that they show religious patronage, technical skill and artistic confidence developing side by side. Monks, rulers, patrons, sculptors and pilgrims all shaped a place where architecture is excavation as much as construction.",
+      "Kailasa Temple is the dramatic center because it was cut downward from the rock, turning a cliff into a freestanding temple form. The Buddhist and Jain caves give the broader context: monastic spaces, devotional images, teaching halls and smaller refined carvings complete the picture.",
+      "Ajanta belongs to a related but different story. It is older in parts and especially important for Buddhist painting, but it requires a long excursion from Aurangabad. That is why the plan protects Ellora as core and keeps Ajanta optional, only for a group ready for a second full cave day.",
+    ],
+    it: [
+      "Ellora è uno degli esempi più chiari in India di paesaggio sacro scavato direttamente nella roccia viva. Le grotte furono realizzate nel corso di secoli e riuniscono monumenti buddhisti, induisti e giainisti lungo la stessa parete rocciosa.",
+      "Il valore storico non sta solo nell'antichità, ma nel modo in cui mecenatismo religioso, abilità tecnica e ambizione artistica si sviluppano insieme. Monaci, sovrani, donatori, scultori e pellegrini hanno creato un luogo in cui l'architettura è anche scavo.",
+      "Il Tempio Kailasa è il centro più spettacolare perché fu scavato dall'alto verso il basso, trasformando la parete in una forma di tempio autonoma. Le grotte buddhiste e giainiste danno il contesto: monasteri, immagini devozionali, sale di insegnamento e sculture più intime.",
+      "Ajanta appartiene a una storia collegata ma diversa. È in parte più antica ed è particolarmente importante per la pittura buddhista, però richiede una lunga escursione da Aurangabad. Per questo Ellora resta centrale e Ajanta rimane opzionale.",
+    ],
+  },
+  delhi: {
+    en: [
+      "Delhi is best understood as a sequence of capitals rather than one single city. Sultanate, Mughal, colonial and modern layers sit close together, which is why a calm Delhi day can include garden tombs, older market lanes and the planned ceremonial scale of New Delhi.",
+      "The itinerary deliberately avoids trying to see every monument. Humayun's Tomb gives a beautiful Mughal architectural foundation before Agra; Lodhi Garden gives earlier tomb architecture in a restful park; Old Delhi gives the intensity of Shahjahanabad in a bounded, guided block.",
+      "Delhi's history also explains why the city can feel overwhelming. Power repeatedly moved, rebuilt and reinterpreted the urban landscape, leaving forts, mosques, tombs, bazaars, bungalows, avenues and civic monuments from different regimes and eras.",
+      "The right travel strategy is to use Delhi for context, not exhaustion. A limited route lets the family understand Mughal garden design, pre-Mughal tombs, living markets and New Delhi's planned axis without losing the relaxed tone of the wider trip.",
+    ],
+    it: [
+      "Delhi si capisce meglio come una successione di capitali, non come una sola città. Strati del Sultanato, dei Moghul, del periodo coloniale e dell'India moderna si trovano vicini, perciò una giornata equilibrata può includere tombe-giardino, mercati antichi e l'asse monumentale di New Delhi.",
+      "L'itinerario evita volutamente di vedere ogni monumento. La Tomba di Humayun dà una base moghul prima di Agra; Lodhi Garden mostra tombe più antiche in un parco calmo; Old Delhi offre l'intensità di Shahjahanabad in un blocco guidato e limitato.",
+      "La storia di Delhi spiega anche perché la città possa sembrare travolgente. Il potere si è spostato e ha ricostruito più volte il paesaggio urbano, lasciando fortezze, moschee, tombe, bazar, bungalow, viali e monumenti civici di epoche diverse.",
+      "La strategia giusta è usare Delhi per capire il contesto, non per stancarsi. Un percorso limitato permette di leggere giardini moghul, tombe pre-moghul, mercati vivi e urbanistica coloniale senza perdere il tono rilassato del viaggio.",
+    ],
+  },
+  agra: {
+    en: [
+      "Agra matters because it was one of the great centers of Mughal power and artistic production. The Taj Mahal, Agra Fort and the Yamuna riverfront are connected parts of the same imperial world, not isolated photo stops.",
+      "The Mughal rulers used architecture to express authority, devotion, dynastic memory and control of landscape. Red sandstone fortifications, marble pavilions, garden alignments and river views all belong to a planned language of power and beauty.",
+      "Seeing Agra with one night in the city makes the visit more humane. It protects the Taj Mahal sunrise, avoids a punishing day trip from Delhi and gives space to understand how the fort, gardens and river setting frame the famous mausoleum.",
+      "The most important choice is restraint. The Taj is the emotional highlight, Agra Fort gives political context, and Mehtab Bagh provides a quiet landscape view. Adding too much more would reduce the impact of the places that matter most.",
+    ],
+    it: [
+      "Agra è importante perché fu uno dei grandi centri del potere e della produzione artistica moghul. Taj Mahal, Agra Fort e il paesaggio lungo lo Yamuna fanno parte dello stesso mondo imperiale, non sono tappe fotografiche isolate.",
+      "I sovrani moghul usarono l'architettura per esprimere autorità, devozione, memoria dinastica e controllo del paesaggio. Fortificazioni in arenaria rossa, padiglioni di marmo, assi dei giardini e viste sul fiume compongono un linguaggio di potere e bellezza.",
+      "Dormire una notte ad Agra rende la visita più umana. Protegge l'alba al Taj Mahal, evita una giornata pesante da Delhi e lascia spazio per capire come forte, giardini e fiume incorniciano il mausoleo.",
+      "La scelta più importante è la misura. Il Taj è il momento emotivo, Agra Fort dà il contesto politico e Mehtab Bagh offre una vista calma. Aggiungere troppo ridurrebbe l'impatto dei luoghi principali.",
+    ],
+  },
+  jaipur: {
+    en: [
+      "Jaipur is the planned capital of the Kachwaha rulers and one of the clearest urban expressions of Rajput court culture. Its forts, palace, observatory, facades and bazaars work together as a city of rule, craft, trade and spectacle.",
+      "Amber Fort explains the older hilltop power base before the planned city. City Palace shows the ceremonial and administrative heart of Jaipur. Hawa Mahal and the bazaars reveal the street-facing, highly visual character that makes the old city so distinctive.",
+      "Jaipur's history is also scientific and commercial. Sawai Jai Singh II was interested in astronomy, measurement and urban planning, while the organized bazaars supported jewelry, textiles, block printing and other craft traditions that still shape the city's identity.",
+      "For a relaxed family trip, Jaipur should be strong but bounded. Amber early, City Palace if energy remains, one Hawa Mahal photo stop and one curated market block give the beauty of Jaipur without letting the day become a checklist.",
+    ],
+    it: [
+      "Jaipur è la capitale pianificata dei sovrani Kachwaha e una delle espressioni urbane più chiare della cultura di corte rajput. Fortezze, palazzo, osservatorio, facciate e bazar funzionano insieme come città di governo, artigianato, commercio e spettacolo.",
+      "Amber Fort spiega la base di potere più antica sulle colline prima della città pianificata. City Palace mostra il centro cerimoniale e amministrativo. Hawa Mahal e i bazar rivelano il carattere visivo e di strada della città vecchia.",
+      "La storia di Jaipur è anche scientifica e commerciale. Sawai Jai Singh II era interessato ad astronomia, misurazione e urbanistica, mentre i bazar organizzati sostenevano gioielli, tessuti, block print e altre tradizioni artigianali ancora vive.",
+      "Per un viaggio rilassato, Jaipur deve essere intensa ma delimitata. Amber al mattino, City Palace se resta energia, una sosta fotografica a Hawa Mahal e un blocco mercato curato bastano per coglierne la bellezza.",
+    ],
+  },
+  rishikesh: {
+    en: [
+      "Rishikesh gives the trip its required mountain and river dimension. It sits where the Ganga leaves the Himalayan foothills, so the experience is less about a single monument and more about water, hills, ritual, ashrams, bridges and slower rhythm.",
+      "The town has long associations with pilgrimage and spiritual practice. Over time it also became internationally linked with yoga, meditation and ashram life, especially after global interest grew in the twentieth century.",
+      "This is why yoga or ashram time counts as a real activity, not filler. A calm morning practice, spa block, river walk or a carefully chosen ashram visit expresses the point of Rishikesh better than adding a long road excursion.",
+      "The itinerary should protect Rishikesh as restorative. The Ganga riverfront, evening aarti, Beatles Ashram and bridge views give enough variety, while the second night keeps the mountain stop from feeling rushed.",
+    ],
+    it: [
+      "Rishikesh dà al viaggio la dimensione necessaria di montagne e fiume. Si trova dove il Ganga esce dalle prime colline himalayane, quindi l'esperienza non è un singolo monumento ma acqua, colline, rituali, ashram, ponti e ritmo più lento.",
+      "La città è legata da lungo tempo al pellegrinaggio e alla pratica spirituale. Nel tempo è diventata anche un riferimento internazionale per yoga, meditazione e vita negli ashram, soprattutto con la crescita dell'interesse globale nel Novecento.",
+      "Per questo yoga o tempo in ashram contano come attività vere, non come riempitivo. Una pratica calma al mattino, un momento spa, una passeggiata sul fiume o una visita scelta bene esprimono Rishikesh meglio di una lunga escursione in auto.",
+      "L'itinerario deve proteggere Rishikesh come tappa rigenerante. Lungofiume, Ganga Aarti, Beatles Ashram e viste dai ponti danno varietà, mentre la seconda notte evita che la tappa di montagna sembri affrettata.",
+    ],
+  },
+  udaipur: {
+    en: [
+      "Udaipur is the lake-and-palace counterpoint to the heavier imperial cities. Founded as the Mewar capital, it uses water, hills and palace architecture to create a softer but still historically rich Rajasthan experience.",
+      "The city's history is tied to the Sisodia rulers of Mewar, who developed a court culture around Lake Pichola and the surrounding Aravalli landscape. Palaces, temples, ghats and gardens all express a relationship between defense, ceremony and leisure.",
+      "City Palace gives the main historical narrative, Lake Pichola gives the visual setting, and Jagdish Temple plus old-city lanes bring the scale back to streets and worship. Optional gardens or boat time should support calm, not overload.",
+      "Udaipur works especially well near the end of the trip because it is beautiful without needing long drives. The best version is one focused palace visit, one lake experience and unhurried time in the old city before returning to Mumbai.",
+    ],
+    it: [
+      "Udaipur è il contrappunto di laghi e palazzi alle città imperiali più intense. Fondata come capitale del Mewar, usa acqua, colline e architettura di palazzo per creare un'esperienza del Rajasthan più morbida ma ricca di storia.",
+      "La storia della città è legata ai sovrani Sisodia del Mewar, che svilupparono una cultura di corte intorno a Lake Pichola e agli Aravalli. Palazzi, templi, ghat e giardini esprimono il rapporto tra difesa, cerimonia e piacere.",
+      "City Palace dà il racconto storico principale, Lake Pichola offre il contesto visivo, e Jagdish Temple con i vicoli restituisce la scala della strada e del culto. Giardini o barca opzionali devono aggiungere calma, non peso.",
+      "Udaipur funziona bene verso la fine del viaggio perché è bellissima senza richiedere lunghi spostamenti. La versione migliore è una visita al palazzo, un'esperienza sul lago e tempo lento nella città vecchia prima del ritorno a Mumbai.",
+    ],
+  },
+};
+
+export function polishItalianText(text: string) {
+  return text
+    .replace(/\bChe cos'e\b/g, "Che cos'è")
+    .replace(/\bPerche\b/g, "Perché")
+    .replace(/\bperche\b/g, "perché")
+    .replace(/\bcitta\b/g, "città")
+    .replace(/\bCitta\b/g, "Città")
+    .replace(/\bpiu\b/g, "più")
+    .replace(/\bPiu\b/g, "Più")
+    .replace(/\bpuo\b/g, "può")
+    .replace(/\bPuo\b/g, "Può")
+    .replace(/\bgia\b/g, "già")
+    .replace(/\bGia\b/g, "Già")
+    .replace(/\bqualita\b/g, "qualità")
+    .replace(/\bQualita\b/g, "Qualità")
+    .replace(/\battivita\b/g, "attività")
+    .replace(/\bAttivita\b/g, "Attività")
+    .replace(/\bflessibilita\b/g, "flessibilità")
+    .replace(/\bcafe\b/g, "caffè")
+    .replace(/\bCafe\b/g, "Caffè")
+    .replace(/\briscio\b/g, "risciò")
+    .replace(/\bRiscio\b/g, "Risciò")
+    .replace(/\bcosi\b/g, "così")
+    .replace(/\bCosi\b/g, "Così")
+    .replace(/\bli\b/g, "lì")
+    .replace(/\bsi e\b/g, "si è")
+    .replace(/\bc'e\b/g, "c'è")
+    .replace(/\bQuesta e\b/g, "Questa è")
+    .replace(/\bNon e\b/g, "Non è")
+    .replace(/\bIl valore e\b/g, "Il valore è")
+    .replace(/\bIl lago e\b/g, "Il lago è")
+    .replace(/\bRishikesh e inclusa\b/g, "Rishikesh è inclusa")
+    .replace(/\bRishikesh e associata\b/g, "Rishikesh è associata")
+    .replace(/\bAgra e inclusa\b/g, "Agra è inclusa")
+    .replace(/\bEllora e il\b/g, "Ellora è il")
+    .replace(/\bDelhi e il\b/g, "Delhi è il")
+    .replace(/\bJaipur e il\b/g, "Jaipur è il")
+    .replace(/\bRishikesh non e\b/g, "Rishikesh non è")
+    .replace(/\bRishikesh e centro\b/g, "Rishikesh è centro")
+    .replace(/\bUdaipur e il\b/g, "Udaipur è il")
+    .replace(/(^|[.!?]\s+)E(?=\s)/g, "$1È");
+}
+
 export const planningText = {
   en: {
     snapshotEyebrow: "Trip snapshot",
@@ -146,7 +290,7 @@ export const mustSeeByDate: Record<string, string> = {
 };
 
 export const mustSeeByDateIt: Record<string, string> = {
-  "24 ottobre 2026": "Recupero arrivo, Marine Drive solo se c'e energia",
+  "24 ottobre 2026": "Recupero arrivo, Marine Drive solo se c'è energia",
   "25 ottobre 2026": "Gateway of India, Colaba, Kala Ghoda",
   "26 ottobre 2026": "Trasferimento semplice, Bibi Ka Maqbara solo se facile",
   "27 ottobre 2026": "Grotte di Ellora, Tempio Kailasa",
@@ -607,10 +751,26 @@ export const attractionCards: AttractionCard[] = [
 export function getAttractions(placeId: string, language: Language) {
   return attractionCards
     .filter((attraction) => attraction.placeId === placeId)
-    .map((attraction) => ({
-      ...attraction,
-      ...attraction[language],
-    }));
+    .map((attraction) => {
+      const localized = attraction[language];
+      const polished =
+        language === "it"
+          ? {
+              ...localized,
+              description: polishItalianText(localized.description),
+              why: polishItalianText(localized.why),
+              history: polishItalianText(localized.history),
+              pace: polishItalianText(localized.pace),
+              ticket: polishItalianText(localized.ticket),
+            }
+          : localized;
+
+      return {
+        ...attraction,
+        ...polished,
+        historyParagraphs: [polished.history, ...historyContext[attraction.placeId][language]],
+      };
+    });
 }
 
 export function getTransportSegments(language: Language) {

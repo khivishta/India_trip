@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { places } from "../data/trip";
-import { getAttractions, planningText } from "../data/planning";
+import { getAttractions, planningText, polishItalianText } from "../data/planning";
 import { type Language, placeDetails, uiText } from "../data/placeDetails";
 
 export function PlaceGuide({ language }: { language: Language }) {
@@ -15,7 +15,17 @@ export function PlaceGuide({ language }: { language: Language }) {
       </div>
       <div className="place-grid">
         {places.map((place) => {
-          const detail = placeDetails[place.id][language];
+          const rawDetail = placeDetails[place.id][language];
+          const detail =
+            language === "it"
+              ? {
+                  ...rawDetail,
+                  role: polishItalianText(rawDetail.role),
+                  overview: polishItalianText(rawDetail.overview),
+                  context: polishItalianText(rawDetail.context),
+                  bestUse: polishItalianText(rawDetail.bestUse),
+                }
+              : rawDetail;
           const attractions = getAttractions(place.id, language);
           return (
           <article className={`place-card place-card--${place.accent}`} key={place.id}>
@@ -56,9 +66,13 @@ export function PlaceGuide({ language }: { language: Language }) {
                         <strong>{t.why}</strong>
                         <p>{location.why}</p>
                       </div>
-                      <div>
+                      <div className="location-card__history">
                         <strong>{t.history}</strong>
-                        <p>{location.history}</p>
+                        <div className="history-copy">
+                          {location.historyParagraphs.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
                       </div>
                       <div className="location-card__pace">
                         <strong>{t.pace}</strong>

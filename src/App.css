@@ -1019,12 +1019,25 @@ h3 {
   border-radius: 8px;
 }
 
+.location-card__history {
+  grid-column: 1 / -1;
+}
+
 .location-card__grid strong {
   display: block;
   margin-bottom: 6px;
   color: var(--gold);
   font-size: 0.8rem;
   text-transform: uppercase;
+}
+
+.history-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.history-copy p {
+  margin: 0;
 }
 
 .location-card__pace {
