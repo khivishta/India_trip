@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <nav className="top-nav" aria-label="Trip sections">
+      <nav className="top-nav" aria-label={t.navLabel}>
         <a className="brand" href="#top">
           {t.brand}
         </a>
@@ -35,21 +35,21 @@ export default function App() {
         </div>
         <div className="language-toggle" aria-label={t.language}>
           <button className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")} type="button">
-            English
+            {t.english}
           </button>
           <button className={language === "it" ? "active" : ""} onClick={() => setLanguage("it")} type="button">
-            Italiano
+            {t.italian}
           </button>
         </div>
       </nav>
       <main>
         <Hero language={language} />
-        <RouteFlow />
-        <Itinerary />
-        <Transport />
+        <RouteFlow language={language} />
+        <Itinerary language={language} />
+        <Transport language={language} />
         <PlaceGuide language={language} />
-        <Gallery />
-        <Hotels />
+        <Gallery language={language} />
+        <Hotels language={language} />
       </main>
       <footer>
         {t.footer}

@@ -1,11 +1,15 @@
-import { places } from "../data/trip";
+import { getPlaces } from "../data/localizedTrip";
+import { type Language, uiText } from "../data/placeDetails";
 
-export function Gallery() {
+export function Gallery({ language }: { language: Language }) {
+  const t = uiText[language];
+  const places = getPlaces(language);
+
   return (
     <section className="section gallery-section" id="gallery">
       <div className="section__heading">
-        <p className="eyebrow">Visual gallery</p>
-        <h2>Quick visual read of the trip</h2>
+        <p className="eyebrow">{t.galleryEyebrow}</p>
+        <h2>{t.galleryTitle}</h2>
       </div>
       <div className="gallery">
         {places.map((place) => (

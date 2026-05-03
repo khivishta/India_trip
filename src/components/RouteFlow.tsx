@@ -1,11 +1,16 @@
-import { places, tripStats } from "../data/trip";
+import { getPlaces, getTripStats } from "../data/localizedTrip";
+import { type Language, uiText } from "../data/placeDetails";
 
-export function RouteFlow() {
+export function RouteFlow({ language }: { language: Language }) {
+  const t = uiText[language];
+  const places = getPlaces(language);
+  const tripStats = getTripStats(language);
+
   return (
     <section className="section route-flow" id="route">
       <div className="section__heading">
-        <p className="eyebrow">Route flow</p>
-        <h2>Built around beauty without overworking the trip</h2>
+        <p className="eyebrow">{t.routeEyebrow}</p>
+        <h2>{t.routeTitle}</h2>
         <p>{tripStats.route}</p>
       </div>
       <div className="route-strip">
@@ -19,8 +24,7 @@ export function RouteFlow() {
         ))}
       </div>
       <div className="callout callout--mountain">
-        <strong>Required stop:</strong> Rishikesh is included for Nov 2-Nov 4, with
-        one full day by the Ganga and Himalayan foothills before continuing to Udaipur.
+        <strong>{t.requiredStop}</strong> {t.rishikeshCallout}
       </div>
     </section>
   );

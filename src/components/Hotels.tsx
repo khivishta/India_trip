@@ -1,12 +1,16 @@
 import { BedDouble } from "lucide-react";
-import { hotels } from "../data/trip";
+import { getHotels } from "../data/localizedTrip";
+import { type Language, uiText } from "../data/placeDetails";
 
-export function Hotels() {
+export function Hotels({ language }: { language: Language }) {
+  const t = uiText[language];
+  const hotels = getHotels(language);
+
   return (
     <section className="section" id="hotels">
       <div className="section__heading">
-        <p className="eyebrow">Hotel plan</p>
-        <h2>Exact nights by base city</h2>
+        <p className="eyebrow">{t.hotelsEyebrow}</p>
+        <h2>{t.hotelsTitle}</h2>
       </div>
       <div className="hotel-grid">
         {hotels.map((stay) => (
@@ -14,7 +18,9 @@ export function Hotels() {
             <div>
               <BedDouble size={20} />
               <strong>{stay.city}</strong>
-              <span>{stay.nights} night{stay.nights > 1 ? "s" : ""}</span>
+              <span>
+                {stay.nights} {stay.nights > 1 ? t.nightPlural : t.nightSingular}
+              </span>
             </div>
             <p className="hotel-card__dates">
               {stay.checkIn} {"->"} {stay.checkOut}

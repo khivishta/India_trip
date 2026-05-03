@@ -1,21 +1,25 @@
 import { ExternalLink } from "lucide-react";
-import { routeLegs } from "../data/trip";
+import { getRouteLegs } from "../data/localizedTrip";
+import { type Language, uiText } from "../data/placeDetails";
 
-export function Transport() {
+export function Transport({ language }: { language: Language }) {
+  const t = uiText[language];
+  const routeLegs = getRouteLegs(language);
+
   return (
     <section className="section" id="transport">
       <div className="section__heading">
-        <p className="eyebrow">Route check</p>
-        <h2>Flight, car and connection details</h2>
-        <p>The one caution leg is Rishikesh/Dehradun to Udaipur; book only a clean same-ticket connection.</p>
+        <p className="eyebrow">{t.routeCheckEyebrow}</p>
+        <h2>{t.routeCheckTitle}</h2>
+        <p>{t.routeCheckIntro}</p>
       </div>
       <div className="transport-table" role="table" aria-label="Route transport details">
         <div className="transport-table__header" role="row">
-          <span>Date</span>
-          <span>Transfer</span>
-          <span>Mode</span>
-          <span>Length</span>
-          <span>Status</span>
+          <span>{t.dateHeader}</span>
+          <span>{t.transferHeader}</span>
+          <span>{t.modeHeader}</span>
+          <span>{t.lengthHeader}</span>
+          <span>{t.statusHeader}</span>
         </div>
         {routeLegs.map((leg) => (
           <div className={`transport-row transport-row--${leg.kind}`} role="row" key={`${leg.date}-${leg.transfer}`}>
@@ -29,7 +33,7 @@ export function Transport() {
             <span className={`status status--${leg.comfort.toLowerCase()}`}>
               {leg.status}
               {leg.source && (
-                <a href={leg.source} target="_blank" rel="noreferrer" aria-label={`Source for ${leg.transfer}`}>
+                <a href={leg.source} target="_blank" rel="noreferrer" aria-label={`${t.sourceFor} ${leg.transfer}`}>
                   <ExternalLink size={14} />
                 </a>
               )}

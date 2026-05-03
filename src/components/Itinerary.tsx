@@ -1,5 +1,6 @@
 import { Clock, MapPin } from "lucide-react";
-import { itinerary, type ItineraryDay } from "../data/trip";
+import { getItinerary, type LocalizedItineraryDay } from "../data/localizedTrip";
+import { type Language, uiText } from "../data/placeDetails";
 
 const transportEmoji = {
   flight: "✈️",
@@ -9,8 +10,24 @@ const transportEmoji = {
   boat: "⛴️",
 };
 
-function DayCard({ day }: { day: ItineraryDay }) {
+function paceClassName(pace: string, language: Language) {
+  if (language === "it") {
+    const classes: Record<string, string> = {
+      Facile: "easy",
+      Moderato: "moderate",
+      "Giorno di viaggio": "travel-day",
+      Cuscinetto: "buffer",
+    };
+    return classes[pace] ?? "moderate";
+  }
+
+  return pace.toLowerCase().replace(" ", "-");
+}
+
+function DayCard({ day, language }: { day: LocalizedItineraryDay; language: Language }) {
+  const t = uiText[language];
   const isRishikesh = day.baseCity.includes("Rishikesh") || day.sleepIn === "Rishikesh";
+
   return (
     <article className={`day-card day-card--${day.transportKind} ${isRishikesh ? "day-card--featured" : ""}`}>
       <div className="day-card__date">
@@ -19,9 +36,9 @@ function DayCard({ day }: { day: ItineraryDay }) {
       </div>
       <div className="day-card__body">
         <div className="day-card__topline">
-          <span className={`pace pace--${day.pace.toLowerCase().replace(" ", "-")}`}>{day.pace}</span>
+          <span className={`pace pace--${paceClassName(day.pace, language)}`}>{day.pace}</span>
           <span className="sleep">
-            <MapPin size={15} /> Sleep in {day.sleepIn}
+            <MapPin size={15} /> {t.sleepIn} {day.sleepIn}
           </span>
         </div>
         <h3>{day.baseCity}</h3>
@@ -42,22 +59,25 @@ function DayCard({ day }: { day: ItineraryDay }) {
   );
 }
 
-export function Itinerary() {
+export function Itinerary({ language }: { language: Language }) {
+  const t = uiText[language];
+  const localizedItinerary = getItinerary(language);
+
   return (
     <section className="section" id="itinerary">
       <div className="section__heading">
-        <p className="eyebrow">Daily itinerary</p>
-        <h2>Dates, sleep city, transport and comfort notes</h2>
+        <p className="eyebrow">{t.itineraryEyebrow}</p>
+        <h2>{t.itineraryTitle}</h2>
       </div>
       <div className="legend">
-        <span className="legend__item legend__item--flight">✈️ Flight</span>
-        <span className="legend__item legend__item--car">🚗 Private car</span>
-        <span className="legend__item legend__item--taxi">🚕 Taxi / transfer</span>
-        <span className="legend__item legend__item--boat">⛴️ Boat / ferry</span>
+        <span className="legend__item legend__item--flight">✈️ {t.flight}</span>
+        <span className="legend__item legend__item--car">🚗 {t.privateCar}</span>
+        <span className="legend__item legend__item--taxi">🚕 {t.taxiTransfer}</span>
+        <span className="legend__item legend__item--boat">⛴️ {t.boatFerry}</span>
       </div>
       <div className="itinerary-list">
-        {itinerary.map((day) => (
-          <DayCard day={day} key={`${day.date}-${day.baseCity}`} />
+        {localizedItinerary.map((day) => (
+          <DayCard day={day} language={language} key={`${day.date}-${day.baseCity}`} />
         ))}
       </div>
     </section>
