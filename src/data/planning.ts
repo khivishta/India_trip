@@ -846,6 +846,10 @@ const agencyTasksIt: AgencyTask[] = [
   { ...agencyTasks[13], date: "8 nov", service: "Trasferimento partenza", action: "Prenotare con margine per volo internazionale" },
 ];
 
+function commonsImage(fileName: string) {
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=960`;
+}
+
 const curatedGalleryImages: Record<string, string[]> = {
   "mumbai:Marine Drive": [
     "./images/attractions/marine-drive-skyline.jpg",
@@ -854,23 +858,23 @@ const curatedGalleryImages: Record<string, string[]> = {
   ],
   "mumbai:Gateway of India / Colaba": [
     "./images/gateway-india.jpg",
-    "./images/gateway-india.jpg",
-    "./images/gateway-india.jpg",
+    commonsImage("Gateway of India and Taj Hotel in Colaba, Mumbai.jpg"),
+    commonsImage("Gateway of india, colaba.jpg"),
   ],
   "mumbai:Kala Ghoda": [
     "./images/attractions/kala-ghoda-pottery.jpg",
-    "./images/attractions/kala-ghoda-pottery.jpg",
-    "./images/attractions/kala-ghoda-pottery.jpg",
+    "./images/gateway-india.jpg",
+    "./images/crawford-market.jpg",
   ],
   "mumbai:Crawford Market / local shopping": [
     "./images/crawford-market.jpg",
-    "./images/crawford-market.jpg",
-    "./images/crawford-market.jpg",
+    "./images/attractions/kala-ghoda-pottery.jpg",
+    "./images/gateway-india.jpg",
   ],
   "mumbai:Elephanta Caves": [
     "./images/elephanta-caves.jpg",
-    "./images/elephanta-caves.jpg",
-    "./images/elephanta-caves.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Elephanta_-_Mahesh_Murti.jpg/960px-Elephanta_-_Mahesh_Murti.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Elephanta_Caves%2C_India.jpg/960px-Elephanta_Caves%2C_India.jpg",
   ],
   "ellora:Kailasa Temple": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg/960px-Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg",
@@ -896,6 +900,121 @@ const curatedGalleryImages: Record<string, string[]> = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Chandni_Chowk%2C_Old_Delhi.JPG/960px-Chandni_Chowk%2C_Old_Delhi.JPG",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/32_-_Old_Delhi_Chandni_Chowk.jpg/960px-32_-_Old_Delhi_Chandni_Chowk.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/A_market_in_Chandni_Chowk%2C_Delhi.JPG/960px-A_market_in_Chandni_Chowk%2C_Delhi.JPG",
+  ],
+  "delhi:Humayun's Tomb": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Humayun%27s_tomb_1569-70.jpg/960px-Humayun%27s_tomb_1569-70.jpg",
+    commonsImage("Humayun Tomb, Delhi, from the entrance portal.jpg"),
+    commonsImage("Humayun's Tomb 33.jpg"),
+  ],
+  "delhi:Qutub Minar complex": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qutb_Minar_2011.jpg/960px-Qutb_Minar_2011.jpg",
+    commonsImage("View of Qutub Minar (3).jpg"),
+    commonsImage("Qutb complex -Delhi -Delhi -SSI 0001.jpg"),
+  ],
+  "delhi:Lodhi Garden": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bara_gumbad%2C_Lodhi_Garden.jpg/960px-Bara_gumbad%2C_Lodhi_Garden.jpg",
+    commonsImage("Tomb of Mohammed Shah (Lodhi Garden).JPG"),
+    commonsImage("Lodhi Garden Tomb 2019.jpg"),
+  ],
+  "delhi:Jama Masjid exterior / Chandni Chowk block": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Jama_Masjid_2011.jpg/960px-Jama_Masjid_2011.jpg",
+    commonsImage("20191203 Jama Masjid, Delhi 0722 6487 DxO.jpg"),
+    commonsImage("Courtyard of Jama Masjid, in Delhi 03.jpg"),
+  ],
+  "delhi:India Gate / New Delhi axis": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/India_Gate_in_New_Delhi_03-2016.jpg/960px-India_Gate_in_New_Delhi_03-2016.jpg",
+    commonsImage("India Gate, New Delhi.jpg"),
+    commonsImage("India Gate, detail, New Delhi.jpg"),
+  ],
+  "agra:Taj Mahal": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Taj_Mahal%2C_Agra%2C_India_edit2.jpg/960px-Taj_Mahal%2C_Agra%2C_India_edit2.jpg",
+    commonsImage("Taj Mahal, Iconic view, Agra, India.jpg"),
+    commonsImage("Taj Mahal and Persian gardens, Agra, India.jpg"),
+  ],
+  "agra:Agra Fort": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Agra_Fort_Rempart.jpg/960px-Agra_Fort_Rempart.jpg",
+    commonsImage("The Agra fort (The Red Fort of Agra).jpg"),
+    commonsImage("Jahangiri Mahal Agra Fort India 3.jpg"),
+  ],
+  "agra:Mehtab Bagh": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Taj_Mahal_from_Mehtab_Bagh.jpg/960px-Taj_Mahal_from_Mehtab_Bagh.jpg",
+    commonsImage("View of Taj Mahal from Mehtab Bagh 02.JPG"),
+    commonsImage("Agra 03-2016 04 Taj Mahal from Mehtab Bagh.jpg"),
+  ],
+  "jaipur:Amber Fort": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaipur_03-2016_04_Amber_Fort.jpg/960px-Jaipur_03-2016_04_Amber_Fort.jpg",
+    commonsImage("Amber Palace,Jaipur (99865).jpg"),
+    commonsImage("Amber Fort, Jaipur, 20191219 1032 9565.jpg"),
+  ],
+  "jaipur:City Palace (Jaipur)": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg/960px-Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg",
+    commonsImage("City Palace Jaipur 1.jpg"),
+    commonsImage("Jaipur 03-2016 22 City Palace complex.jpg"),
+  ],
+  "jaipur:Hawa Mahal": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Hawa_Mahal_2011.jpg/960px-Hawa_Mahal_2011.jpg",
+    commonsImage("Hawa Mahal Jaipur - Front (2010).jpg"),
+    commonsImage("Front of the Hawa Mahal (\"The Palace of Winds\") Jaipur,India. jpg.jpg"),
+  ],
+  "jaipur:Jantar Mantar": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jantar_Mantar_at_Jaipur.jpg/960px-Jantar_Mantar_at_Jaipur.jpg",
+    commonsImage("Entry at Jantar mantar Jaipur India.jpg"),
+    commonsImage("Maan singh palace clock from jantar mantar,jaipur.jpg"),
+  ],
+  "jaipur:Johari / Bapu Bazaar": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Johari_Bazaar%2C_Jaipur.jpg/960px-Johari_Bazaar%2C_Jaipur.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Hawa_Mahal_2011.jpg/960px-Hawa_Mahal_2011.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg/960px-Chandra_Mahal%2C_City_Palace%2C_Jaipur%2C_20191218_0951_9043.jpg",
+  ],
+  "jaipur:Galta Ji temple": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Galtaji_temple_jaipur.png/960px-Galtaji_temple_jaipur.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jaipur_03-2016_04_Amber_Fort.jpg/960px-Jaipur_03-2016_04_Amber_Fort.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Hawa_Mahal_2011.jpg/960px-Hawa_Mahal_2011.jpg",
+  ],
+  "rishikesh:Ganga riverfront": [
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/The_Ganga_at_Rishikesh.jpg",
+    commonsImage("Rishikesh 3.jpg"),
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lakshman_Jhula_Rishikesh.jpg/960px-Lakshman_Jhula_Rishikesh.jpg",
+  ],
+  "rishikesh:Yoga / ashram time": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Morning_Yoga_class_at_Parmarth_Niketan%2C_Muni_Ki_Reti%2C_Rishikesh.jpg/960px-Morning_Yoga_class_at_Parmarth_Niketan%2C_Muni_Ki_Reti%2C_Rishikesh.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/The_Ganga_at_Rishikesh.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Beatles_Ashram_At_Rishikesh.jpg/960px-Beatles_Ashram_At_Rishikesh.jpg",
+  ],
+  "rishikesh:Ganga Aarti": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Ganga_Aarti_Rishikesh.jpg/960px-Ganga_Aarti_Rishikesh.jpg",
+    commonsImage("Priests performing Ganga Aarti with multi-tier lamps on the banks of the Ganges, Rishikesh.jpg"),
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/The_Ganga_at_Rishikesh.jpg",
+  ],
+  "rishikesh:Beatles Ashram": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Beatles_Ashram_At_Rishikesh.jpg/960px-Beatles_Ashram_At_Rishikesh.jpg",
+    commonsImage("Beatles Ashram 01.jpg"),
+    commonsImage("Art work at Beatles.jpg"),
+  ],
+  "rishikesh:Lakshman Jhula / river bridges": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lakshman_Jhula_Rishikesh.jpg/960px-Lakshman_Jhula_Rishikesh.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/The_Ganga_at_Rishikesh.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Ganga_Aarti_Rishikesh.jpg/960px-Ganga_Aarti_Rishikesh.jpg",
+  ],
+  "udaipur:City Palace (Udaipur)": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg/960px-Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Lake_Pichola%2C_Udaipur.jpg/960px-Lake_Pichola%2C_Udaipur.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Jagdish_Temple_Udaipur.jpg/960px-Jagdish_Temple_Udaipur.jpg",
+  ],
+  "udaipur:Lake Pichola": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Lake_Pichola%2C_Udaipur.jpg/960px-Lake_Pichola%2C_Udaipur.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg/960px-Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Saheliyon_ki_Bari_Udaipur.jpg/960px-Saheliyon_ki_Bari_Udaipur.jpg",
+  ],
+  "udaipur:Jagdish Temple / old city lanes": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Jagdish_Temple_Udaipur.jpg/960px-Jagdish_Temple_Udaipur.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg/960px-Lake_view_of_City_Palace_%28Udaipur%29%2C_Rajasthan%2C_India_-2.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Lake_Pichola%2C_Udaipur.jpg/960px-Lake_Pichola%2C_Udaipur.jpg",
+  ],
+  "udaipur:Saheliyon ki Bari": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Saheliyon_ki_Bari_Udaipur.jpg/960px-Saheliyon_ki_Bari_Udaipur.jpg",
+    commonsImage("Saheliyon-ki-Bari Fountain.JPG"),
+    commonsImage("Garden in Saheliyon-ki-Bari-Udaipur.jpg"),
   ],
 };
 
