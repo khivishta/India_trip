@@ -104,6 +104,18 @@ const detailNotes: Partial<Record<string, Record<Language, string[]>>> = {
       "Per la famiglia deve restare un blocco mirato al mattino o nel tardo pomeriggio: vedere l'arco, osservare la facciata dell'hotel, passeggiare un po' a Colaba e fermarsi prima che caldo e folla lo rendano faticoso.",
     ],
   },
+  "mumbai:Bandra-Worli Sea Link": {
+    en: [
+      "Bandra-Worli Sea Link is Mumbai's modern bridge moment: a cable-stayed sea crossing that links Worli in South Mumbai with Bandra in the western suburbs. It is not a museum-style stop; it is best experienced as a scenic drive or a quick viewpoint moment, especially when the city lights and water make the structure feel dramatic.",
+      "The bridge represents 21st-century Mumbai infrastructure and the city's constant negotiation with the sea, traffic and land constraints. It contrasts well with Marine Drive and the colonial-era Gateway because it shows the contemporary city: engineering, commuting, skyline and the ambition to connect neighborhoods across the bay.",
+      "Keep it optional because it can add traffic depending on timing. If the group wants a modern Mumbai visual, ask the driver to include a Sea Link drive or Dadar/Bandra viewpoint during a relaxed Mumbai day; if jet lag or airport timing is tight, skip it without guilt.",
+    ],
+    it: [
+      "Bandra-Worli Sea Link è il momento moderno dei ponti di Mumbai: un ponte strallato sul mare che collega Worli, a South Mumbai, con Bandra nei sobborghi occidentali. Non è una visita da museo; rende meglio come giro panoramico in auto o breve punto fotografico, soprattutto quando luci e acqua rendono la struttura scenografica.",
+      "Il ponte racconta la Mumbai del XXI secolo: infrastrutture, traffico, skyline e il rapporto continuo della città con il mare e la mancanza di spazio. Fa un bel contrasto con Marine Drive e il Gateway of India, perché mostra la città contemporanea e non solo quella coloniale o storica.",
+      "Va tenuto opzionale perché può aggiungere traffico secondo l'orario. Se il gruppo vuole un'immagine moderna di Mumbai, chiedere all'autista di includere il Sea Link o un punto vista da Dadar/Bandra in una giornata rilassata; se jet lag o tempi aeroporto pesano, si può saltare senza rimpianti.",
+    ],
+  },
   "mumbai:Kala Ghoda": {
     en: [
       "Kala Ghoda is Mumbai at street scale: galleries, cafes, heritage buildings, design shops and cultural institutions packed into a walkable district. It is less about one famous object and more about the feel of South Mumbai's educated, artistic, civic layer.",
@@ -861,6 +873,11 @@ const curatedGalleryImages: Record<string, string[]> = {
     commonsImage("Mumbai 03-2016 30 Gateway of India.jpg"),
     commonsImage("Gateway of India in the evening, Mumbai, India.jpg"),
   ],
+  "mumbai:Bandra-Worli Sea Link": [
+    commonsImage("Bandra worli sealinkബാന്ദ്ര-വർളി കടൽപാലം.JPG"),
+    commonsImage("Mumbai 03-2016 80 Dadar Beach view of the SeaLink.jpg"),
+    commonsImage("Bandra worli sea-link at sunset.jpg"),
+  ],
   "mumbai:Kala Ghoda": [
     commonsImage("Kala Ghoda Art District.jpg"),
     commonsImage("Horse made by Naval Dockyard (Mumbai) on display at Kala Ghoda Festival.jpg"),
@@ -1037,6 +1054,14 @@ export const attractionCards: AttractionCard[] = [
     imageCredit: "Wikimedia Commons",
     en: { name: "Gateway of India / Colaba", description: "Harbor monument beside the Taj Mahal Palace Hotel, with Colaba's cafes, shops and waterfront streets nearby.", why: "It is Mumbai's clearest iconic landmark and easy to combine with a relaxed Colaba walk without overloading the day.", history: "Built for the 1911 royal visit of King George V and Queen Mary, the arch later became a symbolic waterfront marker of colonial Bombay.", pace: "Easy to moderate; keep it short if arrival fatigue remains.", ticket: "No core ticket; local guide optional." },
     it: { name: "Gateway of India / Colaba", description: "Monumento sul porto accanto al Taj Mahal Palace Hotel, con cafe, negozi e strade di Colaba vicini.", why: "E il simbolo piu riconoscibile di Mumbai ed e facile da unire a una passeggiata rilassata a Colaba.", history: "Costruito per la visita reale del 1911 di Giorgio V e Mary, divenne un segno simbolico della Bombay coloniale.", pace: "Facile o moderato; tenerlo breve se c'e stanchezza.", ticket: "Nessun biglietto base; guida locale opzionale." },
+  },
+  {
+    placeId: "mumbai",
+    optional: true,
+    image: commonsImage("Bandra worli sealinkബാന്ദ്ര-വർളി കടൽപാലം.JPG"),
+    imageCredit: "Wikimedia Commons",
+    en: { name: "Bandra-Worli Sea Link", description: "Modern sea bridge linking Worli and Bandra, best used as a scenic drive or short viewpoint rather than a formal monument stop.", why: "It adds the contemporary Mumbai skyline-and-sea feeling that is missing if the city chapter only covers colonial landmarks and markets.", history: "Opened in the 21st century, the bridge reflects Mumbai's push to connect coastal neighborhoods across difficult water, traffic and land constraints.", pace: "Optional scenic add-on. Include only if traffic and energy are friendly.", ticket: "No ticket; ask the driver to include a Sea Link drive or Dadar/Bandra viewpoint." },
+    it: { name: "Bandra-Worli Sea Link", description: "Ponte moderno sul mare tra Worli e Bandra, ideale come giro panoramico o breve punto vista piu che come monumento formale.", why: "Aggiunge la Mumbai contemporanea di skyline e mare, che manca se si vedono solo luoghi coloniali e mercati.", history: "Aperto nel XXI secolo, il ponte racconta lo sforzo di Mumbai di collegare quartieri costieri tra mare, traffico e poco spazio urbano.", pace: "Aggiunta panoramica opzionale. Includerla solo se traffico ed energia lo permettono.", ticket: "Nessun biglietto; chiedere all'autista un passaggio sul Sea Link o un punto vista da Dadar/Bandra." },
   },
   {
     placeId: "mumbai",

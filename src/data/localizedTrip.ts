@@ -36,7 +36,7 @@ const itineraryIt: LocalizedItineraryDay[] = [
     ...itinerary[1],
     date: "25 ottobre 2026",
     day: "Domenica",
-    plan: "Giornata facile a Mumbai: Gateway of India, Colaba, Kala Ghoda, opzionale Juhu o spa.",
+    plan: "Giornata facile a Mumbai: Gateway of India, Colaba, Kala Ghoda, giro panoramico opzionale sul Bandra-Worli Sea Link.",
     transport: "Auto privata / brevi passeggiate",
     travelTime: "Spostamenti locali 15-45 min ciascuno",
     connection: "Nessuna",
