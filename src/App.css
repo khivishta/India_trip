@@ -226,6 +226,7 @@ h3 {
 }
 
 .section {
+  scroll-margin-top: 88px;
   padding: clamp(38px, 7vw, 82px) clamp(18px, 5vw, 72px);
 }
 
@@ -1216,6 +1217,124 @@ h3 {
   font-weight: 900;
 }
 
+.visa-section {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(15, 76, 129, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 194, 0.5));
+}
+
+.visa-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.visa-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border: 1px solid rgba(15, 76, 129, 0.16);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--blue);
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(15, 63, 102, 0.08);
+}
+
+.visa-links a:first-child {
+  background: var(--blue);
+  color: #fff;
+}
+
+.visa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 18px;
+}
+
+.visa-card {
+  padding: 20px;
+  border: 1px solid rgba(15, 76, 129, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 40px rgba(15, 63, 102, 0.1);
+}
+
+.visa-card svg {
+  color: var(--green);
+}
+
+.visa-card h3,
+.visa-checklist h3 {
+  margin: 8px 0 10px;
+  color: var(--blue);
+}
+
+.visa-card p,
+.visa-checklist p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.visa-checklist {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.visa-checklist > div,
+.visa-checklist aside {
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 76, 129, 0.14);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.visa-checklist ol {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--ink);
+  line-height: 1.65;
+  font-weight: 700;
+}
+
+.visa-checklist li + li {
+  margin-top: 7px;
+}
+
+.visa-checklist aside {
+  border-left: 6px solid var(--gold);
+  background: rgba(255, 248, 225, 0.94);
+}
+
+.visa-checklist aside strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #78350f;
+  font-size: 1.05rem;
+}
+
+.visa-checklist aside small {
+  display: block;
+  margin-top: 12px;
+  color: #7c2d12;
+  font-weight: 850;
+  line-height: 1.55;
+}
+
+.visa-footnote {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
 .place-grid {
   display: grid;
   gap: 34px;
@@ -1486,6 +1605,7 @@ footer {
   }
 
   .hotel-grid,
+  .visa-grid,
   .stay-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1528,8 +1648,15 @@ footer {
   .location-card__grid,
   .history-copy,
   .hotel-grid,
+  .visa-checklist,
+  .visa-grid,
   .stay-grid {
     grid-template-columns: 1fr;
+  }
+
+  .visa-links a {
+    width: 100%;
+    justify-content: center;
   }
 
   .night-bar {

@@ -5,6 +5,7 @@ import { Itinerary } from "./components/Itinerary";
 import { PlaceGuide } from "./components/PlaceGuide";
 import { RouteFlow } from "./components/RouteFlow";
 import { TripSnapshot } from "./components/TripSnapshot";
+import { VisaSection } from "./components/VisaSection";
 import { type Language, uiText } from "./data/placeDetails";
 
 const languageStorageKey = "india-trip-language";
@@ -38,6 +39,7 @@ export default function App() {
     [t.snapshot, "#snapshot"],
     [t.dailyPlan, "#itinerary"],
     [t.places, "#places"],
+    [t.visa, "#visa"],
     [t.hotels, "#hotels"],
   ];
 
@@ -69,6 +71,7 @@ export default function App() {
         <TripSnapshot language={language} />
         <Itinerary language={language} />
         <PlaceGuide language={language} />
+        <VisaSection language={language} />
         <Hotels language={language} />
       </main>
       <footer>
