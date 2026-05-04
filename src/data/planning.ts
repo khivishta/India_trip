@@ -927,9 +927,7 @@ const curatedGalleryImages: Record<string, string[]> = {
     commonsImage("Humayun's Tomb 33.jpg"),
   ],
   "delhi:Qutub Minar complex": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qutb_Minar_2011.jpg/960px-Qutb_Minar_2011.jpg",
-    commonsImage("View of Qutub Minar (3).jpg"),
-    commonsImage("Qutb complex -Delhi -Delhi -SSI 0001.jpg"),
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/The_Qutub_Minar_Touching_the_Skies.jpg/960px-The_Qutub_Minar_Touching_the_Skies.jpg",
   ],
   "delhi:National Crafts Museum": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/GLAM_crafts_museum_meet_2.JPG/960px-GLAM_crafts_museum_meet_2.JPG",

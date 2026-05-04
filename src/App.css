@@ -1606,6 +1606,10 @@ h3 {
   min-height: 0;
 }
 
+.attraction-collage img:only-child {
+  grid-row: 1 / -1;
+}
+
 .attraction-card__content {
   padding: clamp(16px, 2.4vw, 24px);
 }
