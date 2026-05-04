@@ -701,8 +701,8 @@ h3 {
 .itinerary-table__header,
 .itinerary-table__row {
   display: grid;
-  grid-template-columns: 132px 104px 150px 120px 1.2fr 1.45fr 160px 120px 1.25fr;
-  min-width: 1480px;
+  grid-template-columns: 132px 104px 150px 120px 1.15fr 1.35fr 150px 118px 1.15fr 1.45fr;
+  min-width: 1820px;
 }
 
 .itinerary-table__header {
@@ -915,6 +915,41 @@ h3 {
 .route-leg-pill--vip,
 .route-leg-pill--optional {
   border-left-color: var(--purple);
+}
+
+.agency-action-cell {
+  display: grid;
+  gap: 8px;
+}
+
+.agency-action-pill {
+  display: grid;
+  gap: 5px;
+  padding: 9px;
+  border-left: 5px solid var(--purple);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.agency-action-pill strong {
+  font-size: 0.88rem;
+}
+
+.agency-action-pill small {
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.agency-action-pill em {
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--purple);
+  color: #fff;
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 900;
 }
 
 .place-grid {

@@ -1,6 +1,14 @@
-import { Clock, ExternalLink, MapPin } from "lucide-react";
+import { Clock, Download, ExternalLink, MapPin } from "lucide-react";
 import { getItinerary, type LocalizedItineraryDay } from "../data/localizedTrip";
-import { getTransportSegments, mustSeeByDate, mustSeeByDateIt, planningText, type TransportSegment } from "../data/planning";
+import {
+  getAgencyTasks,
+  getTransportSegments,
+  mustSeeByDate,
+  mustSeeByDateIt,
+  planningText,
+  type AgencyTask,
+  type TransportSegment,
+} from "../data/planning";
 import { type Language, uiText } from "../data/placeDetails";
 
 const transportEmoji = {
@@ -64,11 +72,67 @@ function transportForDay(dayDate: string, segments: TransportSegment[]) {
   return segments.filter((segment) => dayDate.startsWith(segment.date));
 }
 
+function agencyTasksForDay(dayDate: string, tasks: AgencyTask[]) {
+  return tasks.filter((task) => {
+    const baseDate = task.date.split(" or ")[0].split(" o ")[0];
+    return dayDate.startsWith(baseDate);
+  });
+}
+
+function csvEscape(value: string) {
+  return `"${value.replace(/"/g, '""')}"`;
+}
+
+function downloadFullItineraryCsv(days: LocalizedItineraryDay[], language: Language) {
+  const transportSegments = getTransportSegments(language);
+  const agencyTasks = getAgencyTasks(language);
+  const mustSee = language === "it" ? mustSeeByDateIt : mustSeeByDate;
+  const header = [
+    "Date",
+    "Day",
+    "Base",
+    "Sleep city",
+    "Must-see focus",
+    "Route check",
+    "Length",
+    "Pace",
+    "Notes",
+    "Agency booking actions",
+  ];
+  const rows = days.map((day) => {
+    const daySegments = transportForDay(day.date, transportSegments);
+    const dayAgencyTasks = agencyTasksForDay(day.date, agencyTasks);
+    return [
+      day.date,
+      day.day,
+      day.baseCity,
+      day.sleepIn,
+      mustSee[day.date] ?? day.plan,
+      daySegments.map((leg) => `${leg.from} -> ${leg.to}: ${leg.mode} (${leg.status}, ${leg.duration})`).join(" | ") || day.transport,
+      daySegments.length > 0 ? daySegments.map((leg) => leg.duration).join(" + ") : day.travelTime,
+      day.pace,
+      day.notes,
+      dayAgencyTasks
+        .map((task) => `${task.optional ? "Optional: " : ""}${task.service}; ${task.pickup} -> ${task.dropoff}; ${task.duration}; ${task.action}`)
+        .join(" | "),
+    ];
+  });
+  const csv = [header, ...rows].map((row) => row.map(csvEscape).join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "india-2026-full-itinerary-agency-summary.csv";
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
 export function Itinerary({ language }: { language: Language }) {
   const t = uiText[language];
   const pt = planningText[language];
   const localizedItinerary = getItinerary(language);
   const transportSegments = getTransportSegments(language);
+  const agencyTasks = getAgencyTasks(language);
   const mustSee = language === "it" ? mustSeeByDateIt : mustSeeByDate;
 
   return (
@@ -98,9 +162,16 @@ export function Itinerary({ language }: { language: Language }) {
         <div className="table-ribbon">
           <div>
             <p className="eyebrow">{pt.fullTableTitle}</p>
-            <strong>{language === "it" ? "Itinerario completo + controllo percorso" : "Full itinerary + route check"}</strong>
-            <small>{t.routeCheckIntro}</small>
+            <strong>{language === "it" ? "Itinerario completo + prenotazioni agenzia" : "Full itinerary + agency booking actions"}</strong>
+            <small>
+              {language === "it"
+                ? "Una sola tabella per programma, controllo percorso, trasporti, guide, pass VIP e azioni da prenotare."
+                : "One table for the daily plan, route check, transport, guides, VIP passes and booking actions."}
+            </small>
           </div>
+          <button className="export-button export-button--ribbon" onClick={() => downloadFullItineraryCsv(localizedItinerary, language)} type="button">
+            <Download size={18} /> {language === "it" ? "Esporta CSV completo" : "Export full CSV"}
+          </button>
         </div>
         <div className="itinerary-table" role="table" aria-label={pt.fullTableTitle}>
           <div className="itinerary-table__header" role="row">
@@ -113,9 +184,11 @@ export function Itinerary({ language }: { language: Language }) {
             <span>{t.lengthHeader}</span>
             <span>{language === "it" ? "Ritmo" : "Pace"}</span>
             <span>{pt.notesHeader}</span>
+            <span>{language === "it" ? "Prenotazioni agenzia" : "Agency booking"}</span>
           </div>
           {localizedItinerary.map((day) => {
             const daySegments = transportForDay(day.date, transportSegments);
+            const dayAgencyTasks = agencyTasksForDay(day.date, agencyTasks);
             return (
               <div className={`itinerary-table__row transport-row--${day.transportKind}`} role="row" key={`${day.date}-${day.day}-table`}>
                 <span>{day.date}</span>
@@ -151,6 +224,23 @@ export function Itinerary({ language }: { language: Language }) {
                   <span className={`pace pace--${paceClassName(day.pace, language)}`}>{day.pace}</span>
                 </span>
                 <span>{day.notes}</span>
+                <span className="agency-action-cell">
+                  {dayAgencyTasks.length > 0 ? (
+                    dayAgencyTasks.map((task) => (
+                      <span className={`agency-action-pill route-leg-pill--${task.category}`} key={`${task.date}-${task.pickup}-${task.dropoff}`}>
+                        {task.optional && <em>{pt.optionalLabel}</em>}
+                        <strong>{task.service}</strong>
+                        <small>
+                          {task.pickup} {"->"} {task.dropoff}
+                        </small>
+                        <small>{task.duration}</small>
+                        <small>{task.action}</small>
+                      </span>
+                    ))
+                  ) : (
+                    <small>{language === "it" ? "Nessuna azione agenzia" : "No agency action"}</small>
+                  )}
+                </span>
               </div>
             );
           })}
