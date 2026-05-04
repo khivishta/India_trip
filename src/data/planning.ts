@@ -38,6 +38,7 @@ export type AttractionCard = {
   placeId: string;
   optional?: boolean;
   image: string;
+  gallery?: string[];
   imageCredit: string;
   en: {
     name: string;
@@ -76,11 +77,6 @@ function buildTicketDetail(name: string, text: string, language: Language) {
   }
 
   return `${text} Booking support for ${name} should remove friction on the ground: entry, guide, driver and timing should be coordinated so the visit feels smooth rather than a chain of small decisions.`;
-}
-
-function attractionSearchImage(name: string, suffix: string, sourceIndex: 1 | 2) {
-  const host = sourceIndex === 1 ? "tse1.mm.bing.net" : "tse2.mm.bing.net";
-  return `https://${host}/th?q=${encodeURIComponent(`${name} ${suffix}`)}&w=420&h=300&c=7&rs=1&p=0&pid=Api`;
 }
 
 const detailNotes: Partial<Record<string, Record<Language, string[]>>> = {
@@ -850,6 +846,64 @@ const agencyTasksIt: AgencyTask[] = [
   { ...agencyTasks[13], date: "8 nov", service: "Trasferimento partenza", action: "Prenotare con margine per volo internazionale" },
 ];
 
+const curatedGalleryImages: Record<string, string[]> = {
+  "mumbai:Marine Drive": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg/960px-Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mumbai_03-2016_46_evening_at_Marine_Drive.jpg/960px-Mumbai_03-2016_46_evening_at_Marine_Drive.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Marine_Lines_Mumbai_2021.jpg/960px-Marine_Lines_Mumbai_2021.jpg",
+  ],
+  "mumbai:Gateway of India / Colaba": [
+    "./images/gateway-india.jpg",
+    "./images/gateway-india.jpg",
+    "./images/gateway-india.jpg",
+  ],
+  "mumbai:Kala Ghoda": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Kala_Ghoda_pottery_%28Unsplash%29.jpg/960px-Kala_Ghoda_pottery_%28Unsplash%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Kala_Ghoda_Statue.jpg/960px-Kala_Ghoda_Statue.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Hara_Ghoda_at_Kala_Ghoda_Festival.jpg/960px-Hara_Ghoda_at_Kala_Ghoda_Festival.jpg",
+  ],
+  "mumbai:Crawford Market / local shopping": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mahatma_Jyotiba_Phule_Mandai.jpg/960px-Mahatma_Jyotiba_Phule_Mandai.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Crawford_Market_Mumbai_%28165101679%29.jpeg/960px-Crawford_Market_Mumbai_%28165101679%29.jpeg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Crawford_Market_03.jpg/960px-Crawford_Market_03.jpg",
+  ],
+  "mumbai:Elephanta Caves": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Thane_Creek_and_Elephanta_Island_03-2016_-_img20_Elephanta_Caves.jpg/960px-Thane_Creek_and_Elephanta_Island_03-2016_-_img20_Elephanta_Caves.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Elephanta_-_Mahesh_Murti.jpg/960px-Elephanta_-_Mahesh_Murti.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Elephanta_Caves%2C_India.jpg/960px-Elephanta_Caves%2C_India.jpg",
+  ],
+  "ellora:Kailasa Temple": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg/960px-Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ellora_Cave_16_Kailasa_Temple.jpg/960px-Ellora_Cave_16_Kailasa_Temple.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Courtyard_and_Mahabharata_Reliefs_at_the_Kailasa_Temple%2C_Ellora_01.jpg/960px-Courtyard_and_Mahabharata_Reliefs_at_the_Kailasa_Temple%2C_Ellora_01.jpg",
+  ],
+  "ellora:Buddhist caves": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/P1060701_ellora_cave_number_10_ASI_number_N-MH-A51.jpg/960px-P1060701_ellora_cave_number_10_ASI_number_N-MH-A51.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ellora_Caves%2C_India%2C_The_Vishvakarma_Buddhist_Cave.jpg/960px-Ellora_Caves%2C_India%2C_The_Vishvakarma_Buddhist_Cave.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ellora_Caves%2C_India%2C_Religious_meeting_inside_ancient_Buddhist_cave_temple.jpg/960px-Ellora_Caves%2C_India%2C_Religious_meeting_inside_ancient_Buddhist_cave_temple.jpg",
+  ],
+  "ellora:Jain caves": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ellora_Cave_32_si0339.jpg/960px-Ellora_Cave_32_si0339.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Cave_32_Jain_Cave_Ellora_Caves_India_-_panoramio.jpg/960px-Cave_32_Jain_Cave_Ellora_Caves_India_-_panoramio.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/La_grotte_Jain_Indra_Sabha_Ellora_Caves%2C_India.jpg/960px-La_grotte_Jain_Indra_Sabha_Ellora_Caves%2C_India.jpg",
+  ],
+  "ellora:Ajanta Caves": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/1_Ajanta_Caves_Viewpoint.jpg/960px-1_Ajanta_Caves_Viewpoint.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ajanta_Caves%2C_Painting_1.JPG/960px-Ajanta_Caves%2C_Painting_1.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bodhisattva_Padmapani%2C_cave_1%2C_Ajanta%2C_India.jpg/960px-Bodhisattva_Padmapani%2C_cave_1%2C_Ajanta%2C_India.jpg",
+  ],
+  "delhi:Old Delhi": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Chandni_Chowk%2C_Old_Delhi.JPG/960px-Chandni_Chowk%2C_Old_Delhi.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/32_-_Old_Delhi_Chandni_Chowk.jpg/960px-32_-_Old_Delhi_Chandni_Chowk.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/A_market_in_Chandni_Chowk%2C_Delhi.JPG/960px-A_market_in_Chandni_Chowk%2C_Delhi.JPG",
+  ],
+};
+
+function galleryFor(attraction: AttractionCard, detailKey: string) {
+  const gallery = attraction.gallery ?? curatedGalleryImages[detailKey];
+  return gallery ?? [attraction.image, attraction.image, attraction.image];
+}
+
 export const attractionCards: AttractionCard[] = [
   {
     placeId: "mumbai",
@@ -1130,11 +1184,7 @@ export function getAttractions(placeId: string, language: Language) {
       return {
         ...attraction,
         ...polished,
-        galleryImages: [
-          attraction.image,
-          attractionSearchImage(polished.name, `${polished.description} India`, 1),
-          attractionSearchImage(polished.name, `${polished.why} travel`, 2),
-        ],
+        galleryImages: galleryFor(attraction, detailKey),
         detailSections: [
           `${polished.history} ${notes[0] ?? ""}`.trim(),
           notes[1] ?? polished.history,
