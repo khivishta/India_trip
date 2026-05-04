@@ -848,9 +848,9 @@ const agencyTasksIt: AgencyTask[] = [
 
 const curatedGalleryImages: Record<string, string[]> = {
   "mumbai:Marine Drive": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg/960px-Mumbai_03-2016_27_skyline_at_Marine_Drive.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mumbai_03-2016_46_evening_at_Marine_Drive.jpg/960px-Mumbai_03-2016_46_evening_at_Marine_Drive.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Marine_Lines_Mumbai_2021.jpg/960px-Marine_Lines_Mumbai_2021.jpg",
+    "./images/attractions/marine-drive-skyline.jpg",
+    "./images/attractions/marine-drive-evening.jpg",
+    "./images/attractions/marine-lines.jpg",
   ],
   "mumbai:Gateway of India / Colaba": [
     "./images/gateway-india.jpg",
@@ -858,19 +858,19 @@ const curatedGalleryImages: Record<string, string[]> = {
     "./images/gateway-india.jpg",
   ],
   "mumbai:Kala Ghoda": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Kala_Ghoda_pottery_%28Unsplash%29.jpg/960px-Kala_Ghoda_pottery_%28Unsplash%29.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Kala_Ghoda_Statue.jpg/960px-Kala_Ghoda_Statue.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Hara_Ghoda_at_Kala_Ghoda_Festival.jpg/960px-Hara_Ghoda_at_Kala_Ghoda_Festival.jpg",
+    "./images/attractions/kala-ghoda-pottery.jpg",
+    "./images/attractions/kala-ghoda-pottery.jpg",
+    "./images/attractions/kala-ghoda-pottery.jpg",
   ],
   "mumbai:Crawford Market / local shopping": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mahatma_Jyotiba_Phule_Mandai.jpg/960px-Mahatma_Jyotiba_Phule_Mandai.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Crawford_Market_Mumbai_%28165101679%29.jpeg/960px-Crawford_Market_Mumbai_%28165101679%29.jpeg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Crawford_Market_03.jpg/960px-Crawford_Market_03.jpg",
+    "./images/crawford-market.jpg",
+    "./images/crawford-market.jpg",
+    "./images/crawford-market.jpg",
   ],
   "mumbai:Elephanta Caves": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Thane_Creek_and_Elephanta_Island_03-2016_-_img20_Elephanta_Caves.jpg/960px-Thane_Creek_and_Elephanta_Island_03-2016_-_img20_Elephanta_Caves.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Elephanta_-_Mahesh_Murti.jpg/960px-Elephanta_-_Mahesh_Murti.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Elephanta_Caves%2C_India.jpg/960px-Elephanta_Caves%2C_India.jpg",
+    "./images/elephanta-caves.jpg",
+    "./images/elephanta-caves.jpg",
+    "./images/elephanta-caves.jpg",
   ],
   "ellora:Kailasa Temple": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg/960px-Kailasa_Temple_at_Ellora_%28Cave_16%29.jpg",
