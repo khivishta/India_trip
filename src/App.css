@@ -707,10 +707,13 @@ h3 {
 
 .itinerary-table {
   position: relative;
+  padding: 0 14px 14px;
   overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-x: contain;
-  background: rgba(255, 255, 255, 0.95);
+  background:
+    linear-gradient(180deg, rgba(240, 247, 255, 0.96), rgba(255, 250, 240, 0.92)),
+    rgba(255, 255, 255, 0.95);
   scrollbar-color: rgba(20, 63, 102, 0.55) rgba(20, 63, 102, 0.08);
   scrollbar-width: thin;
 }
@@ -732,6 +735,7 @@ h3 {
 .itinerary-table__header,
 .itinerary-table__row {
   display: grid;
+  column-gap: 10px;
   grid-template-columns: 136px 108px 150px 126px 1.18fr 1.42fr 156px 168px 1.18fr 1.5fr;
   min-width: 1960px;
 }
@@ -740,24 +744,31 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 3;
+  margin: 0 -14px;
+  padding: 0 14px;
   background: linear-gradient(90deg, #0f3455, #145f8a);
   color: #fff;
   font-weight: 900;
   box-shadow: 0 8px 22px rgba(15, 52, 85, 0.16);
 }
 
-.itinerary-table__header span,
-.itinerary-table__row span {
+.itinerary-table__header > span,
+.itinerary-table__row > span {
   padding: 14px 12px;
-  border-bottom: 1px solid var(--line);
   line-height: 1.4;
 }
 
-.itinerary-table__header span {
-  border-color: rgba(255, 255, 255, 0.14);
+.itinerary-table__header > span {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .itinerary-table__row {
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(15, 63, 102, 0.08);
   transition:
     filter 180ms ease,
     transform 180ms ease,
@@ -767,19 +778,69 @@ h3 {
 .itinerary-table__row:hover {
   filter: saturate(1.05);
   transform: translateY(-1px);
-  box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 34px rgba(15, 63, 102, 0.11);
 }
 
-.itinerary-table__header span:first-child,
+.itinerary-table__row > span {
+  display: block;
+  min-height: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(15, 63, 102, 0.1);
+  border-left: 4px solid rgba(15, 63, 102, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 8px 20px rgba(15, 63, 102, 0.06);
+}
+
+.itinerary-table__row.transport-row--flight > span,
+.itinerary-table__row.transport-row--flight-direct > span {
+  border-left-color: var(--blue);
+  background: rgba(239, 246, 255, 0.88);
+}
+
+.itinerary-table__row.transport-row--car > span {
+  border-left-color: var(--gold);
+  background: rgba(255, 248, 225, 0.88);
+}
+
+.itinerary-table__row.transport-row--taxi > span,
+.itinerary-table__row.transport-row--transfer > span {
+  border-left-color: #c05621;
+  background: rgba(255, 237, 213, 0.88);
+}
+
+.itinerary-table__row.transport-row--boat > span {
+  border-left-color: var(--teal);
+  background: rgba(204, 251, 241, 0.78);
+}
+
+.itinerary-table__row > span:nth-child(1),
+.itinerary-table__row > span:nth-child(2),
+.itinerary-table__row > span:nth-child(3),
+.itinerary-table__row > span:nth-child(4) {
+  font-weight: 850;
+}
+
+.itinerary-table__row > span:nth-child(3),
+.itinerary-table__row > span:nth-child(4) {
+  color: var(--ink);
+}
+
+.itinerary-table__row > span:nth-child(5),
+.itinerary-table__row > span:nth-child(9) {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.itinerary-table__header > span:first-child,
 .itinerary-table__row > span:first-child {
   position: sticky;
   left: 0;
   z-index: 2;
-  background: inherit;
+  background: rgba(255, 255, 255, 0.96);
   box-shadow: 8px 0 16px rgba(15, 63, 102, 0.08);
 }
 
-.itinerary-table__header span:first-child {
+.itinerary-table__header > span:first-child {
   z-index: 4;
   background: #0f3455;
 }
@@ -797,6 +858,36 @@ h3 {
   line-height: 1;
   white-space: nowrap;
   box-shadow: 0 8px 18px rgba(15, 63, 102, 0.08);
+}
+
+.route-check-cell,
+.agency-action-cell {
+  display: grid !important;
+  gap: 8px;
+}
+
+.itinerary-table .route-leg-pill,
+.itinerary-table .agency-action-pill,
+.itinerary-table .mode-pill {
+  border-bottom: 0;
+  box-shadow: 0 8px 18px rgba(15, 63, 102, 0.08);
+}
+
+.itinerary-table .route-check-cell .mode-pill {
+  align-self: start;
+  justify-self: start;
+  width: fit-content;
+  height: fit-content;
+}
+
+.itinerary-table .agency-action-cell > small {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
+  font-weight: 850;
 }
 
 .agency-section {
