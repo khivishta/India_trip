@@ -3,6 +3,10 @@ import { places } from "../data/trip";
 import { getAttractions, planningText, polishItalianText } from "../data/planning";
 import { type Language, placeDetails, uiText } from "../data/placeDetails";
 
+function renderParagraphs(text: string) {
+  return text.split(/\n{2,}/).map((paragraph) => <p key={paragraph}>{paragraph}</p>);
+}
+
 export function PlaceGuide({ language }: { language: Language }) {
   const t = uiText[language];
   const pt = planningText[language];
@@ -37,15 +41,15 @@ export function PlaceGuide({ language }: { language: Language }) {
               <div className="chapter-summary">
                 <section>
                   <h4>{t.overview}</h4>
-                  <p>{detail.overview}</p>
+                  {renderParagraphs(detail.overview)}
                 </section>
                 <section>
                   <h4>{t.context}</h4>
-                  <p>{detail.context}</p>
+                  {renderParagraphs(detail.context)}
                 </section>
                 <section>
                   <h4>{t.bestUse}</h4>
-                  <p>{detail.bestUse}</p>
+                  {renderParagraphs(detail.bestUse)}
                 </section>
               </div>
               <div className="location-list">
@@ -76,7 +80,7 @@ export function PlaceGuide({ language }: { language: Language }) {
                           {location.detailSections.map((section) => (
                             <section className="detail-copy-section" key={`${location.name}-${section.title}`}>
                               <h5>{section.title}</h5>
-                              <p>{section.body}</p>
+                              {renderParagraphs(section.body)}
                             </section>
                           ))}
                         </div>

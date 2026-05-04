@@ -1018,6 +1018,141 @@ const curatedGalleryImages: Record<string, string[]> = {
   ],
 };
 
+const deeperContextNotes: Partial<Record<string, Record<Language, string>>> = {
+  "mumbai:Marine Drive": {
+    en: "Marine Drive also helps explain why Mumbai is best understood from the water. The promenade belongs to a city built by reclamation, trade and coastal engineering, so its beauty is urban as much as natural: apartment blocks, traffic, sea wall, bay curve and public evening life all work together.\n\nFor this family route, it is deliberately not a heavy historical stop. Its importance is orientation: it shows how Mumbai lives beside the Arabian Sea, and it gives the first evening a beautiful place to settle without making anyone perform a full sightseeing day.",
+    it: "Marine Drive aiuta anche a capire perché Mumbai si comprende meglio dal mare. Il lungomare appartiene a una città costruita con bonifiche, commercio e ingegneria costiera, quindi la sua bellezza è urbana oltre che naturale: palazzi, traffico, muretto, curva della baia e vita serale pubblica funzionano insieme.\n\nPer questo itinerario familiare non è volutamente una tappa storica pesante. La sua importanza è orientativa: mostra come Mumbai vive accanto al Mar Arabico e offre alla prima sera un luogo bello dove ambientarsi senza trasformarla in una giornata di visite.",
+  },
+  "mumbai:Gateway of India / Colaba": {
+    en: "The Gateway and Colaba make sense together because they show Bombay as a port city looking outward. The arch was ceremonial, but the neighborhood around it is practical and lived-in: hotels, ferry activity, cafes, shops and old commercial buildings keep the harbor story active.\n\nThis is the right place to discuss Mumbai's layered identity in a simple way: colonial architecture, Indian public life, maritime trade and modern tourism all meet in a few walkable blocks. A guide can make that context useful without turning the stop into a lecture.",
+    it: "Gateway e Colaba funzionano insieme perché mostrano Bombay come città portuale aperta verso l'esterno. L'arco era cerimoniale, ma il quartiere intorno è pratico e vissuto: hotel, traghetti, caffè, negozi e vecchi edifici commerciali mantengono attiva la storia del porto.\n\nÈ il punto giusto per spiegare l'identità stratificata di Mumbai in modo semplice: architettura coloniale, vita pubblica indiana, commercio marittimo e turismo moderno si incontrano in pochi isolati. Una guida può rendere utile il contesto senza trasformare la visita in una lezione.",
+  },
+  "mumbai:Bandra-Worli Sea Link": {
+    en: "The Sea Link is a contemporary counterpoint to the heritage stops. It says something important about Mumbai's geography: the city is narrow, congested and constantly negotiating with water, so infrastructure becomes part of the visual identity.\n\nKeep the visit as a drive, not a destination. The point is the crossing itself: cables, skyline, open water and the sudden feeling that the city is being seen as one connected coastal system.",
+    it: "Il Sea Link è un contrappunto contemporaneo alle tappe storiche. Dice qualcosa di importante sulla geografia di Mumbai: la città è stretta, trafficata e in continuo dialogo con l'acqua, quindi le infrastrutture diventano parte dell'identità visiva.\n\nVa vissuto come attraversamento, non come destinazione. Il punto è il passaggio: cavi, skyline, mare aperto e la sensazione improvvisa di vedere la città come un unico sistema costiero collegato.",
+  },
+  "mumbai:Kala Ghoda": {
+    en: "Kala Ghoda is useful because it gives Mumbai texture at walking speed. Around this district, institutions, galleries, museums, old commercial buildings and cafes create a compact cultural layer that feels different from the harbor crowds.\n\nIt is especially good for travelers who like cities rather than only monuments. A short walk can show facades, books, design shops, civic buildings and cafe life, which is often the more memorable version of Mumbai on a relaxed trip.",
+    it: "Kala Ghoda è utile perché mostra Mumbai a passo lento. In questo quartiere istituzioni, gallerie, musei, vecchi edifici commerciali e caffè creano uno strato culturale compatto, diverso dalla folla del porto.\n\nÈ particolarmente adatto a chi ama le città, non solo i monumenti. Una breve passeggiata può mostrare facciate, libri, negozi di design, edifici civici e vita da caffè: spesso è questa la versione più memorabile di Mumbai in un viaggio rilassato.",
+  },
+  "mumbai:Crawford Market / local shopping": {
+    en: "Crawford Market should be treated as social history. It shows how food, household goods, colonial-era market architecture and daily buying habits still shape the city.\n\nThe best version is not a long shopping mission. It is a short, guided look at trade and street life, useful for understanding Mumbai as a working city rather than only a waterfront postcard.",
+    it: "Crawford Market va letto come storia sociale. Mostra come cibo, oggetti quotidiani, architettura di mercato dell'epoca coloniale e abitudini di acquisto continuano a modellare la città.\n\nLa versione migliore non è una lunga missione di shopping. È uno sguardo breve e guidato al commercio e alla vita di strada, utile per capire Mumbai come città che lavora e non solo come cartolina sul mare.",
+  },
+  "mumbai:Elephanta Caves": {
+    en: "Elephanta adds a sacred-art chapter to Mumbai. The caves shift the day from port city to island landscape, and the main cave's Shiva imagery gives the visit a very different emotional register from Marine Drive or Colaba.\n\nThe logistics matter because the ferry, heat and steps make it less flexible than city sightseeing. It belongs on the buffer day only if the family wants a true heritage excursion and has enough energy for the full outing.",
+    it: "Elephanta aggiunge a Mumbai un capitolo di arte sacra. Le grotte spostano la giornata dalla città portuale al paesaggio dell'isola, e le immagini di Shiva nella grotta principale danno alla visita un tono molto diverso da Marine Drive o Colaba.\n\nLa logistica conta perché traghetto, caldo e gradini la rendono meno flessibile delle visite in città. Va messa nel giorno cuscinetto solo se la famiglia vuole una vera escursione di patrimonio e ha energia sufficiente.",
+  },
+  "ellora:Kailasa Temple": {
+    en: "Kailasa is one of the places where history feels physical. The visitor can see the ambition of excavation directly: the temple was not assembled but released from the rock, so every courtyard and tower also represents material removed.\n\nThat makes the site easier to appreciate with a guide who can slow the group down. The family should understand the engineering first, then the religious symbolism, then the sculptural stories, because the monument becomes more impressive with each layer.",
+    it: "Kailasa è uno dei luoghi in cui la storia diventa fisica. Il visitatore vede direttamente l'ambizione dello scavo: il tempio non fu assemblato, ma liberato dalla roccia, quindi ogni cortile e torre rappresenta anche materia rimossa.\n\nPer questo è più facile apprezzarlo con una guida che rallenti il ritmo. La famiglia dovrebbe capire prima l'ingegneria, poi il simbolismo religioso, poi le narrazioni scolpite, perché il monumento diventa più impressionante a ogni strato.",
+  },
+  "ellora:Buddhist caves": {
+    en: "The Buddhist caves matter because they make Ellora more than a single spectacular temple. They show monastic use: rooms, halls, devotional images and spaces shaped for teaching and community.\n\nThey also give the visit a calmer rhythm. After the drama of Kailasa, these caves help explain how rock-cut architecture could be both practical and sacred, not only monumental.",
+    it: "Le grotte buddhiste contano perché rendono Ellora più di un singolo tempio spettacolare. Mostrano l'uso monastico: stanze, sale, immagini devozionali e spazi pensati per insegnamento e comunità.\n\nDanno anche alla visita un ritmo più calmo. Dopo la forza di Kailasa, aiutano a capire come l'architettura rupestre potesse essere insieme pratica e sacra, non solo monumentale.",
+  },
+  "ellora:Jain caves": {
+    en: "The Jain caves are best understood as refinement after scale. Their smaller rooms and detailed carving show a quieter devotional language, which prevents Ellora from feeling like only one tradition or one political moment.\n\nThey are worth seeing selectively. A few well-explained spaces can complete the historical picture better than a tired race through every cave.",
+    it: "Le grotte giainiste si capiscono meglio come raffinatezza dopo la grande scala. Gli spazi più piccoli e le incisioni dettagliate mostrano un linguaggio devozionale più silenzioso, evitando che Ellora sembri legata a una sola tradizione o a un solo momento politico.\n\nVanno viste in modo selettivo. Pochi spazi ben spiegati completano il quadro storico meglio di una corsa stanca attraverso tutte le grotte.",
+  },
+  "ellora:Ajanta Caves": {
+    en: "Ajanta is optional because it is a serious second cave day, not because it is minor. Its paintings and Buddhist narrative art are historically exceptional, but the visit asks for attention like a museum and endurance like a road excursion.\n\nIf chosen, it should be treated as the only major activity of the day. That framing keeps it meaningful; adding it casually would make the Aurangabad stay feel overworked.",
+    it: "Ajanta è opzionale perché è una vera seconda giornata di grotte, non perché sia minore. Le pitture e l'arte narrativa buddhista sono eccezionali, ma la visita richiede attenzione da museo e resistenza da escursione su strada.\n\nSe scelta, deve essere l'unica grande attività della giornata. Così resta significativa; aggiungerla con leggerezza renderebbe la tappa ad Aurangabad troppo pesante.",
+  },
+  "delhi:Humayun's Tomb": {
+    en: "Humayun's Tomb is the best Delhi introduction because it teaches the visual language needed later at the Taj: garden axis, raised platform, red sandstone, white marble, water geometry and dynastic memory.\n\nIt also gives Delhi a calmer face. Rather than starting with traffic and crowds, the family begins with proportion, shade and a monument where the Mughal idea of paradise-garden architecture is easy to read.",
+    it: "La Tomba di Humayun è la migliore introduzione a Delhi perché insegna il linguaggio visivo utile poi al Taj: asse del giardino, piattaforma rialzata, arenaria rossa, marmo bianco, geometria dell'acqua e memoria dinastica.\n\nMostra anche un volto più calmo di Delhi. Invece di iniziare da traffico e folla, la famiglia comincia con proporzione, ombra e un monumento in cui l'idea moghul del giardino-paradiso è facile da leggere.",
+  },
+  "delhi:Qutub Minar complex": {
+    en: "Qutub is an optional depth stop because it belongs to a different Delhi chronology from Humayun and the Taj. It points to the early Sultanate city, where stone, height, inscriptions and reused fragments tell a more complex story of power and transition.\n\nIt is valuable with context and less valuable as a rushed photo stop. Add it only if the group wants deeper architectural history and is ready for another monument.",
+    it: "Qutub è una tappa opzionale di approfondimento perché appartiene a una cronologia diversa da Humayun e dal Taj. Rimanda alla Delhi del primo Sultanato, dove pietra, altezza, iscrizioni e frammenti riutilizzati raccontano una storia complessa di potere e transizione.\n\nVale molto con contesto, meno come foto rapida. Aggiungerlo solo se il gruppo desidera più storia architettonica ed è pronto per un altro monumento.",
+  },
+  "delhi:Lodhi Garden": {
+    en: "Lodhi Garden is a lesson in how Delhi layers history into ordinary life. Tombs that would be isolated monuments elsewhere sit among joggers, families, trees and birds.\n\nThat everyday setting is the value. It helps the family understand that Delhi's past is not only behind ticket gates; it is embedded in parks, roads and neighborhoods.",
+    it: "Lodhi Garden insegna come Delhi inserisca la storia nella vita quotidiana. Tombe che altrove sarebbero monumenti isolati stanno tra persone che corrono, famiglie, alberi e uccelli.\n\nQuesto contesto quotidiano è il suo valore. Aiuta la famiglia a capire che il passato di Delhi non vive solo dietro biglietti e cancelli, ma è dentro parchi, strade e quartieri.",
+  },
+  "delhi:Old Delhi": {
+    en: "Old Delhi should be included, but tightly. Its value is not one building; it is the old commercial city: lanes, food, spices, signs, rickshaws, shopfronts and the compression of history into daily movement.\n\nFor comfort, the guide should define the block before arrival. The best version is vivid and short, letting the group feel the old city without losing the calm structure of the day.",
+    it: "Old Delhi va inclusa, ma in modo molto delimitato. Il suo valore non è un singolo edificio; è la città commerciale storica: vicoli, cibo, spezie, insegne, risciò, botteghe e storia compressa nel movimento quotidiano.\n\nPer il comfort, la guida deve definire il blocco prima dell'arrivo. La versione migliore è vivida e breve: permette di sentire la città vecchia senza perdere la struttura calma della giornata.",
+  },
+  "delhi:India Gate / New Delhi axis": {
+    en: "The New Delhi axis gives scale after the garden tombs and markets. Its wide avenues and civic monuments show the planned capital, a completely different urban idea from Old Delhi.\n\nIt is best seen by car with a few stops. The goal is not a long visit, but to understand Delhi's shift from older urban density to formal capital planning.",
+    it: "L'asse di New Delhi dà scala dopo tombe-giardino e mercati. I suoi grandi viali e monumenti civici mostrano la capitale pianificata, un'idea urbana completamente diversa da Old Delhi.\n\nSi vede meglio in auto con poche soste. L'obiettivo non è una visita lunga, ma capire il passaggio di Delhi dalla densità storica alla pianificazione formale della capitale.",
+  },
+  "agra:Taj Mahal": {
+    en: "The Taj is powerful because it combines personal grief, imperial resources and perfect control of setting. The garden, gate, platform, river edge, marble, calligraphy and inlay all serve one carefully staged emotional experience.\n\nSunrise matters because the monument changes with light. A slower visit lets the family notice that the Taj is not only a silhouette; it is surface, proportion, craft and atmosphere.",
+    it: "Il Taj è potente perché unisce dolore personale, risorse imperiali e controllo perfetto del luogo. Giardino, porta, piattaforma, riva del fiume, marmo, calligrafia e intarsi costruiscono un'esperienza emotiva molto studiata.\n\nL'alba conta perché il monumento cambia con la luce. Una visita lenta permette di capire che il Taj non è solo una sagoma: è superficie, proporzione, artigianato e atmosfera.",
+  },
+  "agra:Agra Fort": {
+    en: "Agra Fort is the counterweight to the Taj. Where the Taj is memory and symmetry, the fort shows rule, defense, residence and the political life of the Mughal court.\n\nIts best moments are transitions: massive red walls to delicate palace rooms, military scale to river views, public power to private spaces. Those contrasts make Mughal Agra easier to understand.",
+    it: "Agra Fort è il contrappeso del Taj. Dove il Taj parla di memoria e simmetria, il forte mostra governo, difesa, residenza e vita politica della corte moghul.\n\nI momenti migliori sono le transizioni: mura rosse massicce verso sale delicate, scala militare verso viste sul fiume, potere pubblico verso spazi privati. Questi contrasti rendono più comprensibile l'Agra moghul.",
+  },
+  "agra:Mehtab Bagh": {
+    en: "Mehtab Bagh is valuable because it changes the angle of the Taj. From across the Yamuna, the monument becomes part of a river landscape rather than a single object.\n\nThat makes it a good comfort stop. It offers beauty with less walking and gives the family a final Agra image that feels spacious rather than crowded.",
+    it: "Mehtab Bagh vale perché cambia l'angolo sul Taj. Dall'altra riva dello Yamuna, il monumento diventa parte di un paesaggio fluviale e non solo un oggetto isolato.\n\nPer questo è una buona tappa di comfort. Offre bellezza con poca camminata e dà alla famiglia un'ultima immagine di Agra più ampia e meno affollata.",
+  },
+  "jaipur:Amber Fort": {
+    en: "Amber Fort should anchor Jaipur because it explains the older hill-power before the planned pink city. The route through gates, ramps and courtyards makes the relationship between defense, ceremony and landscape visible.\n\nThe fort is also a visual lesson in Rajput court aesthetics: mirror work, painted surfaces, water systems and elevated views. It deserves the freshest part of the day.",
+    it: "Amber Fort deve ancorare Jaipur perché spiega il potere collinare precedente alla città rosa pianificata. Il percorso attraverso porte, rampe e cortili rende visibile il rapporto tra difesa, cerimonia e paesaggio.\n\nIl forte è anche una lezione visiva sull'estetica di corte rajput: specchi, superfici dipinte, sistemi d'acqua e viste dall'alto. Merita la parte più fresca della giornata.",
+  },
+  "jaipur:City Palace (Jaipur)": {
+    en: "City Palace shows the shift from fort to planned capital. It is less dramatic than Amber, but it explains court life, administration, collections and ceremonial space inside Jaipur's urban grid.\n\nThe visit works best when curated. Focus on courtyards, gates, textiles and selected rooms so the palace adds depth without making the day feel like one museum after another.",
+    it: "City Palace mostra il passaggio dalla fortezza alla capitale pianificata. È meno drammatico di Amber, ma spiega vita di corte, amministrazione, collezioni e spazio cerimoniale dentro la griglia urbana di Jaipur.\n\nLa visita funziona meglio se curata. Concentrarsi su cortili, porte, tessuti e alcune sale scelte permette al palazzo di aggiungere profondità senza trasformare la giornata in una sequenza di musei.",
+  },
+  "jaipur:Hawa Mahal": {
+    en: "Hawa Mahal is a facade, but a meaningful one. It turns the street into theatre: screened windows, ventilation, royal observation and the pink city identity all appear in one image.\n\nBecause it is so visual, it does not need to become a long visit. The family can understand its role quickly, then keep energy for Amber, City Palace or markets.",
+    it: "Hawa Mahal è una facciata, ma una facciata significativa. Trasforma la strada in teatro: finestre schermate, ventilazione, osservazione reale e identità della città rosa appaiono in un'unica immagine.\n\nProprio perché è così visivo, non deve diventare una visita lunga. La famiglia può capirne il ruolo rapidamente e conservare energia per Amber, City Palace o i mercati.",
+  },
+  "jaipur:Jantar Mantar": {
+    en: "Jantar Mantar is the intellectual side of Jaipur. Its instruments make astronomy physical, using architecture to measure time, shadow and celestial movement.\n\nWith explanation, the site becomes memorable; without explanation, it can feel like abstract shapes. That is why it should stay optional unless a guide is available.",
+    it: "Jantar Mantar è il lato intellettuale di Jaipur. I suoi strumenti rendono fisica l'astronomia, usando l'architettura per misurare tempo, ombra e movimento celeste.\n\nCon spiegazione diventa memorabile; senza spiegazione può sembrare una serie di forme astratte. Per questo deve restare opzionale se non c'è una guida.",
+  },
+  "jaipur:Johari / Bapu Bazaar": {
+    en: "The bazaars show Jaipur as a living craft economy. Jewelry, textiles, block prints and color are not just souvenirs; they connect the planned city to the trades that made it famous.\n\nA curated route matters. One good market block gives atmosphere and choice, while an unstructured shopping session can become tiring and pressured.",
+    it: "I bazar mostrano Jaipur come economia artigianale viva. Gioielli, tessuti, block print e colore non sono solo souvenir; collegano la città pianificata ai mestieri che l'hanno resa famosa.\n\nServe un percorso curato. Un buon blocco di mercato dà atmosfera e scelta, mentre una sessione non strutturata può diventare stancante e pressante.",
+  },
+  "jaipur:Galta Ji temple": {
+    en: "Galta Ji gives Jaipur a landscape-and-water layer outside the main palace circuit. Tanks, pavilions and hills create a more devotional, less urban mood.\n\nIt is optional because it competes with rest. If added, it should be framed as a scenic temple setting, not another mandatory monument.",
+    it: "Galta Ji dà a Jaipur uno strato di paesaggio e acqua fuori dal circuito principale dei palazzi. Vasche, padiglioni e colline creano un'atmosfera più devozionale e meno urbana.\n\nÈ opzionale perché compete con il riposo. Se aggiunto, va presentato come contesto scenico di templi, non come un altro monumento obbligatorio.",
+  },
+  "rishikesh:Ganga riverfront": {
+    en: "The riverfront is the reason Rishikesh must remain in the route. It changes the emotional texture of the trip from monuments and transfers to water, foothills, bells, walking and stillness.\n\nThe family should not treat it like a checklist attraction. Sitting, walking slowly and returning at different times of day may be more valuable than adding distant excursions.",
+    it: "Il lungofiume è il motivo per cui Rishikesh deve restare nell'itinerario. Cambia la texture emotiva del viaggio: dai monumenti e trasferimenti si passa ad acqua, colline, campane, cammino e quiete.\n\nLa famiglia non deve trattarlo come una visita da checklist. Sedersi, camminare lentamente e tornare in momenti diversi della giornata può valere più di aggiungere escursioni lontane.",
+  },
+  "rishikesh:Yoga / ashram time": {
+    en: "Yoga or ashram time is what makes Rishikesh restorative rather than merely scenic. It connects the town's global identity with a practical need in the itinerary: slowing down after Jaipur and before Udaipur.\n\nThe best version is gentle and private. It should leave everyone calmer, not tired, and it should be booked for comfort rather than intensity.",
+    it: "Yoga o tempo in ashram è ciò che rende Rishikesh rigenerante e non solo panoramica. Collega l'identità globale della città a una necessità pratica dell'itinerario: rallentare dopo Jaipur e prima di Udaipur.\n\nLa versione migliore è leggera e privata. Deve lasciare tutti più calmi, non più stanchi, e va prenotata per comfort, non per intensità.",
+  },
+  "rishikesh:Ganga Aarti": {
+    en: "Ganga Aarti gives the evening a shared focus. The ritual is powerful because it combines sound, flame, river, community and repetition in a way that visitors can understand visually even without deep religious context.\n\nA calm viewing arrangement matters. Arriving early and leaving without rushing keeps the experience reflective rather than crowded and stressful.",
+    it: "Ganga Aarti dà alla sera un centro condiviso. Il rituale è potente perché unisce suono, fiamma, fiume, comunità e ripetizione in modo comprensibile anche visivamente, senza bisogno di molto contesto religioso.\n\nConta avere una sistemazione calma per la vista. Arrivare presto e uscire senza fretta mantiene l'esperienza riflessiva, non affollata e stressante.",
+  },
+  "rishikesh:Beatles Ashram": {
+    en: "Beatles Ashram matters because it links Rishikesh's spiritual history to a global twentieth-century cultural moment. It is not polished, and that roughness is part of its appeal.\n\nUse it only if the family wants that layer. The site should support curiosity and quiet wandering, not replace the riverfront and rest that make Rishikesh essential.",
+    it: "Il Beatles Ashram conta perché collega la storia spirituale di Rishikesh a un momento culturale globale del Novecento. Non è lucido o perfetto, e proprio questa ruvidità fa parte del suo fascino.\n\nVa usato solo se la famiglia desidera questo strato. Il sito deve sostenere curiosità e passeggiata tranquilla, non sostituire fiume e riposo che rendono Rishikesh essenziale.",
+  },
+  "rishikesh:Lakshman Jhula / river bridges": {
+    en: "The bridges are visual connectors and emotional landmarks. They make the town readable: both banks, river movement, temple clusters, cafes, foot traffic and foothills appear in one frame.\n\nThe bridge walk should stay slow. It is best used for views and orientation rather than as a rushed crossing between errands.",
+    it: "I ponti sono connettori visivi e riferimenti emotivi. Rendono leggibile la città: le due rive, il movimento del fiume, i gruppi di templi, i caffè, il passaggio pedonale e le colline entrano nella stessa immagine.\n\nLa passeggiata sul ponte deve restare lenta. Funziona meglio per viste e orientamento, non come attraversamento frettoloso tra commissioni.",
+  },
+  "udaipur:City Palace (Udaipur)": {
+    en: "Udaipur City Palace should be read as architecture shaped by water and height. Its terraces and windows make Lake Pichola part of the palace experience, not just a background view.\n\nThe history of Mewar matters here because the palace communicates continuity and resilience. A guide can help the family connect rooms, rulers, courtyards and lake strategy without getting lost in museum detail.",
+    it: "Il City Palace di Udaipur va letto come architettura modellata da acqua e altezza. Terrazze e finestre fanno di Lake Pichola parte dell'esperienza del palazzo, non solo uno sfondo.\n\nLa storia del Mewar conta perché il palazzo comunica continuità e resilienza. Una guida può aiutare la famiglia a collegare sale, sovrani, cortili e strategia sul lago senza perdersi nei dettagli museali.",
+  },
+  "udaipur:Lake Pichola": {
+    en: "Lake Pichola is the scenic structure of Udaipur. It organizes palaces, ghats, islands, hills and evening light into the image people remember from the city.\n\nA boat ride or lakeside dinner is not filler; it is the right way to understand why Udaipur is on the itinerary. The lake should slow the trip down before the final Mumbai buffer.",
+    it: "Lake Pichola è la struttura scenica di Udaipur. Organizza palazzi, ghat, isole, colline e luce serale nell'immagine che si ricorda della città.\n\nUn giro in barca o una cena sul lago non è riempitivo: è il modo giusto per capire perché Udaipur è nell'itinerario. Il lago deve rallentare il viaggio prima del cuscinetto finale a Mumbai.",
+  },
+  "udaipur:Jagdish Temple / old city lanes": {
+    en: "Jagdish Temple and the lanes around it prevent Udaipur from feeling only like palace views. They bring the city back to daily movement: steps, shops, worship, traffic, small corners and carved stone.\n\nThe stop is useful because it is compact. A short guided walk can add human scale after City Palace without turning the day into a long urban trek.",
+    it: "Jagdish Temple e i vicoli intorno impediscono a Udaipur di sembrare solo una città di palazzi e viste. Riportano il viaggio al movimento quotidiano: gradini, negozi, culto, traffico, piccoli angoli e pietra scolpita.\n\nLa tappa è utile perché compatta. Una breve passeggiata guidata aggiunge scala umana dopo City Palace senza trasformare la giornata in un lungo trekking urbano.",
+  },
+  "udaipur:Saheliyon ki Bari": {
+    en: "Saheliyon ki Bari is a gentle garden add-on rather than a core sight. Its fountains, pavilions and shaded paths show courtly leisure and the importance of water in a dry region.\n\nIt is best used when the group wants beauty without intensity. If lake time is calling, skip it; if everyone wants a soft final stop, it fits well.",
+    it: "Saheliyon ki Bari è un'aggiunta leggera di giardini, non una tappa centrale. Fontane, padiglioni e sentieri ombreggiati mostrano lo svago di corte e l'importanza dell'acqua in una regione arida.\n\nFunziona quando il gruppo vuole bellezza senza intensità. Se il lago attira di più, saltarla; se tutti desiderano una tappa finale dolce, si inserisce bene.",
+  },
+};
+
 function galleryFor(attraction: AttractionCard, detailKey: string) {
   const gallery = attraction.gallery ?? curatedGalleryImages[detailKey];
   return gallery ?? [attraction.image, attraction.image, attraction.image];
@@ -1279,6 +1414,7 @@ export function getAttractions(placeId: string, language: Language) {
               "Contesto",
               "Perché merita",
               "Cosa osservare",
+              "Contesto approfondito",
               "Ritmo consigliato",
               "Guida e biglietti",
             ]
@@ -1286,6 +1422,7 @@ export function getAttractions(placeId: string, language: Language) {
               "Background",
               "Why visit",
               "What to notice",
+              "Deeper context",
               "Pacing",
               "Guide and tickets",
             ];
@@ -1309,6 +1446,7 @@ export function getAttractions(placeId: string, language: Language) {
           `${polished.history} ${notes[0] ?? ""}`.trim(),
           notes[1] ?? polished.history,
           notes[2] ?? polished.why,
+          deeperContextNotes[detailKey]?.[language] ?? polished.why,
           buildPaceDetail(polished.name, polished.pace, language),
           buildTicketDetail(polished.name, polished.ticket, language),
         ].map((body, index) => ({

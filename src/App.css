@@ -1450,6 +1450,11 @@ h3 {
   line-height: 1.56;
 }
 
+.chapter-summary p + p,
+.detail-copy-section p + p {
+  margin-top: 10px;
+}
+
 .location-list {
   display: grid;
   gap: 16px;
