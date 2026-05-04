@@ -9,12 +9,19 @@ export type LocalizedLocation = {
   pace: string;
 };
 
+export type OptionalAddOn = {
+  name: string;
+  fit: string;
+  caution: string;
+};
+
 export type LocalizedPlaceDetail = {
   name: string;
   role: string;
   overview: string;
   context: string;
   bestUse: string;
+  optionalAddOns?: OptionalAddOn[];
   locations: LocalizedLocation[];
 };
 
@@ -58,6 +65,10 @@ export const uiText = {
     history: "Know more",
     notice: "What to notice",
     pace: "Pacing advice",
+    optionalAddOns: "Optional add-ons",
+    optionalAddOnsIntro: "Extra ideas to keep available only if the group has energy.",
+    fit: "Best fit",
+    caution: "Keep it relaxed",
     imageLink: "Open image inspiration",
     footer:
       "Comfort rule: protect the Rishikesh mountain stop, keep Ellora focused, and preserve the final Mumbai buffer.",
@@ -128,6 +139,10 @@ export const uiText = {
     history: "Dettagli",
     notice: "Cosa osservare",
     pace: "Consiglio di ritmo",
+    optionalAddOns: "Aggiunte opzionali",
+    optionalAddOnsIntro: "Idee extra da tenere disponibili solo se il gruppo ha energia.",
+    fit: "Quando ha senso",
+    caution: "Per restare rilassati",
     imageLink: "Apri immagini",
     footer:
       "Regola di comfort: proteggere Rishikesh, tenere Ellora focalizzata e conservare il cuscinetto finale a Mumbai.",
@@ -864,5 +879,336 @@ Object.entries(cityChapterExpansions).forEach(([placeId, localized]) => {
     placeDetails[placeId][language].overview = localized[language].overview;
     placeDetails[placeId][language].context = localized[language].context;
     placeDetails[placeId][language].bestUse = localized[language].bestUse;
+  });
+});
+
+const optionalAddOnsByPlace: Record<string, Record<Language, OptionalAddOn[]>> = {
+  mumbai: {
+    en: [
+      {
+        name: "Elephanta Caves half-day",
+        fit: "Best if the final Mumbai buffer has good weather and the group wants one more heritage outing by ferry.",
+        caution: "Keep it optional because ferry timing, heat and jetty crowds can turn a buffer day into a busy day.",
+      },
+      {
+        name: "Crawford Market and heritage shopping",
+        fit: "Useful for spices, dry fruit, small gifts and a lively but bounded market experience.",
+        caution: "Go with a clear list and a short time box so the stop does not become tiring.",
+      },
+      {
+        name: "Bandra-Worli Sea Link scenic drive",
+        fit: "A low-effort add-on for seeing modern Mumbai, the coastline and the bridge from the car.",
+        caution: "Treat it as a drive-by/photo moment, not a separate long excursion during peak traffic.",
+      },
+      {
+        name: "Mani Bhavan and Kala Ghoda cafe block",
+        fit: "Good if the group wants Gandhi history, architecture and an easy cafe pause in South Mumbai.",
+        caution: "Pair only one museum-style stop with the cafe block to keep the day light.",
+      },
+    ],
+    it: [
+      {
+        name: "Grotte di Elephanta mezza giornata",
+        fit: "Ideale se il cuscinetto finale a Mumbai ha bel tempo e il gruppo vuole un'ultima uscita culturale in traghetto.",
+        caution: "Da lasciare opzionale perché gli orari del traghetto, il caldo e la folla al molo possono rendere impegnativa una giornata di recupero.",
+      },
+      {
+        name: "Crawford Market e shopping storico",
+        fit: "Utile per spezie, frutta secca, piccoli regali e un'esperienza di mercato vivace ma circoscritta.",
+        caution: "Entrare con una lista chiara e un limite di tempo, così la sosta non diventa stancante.",
+      },
+      {
+        name: "Giro panoramico sul Bandra-Worli Sea Link",
+        fit: "Aggiunta leggera per vedere la Mumbai moderna, la costa e il ponte comodamente dall'auto.",
+        caution: "Considerarlo un passaggio panoramico/foto, non un'escursione lunga nelle ore di traffico.",
+      },
+      {
+        name: "Mani Bhavan e pausa caffè a Kala Ghoda",
+        fit: "Buono se il gruppo vuole storia gandhiana, architettura e una pausa tranquilla a South Mumbai.",
+        caution: "Abbinare un solo stop tipo museo alla pausa caffè per mantenere la giornata leggera.",
+      },
+    ],
+  },
+  ellora: {
+    en: [
+      {
+        name: "Ajanta Caves full-day option",
+        fit: "Best for a group that wants a second major cave day focused on ancient Buddhist painting and sculpture.",
+        caution: "Book only if everyone accepts a long out-and-back day; Ellora remains the protected core cave visit.",
+      },
+      {
+        name: "Bibi Ka Maqbara",
+        fit: "Good as a short city add-on for Mughal-era architecture without a full extra excursion.",
+        caution: "Use it as a gentle late-afternoon stop, not as a replacement for rest after Ellora.",
+      },
+      {
+        name: "Daulatabad Fort short stop",
+        fit: "Works as an exterior or light stop between Aurangabad and Ellora for dramatic hill-fort context.",
+        caution: "Avoid climbing deep into the fort if heat or fatigue is high.",
+      },
+      {
+        name: "Panchakki and local bazaar",
+        fit: "A compact local-history and shopping add-on if the group wants something easy inside Aurangabad.",
+        caution: "Keep it brief and guided; it is a texture stop, not a must-see anchor.",
+      },
+    ],
+    it: [
+      {
+        name: "Ajanta Caves giornata intera opzionale",
+        fit: "Adatta se il gruppo vuole una seconda giornata di grotte dedicata a pittura e scultura buddhista antica.",
+        caution: "Prenotarla solo se tutti accettano una lunga andata e ritorno; Ellora resta la visita principale protetta.",
+      },
+      {
+        name: "Bibi Ka Maqbara",
+        fit: "Buona come breve aggiunta cittadina per architettura di epoca moghul senza una grande escursione extra.",
+        caution: "Usarla come sosta leggera nel tardo pomeriggio, non come sostituto del riposo dopo Ellora.",
+      },
+      {
+        name: "Daulatabad Fort sosta breve",
+        fit: "Funziona come sosta esterna o leggera tra Aurangabad ed Ellora per capire il contesto dei forti di collina.",
+        caution: "Evitare salite lunghe dentro il forte se fa caldo o il gruppo è stanco.",
+      },
+      {
+        name: "Panchakki e bazar locale",
+        fit: "Aggiunta compatta di storia locale e shopping se il gruppo vuole qualcosa di facile dentro Aurangabad.",
+        caution: "Tenerla breve e guidata: è una sosta di atmosfera, non un punto obbligatorio.",
+      },
+    ],
+  },
+  delhi: {
+    en: [
+      {
+        name: "Qutub Minar complex",
+        fit: "Strong choice if the family wants one more major Delhi monument with open-air space and layered early-capital history.",
+        caution: "Add it only if the day starts early; Delhi traffic makes extra cross-city stops costly.",
+      },
+      {
+        name: "National Crafts Museum",
+        fit: "Good for textiles, craft traditions and calmer browsing than a crowded shopping market.",
+        caution: "Keep the visit focused on galleries and craft shopping, not a long museum afternoon.",
+      },
+      {
+        name: "Khan Market or Connaught Place cafe block",
+        fit: "Useful for a comfortable pause, light shopping and clean restaurant options between sightseeing pieces.",
+        caution: "Use it as recovery time rather than adding another attraction after it.",
+      },
+      {
+        name: "Red Fort exterior and Old Delhi market drive",
+        fit: "Works if the group wants the atmosphere and scale of Old Delhi without committing to a heavy interior visit.",
+        caution: "Keep it as a guided drive/walk with a clear pickup point because crowds can build quickly.",
+      },
+    ],
+    it: [
+      {
+        name: "Complesso del Qutub Minar",
+        fit: "Scelta forte se la famiglia vuole un altro grande monumento di Delhi, all'aperto e con storia stratificata delle prime capitali.",
+        caution: "Aggiungerlo solo se la giornata parte presto; il traffico di Delhi rende costose le soste in zone diverse.",
+      },
+      {
+        name: "National Crafts Museum",
+        fit: "Buono per tessuti, tradizioni artigianali e shopping più calmo rispetto a un mercato affollato.",
+        caution: "Tenere la visita concentrata su gallerie e artigianato, non su un lungo pomeriggio museale.",
+      },
+      {
+        name: "Pausa caffè a Khan Market o Connaught Place",
+        fit: "Utile per una pausa comoda, shopping leggero e ristoranti affidabili tra le visite.",
+        caution: "Usarla come recupero, non come punto di partenza per aggiungere un'altra attrazione.",
+      },
+      {
+        name: "Esterno Red Fort e mercato di Old Delhi",
+        fit: "Funziona se il gruppo vuole atmosfera e scala di Old Delhi senza una visita interna pesante.",
+        caution: "Tenerlo come giro guidato con punto di recupero chiaro, perché la folla può crescere rapidamente.",
+      },
+    ],
+  },
+  agra: {
+    en: [
+      {
+        name: "Itmad-ud-Daulah garden tomb",
+        fit: "Good for a quieter marble-inlay stop that helps explain the design language before or after the Taj.",
+        caution: "Add only if the Taj and Agra Fort timing stays comfortable.",
+      },
+      {
+        name: "Mehtab Bagh sunset view",
+        fit: "Ideal for a calm reverse view of the Taj across the Yamuna when the group has energy in the evening.",
+        caution: "Skip if the sunrise Taj visit needs an early night.",
+      },
+      {
+        name: "Marble inlay craft demonstration",
+        fit: "Useful if the family wants to understand the craftsmanship behind the Taj and shop selectively.",
+        caution: "Ask the guide for a no-pressure workshop and cap the visit duration.",
+      },
+      {
+        name: "Fatehpur Sikri long add-on",
+        fit: "Only makes sense with unusual energy or an extra road buffer because it is historically important but outside Agra.",
+        caution: "Not recommended on the fixed Agra-to-Jaipur transfer day unless the agency confirms a relaxed schedule.",
+      },
+    ],
+    it: [
+      {
+        name: "Tomba-giardino Itmad-ud-Daulah",
+        fit: "Buona per una sosta più tranquilla sull'intarsio in marmo, utile per capire il linguaggio visivo prima o dopo il Taj.",
+        caution: "Aggiungerla solo se Taj e Agra Fort restano comodi nei tempi.",
+      },
+      {
+        name: "Vista al tramonto da Mehtab Bagh",
+        fit: "Ideale per una vista calma del Taj dall'altra parte dello Yamuna se il gruppo ha energia la sera.",
+        caution: "Saltarla se la visita del Taj all'alba richiede una serata molto presto.",
+      },
+      {
+        name: "Dimostrazione di intarsio in marmo",
+        fit: "Utile se la famiglia vuole capire l'artigianato del Taj e fare shopping selettivo.",
+        caution: "Chiedere alla guida un laboratorio senza pressione commerciale e limitare la durata.",
+      },
+      {
+        name: "Fatehpur Sikri aggiunta lunga",
+        fit: "Ha senso solo con energia insolita o un cuscinetto stradale extra, perché è importante ma fuori Agra.",
+        caution: "Non consigliata nel giorno fisso Agra-Jaipur salvo conferma dell'agenzia su tempi rilassati.",
+      },
+    ],
+  },
+  jaipur: {
+    en: [
+      {
+        name: "Jantar Mantar guided stop",
+        fit: "Good if the family wants Jaipur's astronomy and planning story after City Palace.",
+        caution: "Use a guide; without explanation it can feel abstract and tiring in the sun.",
+      },
+      {
+        name: "Johari Bazaar or Bapu Bazaar shopping",
+        fit: "Best for textiles, jewelry, block prints and colorful street life in a contained block.",
+        caution: "Pick one bazaar and set a clear shopping window to avoid bargaining fatigue.",
+      },
+      {
+        name: "Galta Ji temple valley",
+        fit: "A scenic spiritual add-on outside the busiest old-city core, with hills, water tanks and temple atmosphere.",
+        caution: "Keep expectations flexible and go only with a guide/driver who knows the quiet timing.",
+      },
+      {
+        name: "Patrika Gate photo stop",
+        fit: "Easy short stop for color, painted arches and family photos if it fits the route.",
+        caution: "Treat it as a 20-30 minute stop, not a destination that reshapes the day.",
+      },
+    ],
+    it: [
+      {
+        name: "Jantar Mantar con guida",
+        fit: "Buono se la famiglia vuole capire la storia astronomica e urbanistica di Jaipur dopo City Palace.",
+        caution: "Serve una guida; senza spiegazione può risultare astratto e stancante sotto il sole.",
+      },
+      {
+        name: "Shopping a Johari Bazaar o Bapu Bazaar",
+        fit: "Ideale per tessuti, gioielli, block print e vita di strada colorata in un blocco limitato.",
+        caution: "Scegliere un solo bazar e fissare una finestra di tempo per evitare stanchezza da contrattazione.",
+      },
+      {
+        name: "Valle templare di Galta Ji",
+        fit: "Aggiunta scenica e spirituale fuori dal nucleo più affollato, con colline, vasche d'acqua e atmosfera templare.",
+        caution: "Tenere aspettative flessibili e andare solo con guida/autista che conosca gli orari più tranquilli.",
+      },
+      {
+        name: "Sosta fotografica a Patrika Gate",
+        fit: "Sosta breve e facile per colori, archi dipinti e foto di famiglia se rientra nel percorso.",
+        caution: "Considerarla una sosta di 20-30 minuti, non una meta che cambia l'intera giornata.",
+      },
+    ],
+  },
+  rishikesh: {
+    en: [
+      {
+        name: "Beatles Ashram",
+        fit: "Best for an easy cultural walk that connects Rishikesh's yoga identity with modern music history and forested ruins.",
+        caution: "Go early or late and keep it reflective, not rushed.",
+      },
+      {
+        name: "Private gentle yoga or sound bath",
+        fit: "Ideal for making the mountain stop feel restorative and personal rather than just scenic.",
+        caution: "Choose a beginner-friendly private session and avoid intense classes before a travel day.",
+      },
+      {
+        name: "Neer Garh waterfall short nature add-on",
+        fit: "Good if the group wants a bit more greenery and water without a long mountain drive.",
+        caution: "Check walking conditions and skip after rain or if footwear/energy is not right.",
+      },
+      {
+        name: "Reserved support for Ganga Aarti viewing",
+        fit: "Useful if the family wants the evening ceremony but prefers a calmer, well-positioned experience.",
+        caution: "Ask for gentle timing and easy pickup rather than trying to stand in the densest crowd.",
+      },
+    ],
+    it: [
+      {
+        name: "Beatles Ashram",
+        fit: "Ideale per una passeggiata culturale facile che unisce identità yoga di Rishikesh, storia musicale moderna e rovine nel verde.",
+        caution: "Andare presto o tardi e viverlo con calma, senza fretta.",
+      },
+      {
+        name: "Yoga dolce privato o sound bath",
+        fit: "Perfetto per rendere la tappa di montagna rigenerante e personale, non solo panoramica.",
+        caution: "Scegliere una sessione privata per principianti ed evitare classi intense prima di una giornata di viaggio.",
+      },
+      {
+        name: "Neer Garh waterfall breve natura",
+        fit: "Buono se il gruppo vuole più verde e acqua senza una lunga escursione in montagna.",
+        caution: "Controllare condizioni del sentiero e saltare dopo pioggia o se scarpe/energia non sono adatte.",
+      },
+      {
+        name: "Supporto riservato per vedere Ganga Aarti",
+        fit: "Utile se la famiglia vuole la cerimonia serale ma preferisce un'esperienza più calma e ben posizionata.",
+        caution: "Chiedere tempi dolci e recupero facile, evitando di restare nella folla più densa.",
+      },
+    ],
+  },
+  udaipur: {
+    en: [
+      {
+        name: "Saheliyon Ki Bari garden",
+        fit: "Good for a short, graceful garden stop with fountains, shade and royal leisure context.",
+        caution: "Keep it brief and pair it with a lake or palace day, not a distant excursion.",
+      },
+      {
+        name: "Bagore Ki Haveli evening show",
+        fit: "Best if the group wants folk dance and music in an atmospheric old haveli near the lake.",
+        caution: "Book seats in advance and skip if dinner/rest feels more important.",
+      },
+      {
+        name: "Sajjangarh Monsoon Palace sunset",
+        fit: "Strong scenic add-on for views over Udaipur, Lake Pichola and the Aravalli hills.",
+        caution: "Go only if weather is clear and the extra drive does not make the evening too late.",
+      },
+      {
+        name: "Shilpgram craft village",
+        fit: "Useful for regional crafts, textiles and a softer shopping experience outside the old-city lanes.",
+        caution: "Keep the shopping guided and selective so it stays enjoyable.",
+      },
+    ],
+    it: [
+      {
+        name: "Giardino Saheliyon Ki Bari",
+        fit: "Buono per una sosta breve ed elegante con fontane, ombra e contesto sul tempo libero reale.",
+        caution: "Tenerla breve e abbinarla a lago o palazzo, non a un'escursione lontana.",
+      },
+      {
+        name: "Spettacolo serale a Bagore Ki Haveli",
+        fit: "Ideale se il gruppo vuole danza e musica folk in una haveli storica vicino al lago.",
+        caution: "Prenotare posti in anticipo e saltare se cena o riposo sono più importanti.",
+      },
+      {
+        name: "Tramonto al Sajjangarh Monsoon Palace",
+        fit: "Aggiunta scenica forte per viste su Udaipur, Lake Pichola e colline Aravalli.",
+        caution: "Andare solo con cielo limpido e se il tragitto extra non rende la serata troppo lunga.",
+      },
+      {
+        name: "Villaggio artigianale Shilpgram",
+        fit: "Utile per artigianato regionale, tessuti e shopping più morbido fuori dai vicoli della città vecchia.",
+        caution: "Mantenere lo shopping guidato e selettivo perché resti piacevole.",
+      },
+    ],
+  },
+};
+
+Object.entries(optionalAddOnsByPlace).forEach(([placeId, localized]) => {
+  (["en", "it"] as Language[]).forEach((language) => {
+    placeDetails[placeId][language].optionalAddOns = localized[language];
   });
 });

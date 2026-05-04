@@ -52,6 +52,26 @@ export function PlaceGuide({ language }: { language: Language }) {
                   {renderParagraphs(detail.bestUse)}
                 </section>
               </div>
+              {detail.optionalAddOns && detail.optionalAddOns.length > 0 && (
+                <section className="optional-addons">
+                  <div className="optional-addons__heading">
+                    <h4>{t.optionalAddOns}</h4>
+                    <p>{t.optionalAddOnsIntro}</p>
+                  </div>
+                  <div className="optional-addons__grid">
+                    {detail.optionalAddOns.map((addon) => (
+                      <article className="optional-addon-card" key={addon.name}>
+                        <span>{language === "it" ? "Opzionale" : "Optional"}</span>
+                        <h5>{addon.name}</h5>
+                        <strong>{t.fit}</strong>
+                        <p>{addon.fit}</p>
+                        <strong>{t.caution}</strong>
+                        <p>{addon.caution}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
               <div className="location-list">
                 {attractions.map((location) => (
                   <section className="location-card attraction-card" key={location.name}>
