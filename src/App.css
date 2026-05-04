@@ -1529,31 +1529,68 @@ h3 {
 }
 
 .attraction-card {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(230px, 28%) minmax(0, 1fr);
-  align-items: start;
+  align-items: stretch;
   overflow: hidden;
   padding: 0;
-  background: #fff;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, rgba(15, 76, 117, 0.28), rgba(242, 168, 74, 0.32), rgba(124, 58, 237, 0.24)) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
 }
 
 .attraction-collage {
+  position: relative;
   display: grid;
   grid-template-rows: 1.35fr 1fr;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4px;
-  height: clamp(360px, 34vw, 500px);
+  height: 100%;
   min-height: 360px;
-  background: var(--blue-soft);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(242, 168, 74, 0.32), transparent 30%),
+    radial-gradient(circle at 82% 12%, rgba(16, 185, 129, 0.22), transparent 28%),
+    linear-gradient(135deg, #dbeafe, #fef3c7 52%, #e0f2fe);
+}
+
+.attraction-collage::before {
+  content: "🌄";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(15, 76, 117, 0.34);
+  font-size: clamp(34px, 5vw, 58px);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .attraction-collage img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   min-height: 150px;
   display: block;
   object-fit: cover;
   object-position: center;
+  background:
+    linear-gradient(135deg, rgba(219, 234, 254, 0.92), rgba(255, 247, 237, 0.95)),
+    radial-gradient(circle at 70% 30%, rgba(242, 168, 74, 0.2), transparent 32%);
+  transition: filter 220ms ease, transform 220ms ease, opacity 220ms ease;
+}
+
+.attraction-collage img:hover {
+  filter: saturate(1.08) contrast(1.03);
+  transform: scale(1.015);
+}
+
+.attraction-collage img.image-failed {
+  opacity: 0;
 }
 
 .attraction-collage img:nth-child(2) {
@@ -1578,6 +1615,9 @@ h3 {
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+  color: #0f4c75;
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+  line-height: 1.2;
 }
 
 .attraction-card h4 span {
@@ -1589,6 +1629,19 @@ h3 {
   font-weight: 900;
 }
 
+.attraction-card h4 .attraction-card__marker {
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  background: linear-gradient(135deg, #fef3c7, #dbeafe);
+  color: inherit;
+  border: 1px solid rgba(15, 76, 117, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
 .location-card__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1597,7 +1650,7 @@ h3 {
 
 .location-card__grid div {
   padding: 12px;
-  background: #fff;
+  background: linear-gradient(180deg, #fff, #fffdf7);
   border: 1px solid rgba(216, 222, 233, 0.85);
   border-radius: 8px;
 }
@@ -1781,6 +1834,7 @@ footer {
 
   .attraction-collage {
     grid-template-rows: 1fr;
+    height: auto;
     min-height: 0;
   }
 

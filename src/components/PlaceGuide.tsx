@@ -57,11 +57,23 @@ export function PlaceGuide({ language }: { language: Language }) {
                   <section className="location-card attraction-card" key={location.name}>
                     <div className="attraction-collage" aria-label={`${location.name} visual collage`}>
                       {location.galleryImages.map((image, index) => (
-                        <img src={image} alt={`${location.name} visual ${index + 1}`} loading="lazy" key={`${location.name}-${image}`} />
+                        <img
+                          src={image}
+                          alt={`${location.name} visual ${index + 1}`}
+                          loading="lazy"
+                          decoding="async"
+                          onError={(event) => {
+                            event.currentTarget.classList.add("image-failed");
+                          }}
+                          key={`${location.name}-${image}`}
+                        />
                       ))}
                     </div>
                     <div className="attraction-card__content">
                     <h4>
+                      <span className="attraction-card__marker" aria-hidden="true">
+                        {location.optional ? "✨" : "📍"}
+                      </span>
                       {location.name}
                       {location.optional && <span>{pt.attractionOptional}</span>}
                     </h4>
