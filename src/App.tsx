@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Hero } from "./components/Hero";
 import { Hotels } from "./components/Hotels";
+import { HealthSafetySection } from "./components/HealthSafetySection";
 import { Itinerary } from "./components/Itinerary";
 import { PlaceGuide } from "./components/PlaceGuide";
 import { RouteFlow } from "./components/RouteFlow";
@@ -49,7 +50,7 @@ export default function App() {
   useEffect(() => {
     const elements = Array.from(
       document.querySelectorAll<HTMLElement>(
-        ".hero, .section, .route-stop, .snapshot-card, .stay-card, .day-card, .itinerary-table-wrap, .place-card, .attraction-card, .visa-card, .hotel-card",
+        ".hero, .section, .route-stop, .snapshot-card, .stay-card, .day-card, .itinerary-table-wrap, .place-card, .attraction-card, .visa-card, .health-card, .hotel-card",
       ),
     );
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -102,6 +103,7 @@ export default function App() {
     [t.dailyPlan, "#itinerary"],
     [t.places, "#places"],
     [t.visa, "#visa"],
+    [t.health, "#health"],
     [t.hotels, "#hotels"],
   ];
 
@@ -137,6 +139,7 @@ export default function App() {
         <Itinerary language={language} />
         <PlaceGuide language={language} />
         <VisaSection language={language} />
+        <HealthSafetySection language={language} />
         <Hotels language={language} />
       </main>
       <footer>
