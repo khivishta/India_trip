@@ -78,6 +78,11 @@ function buildTicketDetail(name: string, text: string, language: Language) {
   return `${text} Booking support for ${name} should remove friction on the ground: entry, guide, driver and timing should be coordinated so the visit feels smooth rather than a chain of small decisions.`;
 }
 
+function attractionSearchImage(name: string, suffix: string, sourceIndex: 1 | 2) {
+  const host = sourceIndex === 1 ? "tse1.mm.bing.net" : "tse2.mm.bing.net";
+  return `https://${host}/th?q=${encodeURIComponent(`${name} ${suffix}`)}&w=420&h=300&c=7&rs=1&p=0&pid=Api`;
+}
+
 const detailNotes: Partial<Record<string, Record<Language, string[]>>> = {
   "mumbai:Marine Drive": {
     en: [
@@ -1125,6 +1130,11 @@ export function getAttractions(placeId: string, language: Language) {
       return {
         ...attraction,
         ...polished,
+        galleryImages: [
+          attraction.image,
+          attractionSearchImage(polished.name, `${polished.description} India`, 1),
+          attractionSearchImage(polished.name, `${polished.why} travel`, 2),
+        ],
         detailSections: [
           `${polished.history} ${notes[0] ?? ""}`.trim(),
           notes[1] ?? polished.history,

@@ -51,7 +51,11 @@ export function PlaceGuide({ language }: { language: Language }) {
               <div className="location-list">
                 {attractions.map((location) => (
                   <section className="location-card attraction-card" key={location.name}>
-                    <img src={location.image} alt={`${location.name} visual preview`} loading="lazy" />
+                    <div className="attraction-collage" aria-label={`${location.name} visual collage`}>
+                      {location.galleryImages.map((image, index) => (
+                        <img src={image} alt={`${location.name} visual ${index + 1}`} loading="lazy" key={`${location.name}-${image}`} />
+                      ))}
+                    </div>
                     <div className="attraction-card__content">
                     <h4>
                       {location.name}
