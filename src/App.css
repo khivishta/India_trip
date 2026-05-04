@@ -430,10 +430,17 @@ h3 {
 }
 
 .pace {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .pace--easy {
@@ -689,33 +696,107 @@ h3 {
 
 .itinerary-table-wrap {
   margin-top: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 63, 102, 0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(239, 246, 255, 0.8)),
+    #fff;
+  box-shadow: 0 22px 60px rgba(15, 63, 102, 0.12);
 }
 
 .itinerary-table {
+  position: relative;
   overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: 0 0 8px 8px;
-  background: #fff;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  background: rgba(255, 255, 255, 0.95);
+  scrollbar-color: rgba(20, 63, 102, 0.55) rgba(20, 63, 102, 0.08);
+  scrollbar-width: thin;
+}
+
+.itinerary-table::-webkit-scrollbar {
+  height: 12px;
+}
+
+.itinerary-table::-webkit-scrollbar-track {
+  background: rgba(20, 63, 102, 0.08);
+}
+
+.itinerary-table::-webkit-scrollbar-thumb {
+  border: 3px solid rgba(239, 246, 255, 0.9);
+  border-radius: 999px;
+  background: rgba(20, 63, 102, 0.55);
 }
 
 .itinerary-table__header,
 .itinerary-table__row {
   display: grid;
-  grid-template-columns: 132px 104px 150px 120px 1.15fr 1.35fr 150px 118px 1.15fr 1.45fr;
-  min-width: 1820px;
+  grid-template-columns: 136px 108px 150px 126px 1.18fr 1.42fr 156px 168px 1.18fr 1.5fr;
+  min-width: 1960px;
 }
 
 .itinerary-table__header {
-  background: #143f66;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: linear-gradient(90deg, #0f3455, #145f8a);
   color: #fff;
   font-weight: 900;
+  box-shadow: 0 8px 22px rgba(15, 52, 85, 0.16);
 }
 
 .itinerary-table__header span,
 .itinerary-table__row span {
-  padding: 12px;
+  padding: 14px 12px;
   border-bottom: 1px solid var(--line);
   line-height: 1.4;
+}
+
+.itinerary-table__header span {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.itinerary-table__row {
+  transition:
+    filter 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.itinerary-table__row:hover {
+  filter: saturate(1.05);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 999px rgba(255, 255, 255, 0.12);
+}
+
+.itinerary-table__header span:first-child,
+.itinerary-table__row > span:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: inherit;
+  box-shadow: 8px 0 16px rgba(15, 63, 102, 0.08);
+}
+
+.itinerary-table__header span:first-child {
+  z-index: 4;
+  background: #0f3455;
+}
+
+.itinerary-table__row > span:nth-child(8) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.itinerary-table__row .pace {
+  margin-top: 2px;
+  padding: 7px 12px;
+  border-bottom: 0;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(15, 63, 102, 0.08);
 }
 
 .agency-section {
@@ -730,9 +811,6 @@ h3 {
   padding: 16px;
   color: #fff;
   background: linear-gradient(90deg, var(--ink), var(--blue));
-  border: 1px solid var(--line);
-  border-bottom: 0;
-  border-radius: 8px 8px 0 0;
 }
 
 .table-ribbon div {
@@ -775,6 +853,63 @@ h3 {
   background: #fff;
   color: var(--blue);
   box-shadow: none;
+}
+
+.table-scroll-tools {
+  display: grid;
+  grid-template-columns: auto minmax(120px, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 250, 240, 0.9);
+  border-top: 1px solid rgba(15, 63, 102, 0.1);
+  border-bottom: 1px solid rgba(15, 63, 102, 0.1);
+}
+
+.table-scroll-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(15, 63, 102, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--blue);
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15, 63, 102, 0.08);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.table-scroll-tools button:hover {
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.table-scroll-tools small {
+  color: var(--muted);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.scroll-progress {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(15, 63, 102, 0.12);
+}
+
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  min-width: 22px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold), var(--blue), var(--teal));
+  transition: width 180ms ease;
 }
 
 .agency-table {
@@ -1283,5 +1418,14 @@ footer {
 
   .place-card img {
     min-height: 260px;
+  }
+
+  .table-scroll-tools {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .table-scroll-tools small {
+    grid-column: 1 / -1;
+    white-space: normal;
   }
 }

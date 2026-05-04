@@ -1,4 +1,5 @@
-import { Clock, Download, ExternalLink, MapPin } from "lucide-react";
+import { useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Clock, Download, ExternalLink, MapPin } from "lucide-react";
 import { getItinerary, type LocalizedItineraryDay } from "../data/localizedTrip";
 import {
   getAgencyTasks,
@@ -134,6 +135,26 @@ export function Itinerary({ language }: { language: Language }) {
   const transportSegments = getTransportSegments(language);
   const agencyTasks = getAgencyTasks(language);
   const mustSee = language === "it" ? mustSeeByDateIt : mustSeeByDate;
+  const tableRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  function updateTableScrollProgress() {
+    const table = tableRef.current;
+    if (!table) return;
+
+    const maxScroll = table.scrollWidth - table.clientWidth;
+    setScrollProgress(maxScroll > 0 ? table.scrollLeft / maxScroll : 0);
+  }
+
+  function scrollTable(direction: "left" | "right") {
+    const table = tableRef.current;
+    if (!table) return;
+
+    table.scrollBy({
+      left: direction === "left" ? -Math.round(table.clientWidth * 0.72) : Math.round(table.clientWidth * 0.72),
+      behavior: "smooth",
+    });
+  }
 
   return (
     <section className="section" id="itinerary">
@@ -173,7 +194,19 @@ export function Itinerary({ language }: { language: Language }) {
             <Download size={18} /> {language === "it" ? "Esporta CSV completo" : "Export full CSV"}
           </button>
         </div>
-        <div className="itinerary-table" role="table" aria-label={pt.fullTableTitle}>
+        <div className="table-scroll-tools" aria-label={language === "it" ? "Controlli scorrimento tabella" : "Table scroll controls"}>
+          <button onClick={() => scrollTable("left")} type="button" aria-label={language === "it" ? "Scorri a sinistra" : "Scroll left"}>
+            <ChevronLeft size={18} />
+          </button>
+          <div className="scroll-progress" aria-hidden="true">
+            <span style={{ width: `${Math.max(10, scrollProgress * 100)}%` }} />
+          </div>
+          <button onClick={() => scrollTable("right")} type="button" aria-label={language === "it" ? "Scorri a destra" : "Scroll right"}>
+            <ChevronRight size={18} />
+          </button>
+          <small>{language === "it" ? "Usa le frecce o scorri lateralmente" : "Use arrows or swipe sideways"}</small>
+        </div>
+        <div className="itinerary-table" role="table" aria-label={pt.fullTableTitle} ref={tableRef} onScroll={updateTableScrollProgress}>
           <div className="itinerary-table__header" role="row">
             <span>{t.dateHeader}</span>
             <span>{language === "it" ? "Giorno" : "Day"}</span>
