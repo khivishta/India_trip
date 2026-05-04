@@ -62,7 +62,12 @@ export default function App() {
       }
     });
 
+    const fallback = window.setTimeout(() => {
+      elements.forEach((element) => element.classList.add("is-visible"));
+    }, 900);
+
     if (reduceMotion) {
+      window.clearTimeout(fallback);
       return undefined;
     }
 
@@ -80,7 +85,10 @@ export default function App() {
 
     elements.forEach((element) => observer.observe(element));
 
-    return () => observer.disconnect();
+    return () => {
+      window.clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, [language]);
 
   function chooseLanguage(nextLanguage: Language) {
