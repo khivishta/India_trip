@@ -317,7 +317,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       context:
         "The city has been remade repeatedly by sultanates, the Mughals, the British, and modern India. That is why the stops feel so different from one another even within the same day.",
       bestUse:
-        "Pick two or three strong places and keep Old Delhi bounded. Delhi rewards focus more than checklist sightseeing.",
+        "Pick two or three strong places and keep Old Delhi bounded. Delhi rewards focus more than checklist sightseeing, so make the old-city portion a short food/market block.",
       locations: [
         {
           name: "Humayun's Tomb",
@@ -337,16 +337,16 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
         },
         {
           name: "Old Delhi",
-          what: "Dense lanes, markets, food streets, mosques, and rickshaw energy.",
-          why: "It is memorable and atmospheric, but it can be tiring.",
+          what: "Dense lanes, markets, food streets, and rickshaw energy.",
+          why: "It can be memorable and atmospheric, but it should stay bounded because it is tiring.",
           history: "Old Delhi grew around Shahjahanabad, the 17th-century Mughal capital founded by Shah Jahan.",
-          notice: "Focus on one guided block rather than wandering endlessly: food, spice market, Jama Masjid exterior, or Chandni Chowk.",
+          notice: "Focus on one guided market block rather than wandering endlessly: food streets, spice-market texture, or Chandni Chowk.",
           pace: "Moderate to intense. Limit the time and pair it with a quieter stop.",
         },
         {
           name: "India Gate / New Delhi axis",
           what: "Ceremonial avenues and civic architecture from imperial and modern Delhi.",
-          why: "It shows the contrast between Old Delhi and planned New Delhi.",
+          why: "It shows the contrast between older Delhi and planned New Delhi.",
           history: "The area was planned under British rule and later became central to independent India's capital identity.",
           notice: "Look at scale, symmetry, open space, and the shift from market density to civic formality.",
           pace: "Best as a drive-by or short stop, not a long visit.",
@@ -361,7 +361,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       context:
         "La citta e stata trasformata da sultanati, Moghul, britannici e India moderna. Per questo le tappe della stessa giornata sembrano mondi diversi.",
       bestUse:
-        "Scegliere due o tre luoghi forti e limitare Old Delhi. Delhi funziona meglio con focus, non come lista infinita.",
+        "Scegliere due o tre luoghi forti e tenere Old Delhi limitata. Delhi funziona meglio con focus, quindi la parte di citta storica deve essere un breve blocco cibo/mercati.",
       locations: [
         {
           name: "Tomba di Humayun",
@@ -381,16 +381,16 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
         },
         {
           name: "Old Delhi",
-          what: "Vicoli fitti, mercati, cibo di strada, moschee e riscio.",
-          why: "E memorabile e piena di atmosfera, ma puo stancare.",
-          history: "Cresce intorno a Shahjahanabad, capitale moghul del XVII secolo fondata da Shah Jahan.",
-          notice: "Meglio un blocco guidato: cibo, mercato delle spezie, esterno della Jama Masjid o Chandni Chowk.",
+          what: "Vicoli fitti, mercati, cibo di strada e riscio.",
+          why: "Puo essere memorabile e piena di atmosfera, ma deve restare limitata perche stanca.",
+          history: "Old Delhi cresce intorno a Shahjahanabad, capitale moghul del XVII secolo fondata da Shah Jahan.",
+          notice: "Meglio un blocco guidato di mercato: cibo, spezie o Chandni Chowk.",
           pace: "Moderato-intenso. Limitare il tempo e abbinarlo a una tappa calma.",
         },
         {
           name: "India Gate / asse di New Delhi",
           what: "Viali cerimoniali e architettura civica.",
-          why: "Mostra il contrasto tra Old Delhi e la New Delhi pianificata.",
+          why: "Mostra il contrasto tra la Delhi storica e la New Delhi pianificata.",
           history: "L'area fu pianificata sotto il dominio britannico e poi divenne centrale per l'India indipendente.",
           notice: "Scala, simmetria, spazi aperti e passaggio dai mercati alla forma civica.",
           pace: "Meglio come breve stop o giro in auto.",

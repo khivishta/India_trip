@@ -23,10 +23,64 @@ function getInitialLanguage(): Language {
 
 export default function App() {
   const [language, setLanguage] = useState<Language>(() => getInitialLanguage());
+  const [pageProgress, setPageProgress] = useState(0);
   const t = uiText[language];
 
   useEffect(() => {
     document.documentElement.lang = language;
+  }, [language]);
+
+  useEffect(() => {
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      setPageProgress(scrollable > 0 ? window.scrollY / scrollable : 0);
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, []);
+
+  useEffect(() => {
+    const elements = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        ".hero, .section, .route-stop, .snapshot-card, .stay-card, .day-card, .itinerary-table-wrap, .place-card, .attraction-card, .visa-card, .hotel-card",
+      ),
+    );
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    elements.forEach((element, index) => {
+      element.classList.add("motion-reveal");
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 38}ms`);
+      if (reduceMotion) {
+        element.classList.add("is-visible");
+      }
+    });
+
+    if (reduceMotion) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
   }, [language]);
 
   function chooseLanguage(nextLanguage: Language) {
@@ -45,6 +99,9 @@ export default function App() {
 
   return (
     <>
+      <div className="page-progress" aria-hidden="true">
+        <span style={{ transform: `scaleX(${pageProgress})` }} />
+      </div>
       <nav className="top-nav" aria-label={t.navLabel}>
         <a className="brand" href="#top">
           {t.brand}
