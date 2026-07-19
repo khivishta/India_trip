@@ -18,7 +18,7 @@ export function TripSnapshot({ language }: { language: Language }) {
         <article className="snapshot-card snapshot-card--total">
           <CalendarDays size={24} />
           <strong>{t.totalTrip}</strong>
-          <span>{language === "it" ? "24 ottobre-8 novembre 2026" : "Oct 24-Nov 8, 2026"}</span>
+          <span>{language === "it" ? "8-21 novembre 2026" : "Nov 8-21, 2026"}</span>
         </article>
         <article className="snapshot-card">
           <Hotel size={24} />

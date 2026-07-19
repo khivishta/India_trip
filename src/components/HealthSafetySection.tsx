@@ -62,7 +62,7 @@ const healthCopy = {
     emergency:
       "Keep passports, eVisas, insurance details and emergency contacts saved offline. India's all-in-one emergency number is 112; hotels and the local agency should also provide the nearest hospital/clinic contact for each base city.",
     footnote:
-      "Re-check official health guidance closer to October 2026 because disease risk, vaccine supply, entry health rules and local conditions can change.",
+      "Re-check official health guidance closer to November 2026 because disease risk, vaccine supply, entry health rules and local conditions can change.",
   },
   it: {
     eyebrow: "Salute e sicurezza",
@@ -119,7 +119,7 @@ const healthCopy = {
     emergency:
       "Tenere passaporti, eVisa, dettagli assicurazione e contatti di emergenza salvati offline. Il numero unico di emergenza in India è 112; hotel e agenzia locale dovrebbero fornire anche il contatto dell'ospedale/clinica più vicino in ogni città base.",
     footnote:
-      "Ricontrollare le fonti ufficiali vicino a ottobre 2026 perché rischi sanitari, disponibilità vaccini, regole d'ingresso e condizioni locali possono cambiare.",
+      "Ricontrollare le fonti ufficiali vicino a novembre 2026 perché rischi sanitari, disponibilità vaccini, regole d'ingresso e condizioni locali possono cambiare.",
   },
 } satisfies Record<Language, {
   eyebrow: string;

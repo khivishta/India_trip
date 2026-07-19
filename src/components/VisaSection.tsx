@@ -10,7 +10,7 @@ const visaCopy = {
     eyebrow: "Visa planning",
     title: "India eVisa: what Italian and Mauritian passport holders should do",
     intro:
-      "For this family trip, Italian and Mauritian passport holders should plan around the official Government of India eVisa portal. Rules and fees can change before October 2026, so treat this as a planning checklist and confirm again before submitting.",
+      "For this family trip, Italian and Mauritian passport holders should plan around the official Government of India eVisa portal. Rules and fees can change before November 2026, so treat this as a planning checklist and confirm again before submitting.",
     official: "Official Government of India eVisa portal",
     home: "India Visa Online homepage",
     fees: "Official e-Tourist fee table",
@@ -45,7 +45,7 @@ const visaCopy = {
     eyebrow: "Visti",
     title: "eVisa India: cosa devono fare passaporti italiani e mauriziani",
     intro:
-      "Per questo viaggio in famiglia, chi viaggia con passaporto italiano o mauriziano dovrebbe usare il portale eVisa ufficiale del Governo indiano. Regole e costi possono cambiare prima di ottobre 2026, quindi questa è una checklist di pianificazione da verificare di nuovo prima della domanda.",
+      "Per questo viaggio in famiglia, chi viaggia con passaporto italiano o mauriziano dovrebbe usare il portale eVisa ufficiale del Governo indiano. Regole e costi possono cambiare prima di novembre 2026, quindi questa è una checklist di pianificazione da verificare di nuovo prima della domanda.",
     official: "Portale eVisa ufficiale del Governo indiano",
     home: "Home India Visa Online",
     fees: "Tabella ufficiale tariffe e-Tourist",
