@@ -43,7 +43,7 @@ export const uiText = {
     eyebrow: "India 2026 relaxed family route",
     heroTitle: "Mumbai to mountains, palaces, caves and lake country",
     heroLead:
-      "A distance-optimized itinerary built around the booked Dublin-Mumbai flights for Nov 8-21, 2026, using a premium train, guide-driven cars and only two domestic flight journeys.",
+      "A distance-optimized itinerary built around the booked Dublin-Mumbai flights for Nov 8-21, 2026, using premium fast trains only when they beat driving, guide-driven cars and only two domestic flight journeys.",
     dailyPlanCta: "Daily plan",
     placeGuideCta: "Place guide",
     routeCheckCta: "Route check",
@@ -71,13 +71,13 @@ export const uiText = {
     caution: "Keep it relaxed",
     imageLink: "Open image inspiration",
     footer:
-      "Route rule: use the shortest practical loop, favor Vande Bharat and guide-driven cars, and preserve the Nov 20 Mumbai buffer.",
+      "Route rule: use the shortest practical loop, take premium fast trains only when they beat driving, and preserve the Nov 20 Mumbai buffer.",
     navLabel: "Trip sections",
     routeEyebrow: "Route flow",
     routeTitle: "Built around beauty without overworking the trip",
     requiredStop: "Required stop:",
     rishikeshCallout:
-      "Rishikesh is included for Nov 14-Nov 16, with one full day by the Ganga and Himalayan foothills before the guide-driven journey to Jaipur.",
+      "Rishikesh is included for Nov 18-Nov 20, reached by Vande Bharat to Haridwar plus a short private transfer, with one full day by the Ganga and Himalayan foothills.",
     itineraryEyebrow: "Daily itinerary",
     itineraryTitle: "Dates, sleep city, transport and comfort notes",
     sleepIn: "Sleep in",
@@ -89,7 +89,7 @@ export const uiText = {
     routeCheckEyebrow: "Route check",
     routeCheckTitle: "Flight, car and connection details",
     routeCheckIntro:
-      "The only air compromise is Aurangabad to Agra, currently requiring a connection. Everything else uses Vande Bharat, direct Udaipur-Mumbai air service, or guide-driven legs of about 6-8 hours.",
+      "Aurangabad to Udaipur currently needs a one-ticket connection via Mumbai. Premium trains are used only where they beat the car: Mumbai-Aurangabad, Agra-Delhi and Delhi-Haridwar; the other intercity legs use direct guide-driven cars or a direct Dehradun-Mumbai flight.",
     dateHeader: "Date",
     transferHeader: "Transfer",
     modeHeader: "Mode",
@@ -118,7 +118,7 @@ export const uiText = {
     eyebrow: "India 2026, itinerario rilassato in famiglia",
     heroTitle: "Da Mumbai alle montagne, ai palazzi, alle grotte e alla città dei laghi",
     heroLead:
-      "Un itinerario ottimizzato per distanza, costruito intorno ai voli Dublino-Mumbai prenotati per l'8-21 novembre 2026, con treno premium, auto con guida e solo due viaggi aerei interni.",
+      "Un itinerario ottimizzato per distanza, costruito intorno ai voli Dublino-Mumbai prenotati per l'8-21 novembre 2026, con treni premium solo quando battono l'auto, auto con guida e solo due viaggi aerei interni.",
     dailyPlanCta: "Programma",
     placeGuideCta: "Guida luoghi",
     routeCheckCta: "Controllo percorso",
@@ -146,13 +146,13 @@ export const uiText = {
     caution: "Per restare rilassati",
     imageLink: "Apri immagini",
     footer:
-      "Regola del percorso: usare il circuito pratico più breve, preferire Vande Bharat e auto con guida, e conservare il cuscinetto a Mumbai del 20 novembre.",
+      "Regola del percorso: usare il circuito pratico più breve, prendere treni premium solo quando battono l'auto e conservare il cuscinetto a Mumbai del 20 novembre.",
     navLabel: "Sezioni del viaggio",
     routeEyebrow: "Percorso",
     routeTitle: "Pensato per vedere luoghi belli senza sovraccaricare il viaggio",
     requiredStop: "Tappa necessaria:",
     rishikeshCallout:
-      "Rishikesh è inclusa dal 14 al 16 novembre, con una giornata intera sul Ganga e ai piedi dell'Himalaya prima del viaggio con guida verso Jaipur.",
+      "Rishikesh è inclusa dal 18 al 20 novembre, raggiunta con Vande Bharat fino a Haridwar e breve trasferimento privato, con una giornata intera sul Ganga e ai piedi dell'Himalaya.",
     itineraryEyebrow: "Programma giorno per giorno",
     itineraryTitle: "Date, città dove si dorme, trasporti e note di comfort",
     sleepIn: "Si dorme a",
@@ -164,7 +164,7 @@ export const uiText = {
     routeCheckEyebrow: "Controllo percorso",
     routeCheckTitle: "Dettagli su voli, auto e coincidenze",
     routeCheckIntro:
-      "L'unico compromesso aereo è Aurangabad-Agra, che attualmente richiede una coincidenza. Tutto il resto usa Vande Bharat, il volo diretto Udaipur-Mumbai o auto con guida per circa 6-8 ore.",
+      "Aurangabad-Udaipur richiede attualmente una coincidenza su un solo biglietto via Mumbai. I treni premium si usano solo quando battono l'auto: Mumbai-Aurangabad, Agra-Delhi e Delhi-Haridwar; le altre tratte usano auto dirette con guida o il volo diretto Dehradun-Mumbai.",
     dateHeader: "Data",
     transferHeader: "Spostamento",
     modeHeader: "Mezzo",
@@ -332,7 +332,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       name: "Delhi",
       role: "Capital layers: Mughal gardens, old markets, and civic monuments",
       overview:
-        "Delhi is the trip's historical bridge. It prepares you for Agra and Jaipur by showing how many capitals, empires, neighborhoods, and religious communities overlap in North India.",
+        "Delhi is the trip's historical bridge after Agra and before Rishikesh, showing how many capitals, empires, neighborhoods, and religious communities overlap in North India.",
       context:
         "The city has been remade repeatedly by sultanates, the Mughals, the British, and modern India. That is why the stops feel so different from one another even within the same day.",
       bestUse:
@@ -341,7 +341,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
         {
           name: "Humayun's Tomb",
           what: "A Mughal garden-tomb set in a formal charbagh garden.",
-          why: "It is beautiful, calm, and historically important before seeing the Taj Mahal.",
+          why: "It is beautiful, calm, and historically useful for understanding the Mughal garden-tomb language seen at the Taj Mahal.",
           history: "Built in the 16th century for Emperor Humayun, it helped shape later Mughal tomb architecture.",
           notice: "Look at the symmetry, red sandstone, white marble details, garden axis, and elevated platform.",
           pace: "Prioritize this as the main Delhi monument; it is rewarding without being chaotic.",
@@ -376,7 +376,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       name: "Delhi",
       role: "Strati di capitale: giardini moghul, mercati antichi e monumenti civici",
       overview:
-        "Delhi e il ponte storico del viaggio. Prepara ad Agra e Jaipur mostrando capitali, imperi, quartieri e comunita religiose sovrapposte.",
+        "Delhi è il ponte storico dopo Agra e prima di Rishikesh, e mostra capitali, imperi, quartieri e comunità religiose sovrapposte.",
       context:
         "La citta e stata trasformata da sultanati, Moghul, britannici e India moderna. Per questo le tappe della stessa giornata sembrano mondi diversi.",
       bestUse:
@@ -385,7 +385,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
         {
           name: "Tomba di Humayun",
           what: "Tomba-giardino moghul in un giardino formale charbagh.",
-          why: "E bella, relativamente calma e importante prima del Taj Mahal.",
+          why: "È bella, relativamente calma e utile per capire il linguaggio moghul della tomba-giardino visto al Taj Mahal.",
           history: "Costruita nel XVI secolo per l'imperatore Humayun, influenzo l'architettura funeraria moghul successiva.",
           notice: "Simmetria, arenaria rossa, marmo bianco, assi del giardino e piattaforma rialzata.",
           pace: "Da mettere come monumento principale di Delhi.",
@@ -674,7 +674,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
   udaipur: {
     en: {
       name: "Udaipur",
-      role: "Lake city, palaces, Aravalli views, and a graceful finish",
+      role: "Lake city, palaces, Aravalli views, and the first Rajasthan stop",
       overview:
         "Udaipur is the scenic exhale after the Rishikesh connection. It is visually rich but softer than Jaipur: lake reflections, palace terraces, old lanes, temples, and dinners with water views.",
       context:
@@ -710,7 +710,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
     },
     it: {
       name: "Udaipur",
-      role: "Citta del lago, palazzi, viste sugli Aravalli e finale elegante",
+      role: "Città del lago, palazzi, viste sugli Aravalli e prima tappa in Rajasthan",
       overview:
         "Udaipur e il respiro scenico dopo la connessione da Rishikesh. E ricca visivamente ma piu morbida di Jaipur: riflessi sul lago, terrazze di palazzo, vicoli, templi e cene sull'acqua.",
       context:
@@ -787,7 +787,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
   delhi: {
     en: {
       overview:
-        "Delhi is the route's history bridge between Mumbai's coast and the imperial landscapes of Agra and Rajasthan. It is not a single-period city; it is a layered capital where garden tombs, planned avenues, old markets and modern traffic sit on top of one another.\n\nFor this itinerary, Delhi should be selective. The goal is to understand the arc of North Indian capitals without exhausting the family before Agra and Jaipur.",
+        "Delhi is the route's history bridge after Agra and before Rishikesh. It is not a single-period city; it is a layered capital where garden tombs, planned avenues, old markets and modern traffic sit on top of one another.\n\nFor this itinerary, Delhi should be selective. The goal is to understand the arc of North Indian capitals without exhausting the family before the evening train to Haridwar.",
       context:
         "Delhi has been remade by many powers: early Sultanate rulers, the Mughals, the British imperial capital and independent India. That is why the city can move in one day from a formal Mughal garden tomb to a public park with older tombs, then to Old Delhi market lanes and the planned New Delhi axis.\n\nThe historical story is contrast. Humayun's Tomb explains the garden-tomb language that prepares the eye for the Taj Mahal; Lodhi Garden shows older monuments inside daily life; Old Delhi gives market density; India Gate and the avenues show the capital as civic theatre.",
       bestUse:
@@ -795,7 +795,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
     },
     it: {
       overview:
-        "Delhi è il ponte storico del percorso tra la costa di Mumbai e i paesaggi imperiali di Agra e Rajasthan. Non è una città di un solo periodo: è una capitale stratificata in cui tombe-giardino, viali pianificati, mercati antichi e traffico moderno si sovrappongono.\n\nPer questo itinerario Delhi deve restare selettiva. L'obiettivo è capire l'arco delle capitali del Nord India senza stancare la famiglia prima di Agra e Jaipur.",
+        "Delhi è il ponte storico del percorso dopo Agra e prima di Rishikesh. Non è una città di un solo periodo: è una capitale stratificata in cui tombe-giardino, viali pianificati, mercati antichi e traffico moderno si sovrappongono.\n\nPer questo itinerario Delhi deve restare selettiva. L'obiettivo è capire l'arco delle capitali del Nord India senza stancare la famiglia prima del treno serale per Haridwar.",
       context:
         "Delhi è stata rimodellata da molti poteri: primi sovrani del Sultanato, Moghul, capitale imperiale britannica e India indipendente. Per questo in una sola giornata si può passare da una tomba-giardino moghul a un parco pubblico con tombe più antiche, poi ai vicoli di mercato di Old Delhi e all'asse pianificato di New Delhi.\n\nLa storia qui è fatta di contrasti. La Tomba di Humayun spiega il linguaggio della tomba-giardino che prepara al Taj Mahal; Lodhi Garden mostra monumenti antichi dentro la vita quotidiana; Old Delhi dà densità di mercato; India Gate e i viali mostrano la capitale come teatro civico.",
       bestUse:
@@ -845,7 +845,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
       context:
         "Rishikesh is a pilgrimage and yoga center at the point where the Ganga comes through the Himalayan foothills toward the plains. Its identity combines sacred geography, ashram culture, modern wellness travel and the visual drama of river bridges and hills.\n\nThe town became globally famous through yoga and meditation, but its deeper importance is older: river devotion, pilgrimage routes and the feeling of threshold between plains and mountains.",
       bestUse:
-        "Keep Rishikesh restorative. Protect the full day for the riverfront, Ganga Aarti, a gentle yoga or ashram experience and a slow bridge walk.\n\nDo not add long mountain excursions. The purpose is to feel the foothills and recover before Udaipur, not to create another demanding travel day.",
+        "Keep Rishikesh restorative. Protect the full day for the riverfront, Ganga Aarti, a gentle yoga or ashram experience and a slow bridge walk.\n\nDo not add long mountain excursions. The purpose is to feel the foothills and recover before the final flight to Mumbai, not to create another demanding travel day.",
     },
     it: {
       overview:
@@ -853,25 +853,25 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
       context:
         "Rishikesh è centro di pellegrinaggio e yoga nel punto in cui il Ganga attraversa i contrafforti himalayani verso la pianura. La sua identità unisce geografia sacra, cultura degli ashram, viaggio wellness moderno e la forza visiva di ponti sul fiume e colline.\n\nLa città è diventata famosa nel mondo per yoga e meditazione, ma la sua importanza più profonda è più antica: devozione al fiume, percorsi di pellegrinaggio e sensazione di soglia tra pianura e montagne.",
       bestUse:
-        "Mantenere Rishikesh rigenerante. Proteggere la giornata intera per lungofiume, Ganga Aarti, un'esperienza leggera di yoga o ashram e una passeggiata lenta sui ponti.\n\nNon aggiungere lunghe escursioni in montagna. Lo scopo è sentire le colline e recuperare prima di Udaipur, non creare un'altra giornata di viaggio impegnativa.",
+        "Mantenere Rishikesh rigenerante. Proteggere la giornata intera per lungofiume, Ganga Aarti, un'esperienza leggera di yoga o ashram e una passeggiata lenta sui ponti.\n\nNon aggiungere lunghe escursioni in montagna. Lo scopo è sentire le colline e recuperare prima del volo finale per Mumbai, non creare un'altra giornata di viaggio impegnativa.",
     },
   },
   udaipur: {
     en: {
       overview:
-        "Udaipur is the scenic exhale after Rishikesh and the connected-flight compromise. It is still Rajasthan, but the mood is softer than Jaipur: lake reflections, white palaces, old lanes, temples, terraces and dinners by the water.\n\nThe city belongs in the route because it gives beauty without needing another fort-heavy day. Its best moments are visual and atmospheric, which makes it a good late-trip stop.",
+        "Udaipur is the scenic opening to Rajasthan after the connected-flight compromise from Aurangabad. Its mood is softer than Jaipur: lake reflections, white palaces, old lanes, temples, terraces and dinners by the water.\n\nThe city belongs in the route because it gives beauty without needing another fort-heavy day. Its best moments are visual and atmospheric, creating a calm start before the drive to Jaipur.",
       context:
         "Founded in the 16th century by Maharana Udai Singh II, Udaipur became the capital of Mewar. Its setting in the Aravalli hills and around Lake Pichola shaped the city's defensive, ceremonial and scenic identity.\n\nThe lake is not decoration; it is part of the urban structure. Palaces, ghats, islands and viewpoints are organized around water, so Udaipur's history is inseparable from landscape planning.",
       bestUse:
-        "Use Udaipur slowly. City Palace is the main historical anchor, Lake Pichola is the scenic heart, and Jagdish Temple/old lanes add human scale.\n\nAvoid distant day trips unless the family has unusual energy. The value of Udaipur is being there: seeing the lake change with light, walking a little, and ending the route gracefully before Mumbai.",
+        "Use Udaipur slowly. City Palace is the main historical anchor, Lake Pichola is the scenic heart, and Jagdish Temple/old lanes add human scale.\n\nAvoid distant day trips unless the family has unusual energy. The value of Udaipur is being there: seeing the lake change with light, walking a little, and beginning the Rajasthan section calmly before Jaipur.",
     },
     it: {
       overview:
-        "Udaipur è il respiro scenico dopo Rishikesh e il compromesso del volo con coincidenza. È ancora Rajasthan, ma l'atmosfera è più morbida di Jaipur: riflessi sul lago, palazzi bianchi, vicoli, templi, terrazze e cene sull'acqua.\n\nLa città appartiene al percorso perché offre bellezza senza richiedere un'altra giornata pesante di fortezze. I suoi momenti migliori sono visivi e atmosferici, quindi funziona bene verso la fine del viaggio.",
+        "Udaipur è l'apertura scenica del Rajasthan dopo il volo con coincidenza da Aurangabad. L'atmosfera è più morbida di Jaipur: riflessi sul lago, palazzi bianchi, vicoli, templi, terrazze e cene sull'acqua.\n\nLa città appartiene al percorso perché offre bellezza senza richiedere un'altra giornata pesante di fortezze. I suoi momenti migliori sono visivi e atmosferici, creando un inizio calmo prima del viaggio verso Jaipur.",
       context:
         "Fondata nel XVI secolo da Maharana Udai Singh II, Udaipur divenne capitale del Mewar. La posizione negli Aravalli e intorno a Lake Pichola modellò l'identità difensiva, cerimoniale e scenica della città.\n\nIl lago non è decorazione; è parte della struttura urbana. Palazzi, ghat, isole e punti vista sono organizzati intorno all'acqua, quindi la storia di Udaipur è inseparabile dalla pianificazione del paesaggio.",
       bestUse:
-        "Usare Udaipur lentamente. City Palace è l'ancora storica principale, Lake Pichola è il cuore scenico, e Jagdish Temple/vicoli aggiungono scala umana.\n\nEvitare escursioni lontane salvo energia insolita. Il valore di Udaipur è esserci: vedere il lago cambiare con la luce, camminare un po' e chiudere il percorso con grazia prima di Mumbai.",
+        "Usare Udaipur lentamente. City Palace è l'ancora storica principale, Lake Pichola è il cuore scenico, e Jagdish Temple/vicoli aggiungono scala umana.\n\nEvitare escursioni lontane salvo energia insolita. Il valore di Udaipur è esserci: vedere il lago cambiare con la luce, camminare un po' e iniziare con calma la parte del Rajasthan prima di Jaipur.",
     },
   },
 };

@@ -2,7 +2,7 @@
 
 React/Vite travel planner for the relaxed India itinerary:
 
-Mumbai -> Aurangabad/Ellora -> Agra -> Rishikesh -> Jaipur -> Udaipur -> Mumbai.
+Mumbai -> Aurangabad/Ellora -> Udaipur -> Jaipur -> Agra -> Delhi -> Rishikesh -> Dehradun -> Mumbai.
 
 ## Local Development
 
