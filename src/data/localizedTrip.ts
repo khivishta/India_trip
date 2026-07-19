@@ -272,8 +272,8 @@ const hotelsIt: HotelStay[] = [
     checkIn: "8 novembre 2026",
     checkOut: "10 novembre 2026",
     segment: "Arrivo a Mumbai",
-    direction: "Hilton Mumbai International Airport",
-    notes: "Include la notte prima dell'arrivo, così la camera è garantita quando QR556 atterra alle 02:35 del 9 novembre.",
+    direction: "Prenotato: Hilton Garden Inn Mumbai International Airport",
+    notes: "Tariffa Family & Friends confermata. La notte pre-arrivo dell'8 novembre garantisce la camera quando QR556 atterra alle 02:35 del 9 novembre.",
   },
   {
     ...hotels[1],

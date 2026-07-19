@@ -371,8 +371,8 @@ export const hotels: HotelStay[] = [
     checkOut: "Nov 10, 2026",
     city: "Mumbai",
     nights: 2,
-    direction: "Hilton Mumbai International Airport",
-    notes: "Includes the pre-arrival night so a room is guaranteed when QR556 lands at 02:35 on Nov 9.",
+    direction: "Booked: Hilton Garden Inn Mumbai International Airport",
+    notes: "Family & Friends rate confirmed. The Nov 8 pre-arrival night guarantees the room when QR556 lands at 02:35 on Nov 9.",
   },
   {
     segment: "Ellora base",
