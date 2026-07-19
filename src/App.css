@@ -281,7 +281,7 @@ h3 {
 
 .route-strip {
   display: grid;
-  grid-template-columns: repeat(7, minmax(145px, 1fr));
+  grid-template-columns: repeat(9, minmax(145px, 1fr));
   gap: 12px;
   overflow-x: auto;
   padding-bottom: 8px;
@@ -345,6 +345,14 @@ h3 {
 .route-stop--lake,
 .place-card--lake .place-card__role {
   background: #1d4ed8;
+}
+
+.route-stop--transit {
+  background: #0369a1;
+}
+
+.route-stop--return {
+  background: #334155;
 }
 
 .callout {
@@ -958,6 +966,28 @@ h3 {
 .agency-action-cell {
   display: grid !important;
   gap: 8px;
+}
+
+.recommended-mode {
+  display: grid;
+  gap: 5px;
+  padding: 10px 12px;
+  border: 2px solid color-mix(in srgb, var(--row-accent, #145f8a) 68%, white);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+}
+
+.recommended-mode small {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.recommended-mode strong {
+  line-height: 1.35;
 }
 
 .itinerary-table .route-leg-pill,

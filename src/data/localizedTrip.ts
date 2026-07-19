@@ -16,7 +16,7 @@ const statsIt: LocalizedTripStats = {
   ...tripStats,
   dates: "8-21 novembre 2026",
   nights: "12 notti in India",
-  route: "Mumbai -> Ellora -> Udaipur -> Jaipur -> Agra -> Delhi -> Rishikesh -> Mumbai",
+  route: "Mumbai -> Ellora -> Udaipur -> Jaipur -> Agra -> Delhi -> Rishikesh -> Aeroporto di Dehradun -> Mumbai",
   buffer: "20 novembre a Mumbai",
 };
 
@@ -51,9 +51,9 @@ const itineraryIt: LocalizedItineraryDay[] = [
     plan: "Breve blocco opzionale Gateway of India / Colaba, poi treno premium Vande Bharat per Chhatrapati Sambhajinagar (Aurangabad).",
     transport: "Vande Bharat 20706 CSMT -> CPSN",
     travelTime: "Orario attuale circa 5h30, indicativamente 13:15-18:43",
-    connection: "Treno premium diretto; attualmente opera sei giorni a settimana",
+    connection: "Treno premium diretto; più rapido delle tipiche 7-8h in auto",
     pace: "Giorno di viaggio",
-    notes: "Non inserire Ellora il giorno dell'arrivo.",
+    notes: "Il Vande Bharat è consigliato perché l'orario attuale di circa 5h30 batte le tipiche 7-8h in auto. Non inserire Ellora il giorno dell'arrivo.",
   },
   {
     ...itinerary[3],
@@ -196,9 +196,9 @@ const routeLegsIt: LocalizedRouteLeg[] = [
     date: "10 nov",
     mode: "Vande Bharat 20706",
     duration: "Orario attuale circa 5h30, indicativamente 13:15-18:43",
-    connection: "Treno premium diretto; attualmente opera sei giorni a settimana",
-    status: "Treno rapido premium",
-    notes: "Prenotare Executive Chair Car o Chair Car e confermare l'orario del 10 novembre all'apertura delle prenotazioni.",
+    connection: "Treno premium diretto; più rapido delle tipiche 7-8h in auto",
+    status: "Treno premium più rapido dell'auto",
+    notes: "Prenotare Executive Chair Car o Chair Car e confermare l'orario del 10 novembre all'apertura delle prenotazioni. L'orario attuale di circa 5h30 batte le tipiche 7-8h in auto.",
   },
   {
     ...routeLegs[2],

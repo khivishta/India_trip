@@ -426,7 +426,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       context:
         "Agra was one of the great Mughal capitals. Its monuments are tied to imperial ambition, riverfront planning, military power, and personal memory.",
       bestUse:
-        "Keep Agra to one night. Do the Taj well, see Agra Fort, and avoid adding too much before the Jaipur drive.",
+        "Keep Agra to one night. Do the Taj well, see Agra Fort, and avoid adding too much before the Gatimaan train to Delhi.",
       locations: [
         {
           name: "Taj Mahal",
@@ -462,7 +462,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       context:
         "Agra fu una grande capitale moghul. I suoi monumenti parlano di ambizione imperiale, paesaggio fluviale, potere militare e memoria personale.",
       bestUse:
-        "Tenere Agra a una notte. Fare bene il Taj, vedere Agra Fort e non caricare troppo prima della strada per Jaipur.",
+        "Tenere Agra a una notte. Fare bene il Taj, vedere Agra Fort e non caricare troppo prima del Gatimaan per Delhi.",
       locations: [
         {
           name: "Taj Mahal",
@@ -676,7 +676,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       name: "Udaipur",
       role: "Lake city, palaces, Aravalli views, and the first Rajasthan stop",
       overview:
-        "Udaipur is the scenic exhale after the Rishikesh connection. It is visually rich but softer than Jaipur: lake reflections, palace terraces, old lanes, temples, and dinners with water views.",
+        "Udaipur is the scenic exhale after the connected flight from Aurangabad. It is visually rich but softer than Jaipur: lake reflections, palace terraces, old lanes, temples, and dinners with water views.",
       context:
         "Founded in the 16th century by Maharana Udai Singh II, Udaipur became the capital of Mewar. Its identity comes from Rajput resilience, lake planning, and the defensive geography of the Aravalli hills.",
       bestUse:
@@ -712,7 +712,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       name: "Udaipur",
       role: "Città del lago, palazzi, viste sugli Aravalli e prima tappa in Rajasthan",
       overview:
-        "Udaipur e il respiro scenico dopo la connessione da Rishikesh. E ricca visivamente ma piu morbida di Jaipur: riflessi sul lago, terrazze di palazzo, vicoli, templi e cene sull'acqua.",
+        "Udaipur e il respiro scenico dopo il volo con coincidenza da Aurangabad. E ricca visivamente ma piu morbida di Jaipur: riflessi sul lago, terrazze di palazzo, vicoli, templi e cene sull'acqua.",
       context:
         "Fondata nel XVI secolo da Maharana Udai Singh II, Udaipur divenne capitale del Mewar. La sua identita nasce dalla storia Rajput, dai laghi e dalla geografia difensiva degli Aravalli.",
       bestUse:
@@ -809,7 +809,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
       context:
         "The Mughal emperors made Agra one of their major capitals, and the city still carries that imperial geography along the Yamuna. The Taj expresses memory and idealized beauty, while Agra Fort expresses administration, defense and residence.\n\nSeeing both keeps the history balanced. The family understands Shah Jahan's world more fully: not only the grief and craft of the Taj, but also the fortified court and river landscape that surrounded Mughal power.",
       bestUse:
-        "Keep Agra focused and short. Do the Taj properly at sunrise, use Agra Fort for context, and add Mehtab Bagh only if the group wants a calm sunset view.\n\nAvoid stuffing Agra with extras before the Jaipur drive. One excellent night and morning are better than turning the city into a tiring monument marathon.",
+        "Keep Agra focused and short. Do the Taj properly at sunrise, use Agra Fort for context, and add Mehtab Bagh only if the group wants a calm sunset view.\n\nAvoid stuffing Agra with extras before the Gatimaan train to Delhi. One excellent night and morning are better than turning the city into a tiring monument marathon.",
     },
     it: {
       overview:
@@ -817,7 +817,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
       context:
         "Gli imperatori moghul fecero di Agra una delle loro grandi capitali, e la città conserva ancora quella geografia imperiale lungo lo Yamuna. Il Taj esprime memoria e bellezza idealizzata, mentre Agra Fort esprime amministrazione, difesa e residenza.\n\nVedere entrambi mantiene la storia equilibrata. La famiglia comprende meglio il mondo di Shah Jahan: non solo il dolore e l'artigianato del Taj, ma anche la corte fortificata e il paesaggio fluviale intorno al potere moghul.",
       bestUse:
-        "Tenere Agra focalizzata e breve. Fare bene il Taj all'alba, usare Agra Fort per il contesto e aggiungere Mehtab Bagh solo se il gruppo vuole una vista calma al tramonto.\n\nEvitare di riempire Agra di extra prima della strada per Jaipur. Una notte e una mattina eccellenti sono meglio di una maratona stancante di monumenti.",
+        "Tenere Agra focalizzata e breve. Fare bene il Taj all'alba, usare Agra Fort per il contesto e aggiungere Mehtab Bagh solo se il gruppo vuole una vista calma al tramonto.\n\nEvitare di riempire Agra di extra prima del Gatimaan per Delhi. Una notte e una mattina eccellenti sono meglio di una maratona stancante di monumenti.",
     },
   },
   jaipur: {
@@ -1043,7 +1043,7 @@ const optionalAddOnsByPlace: Record<string, Record<Language, OptionalAddOn[]>> =
       {
         name: "Fatehpur Sikri long add-on",
         fit: "Only makes sense with unusual energy or an extra road buffer because it is historically important but outside Agra.",
-        caution: "Not recommended on the fixed Agra-to-Jaipur transfer day unless the agency confirms a relaxed schedule.",
+        caution: "Add it on the Jaipur-to-Agra drive only if the group accepts a 5-6h day and the agency confirms comfortable timing.",
       },
     ],
     it: [
@@ -1065,7 +1065,7 @@ const optionalAddOnsByPlace: Record<string, Record<Language, OptionalAddOn[]>> =
       {
         name: "Fatehpur Sikri aggiunta lunga",
         fit: "Ha senso solo con energia insolita o un cuscinetto stradale extra, perché è importante ma fuori Agra.",
-        caution: "Non consigliata nel giorno fisso Agra-Jaipur salvo conferma dell'agenzia su tempi rilassati.",
+        caution: "Aggiungerla nel viaggio Jaipur-Agra solo se il gruppo accetta una giornata di 5-6h e l'agenzia conferma tempi comodi.",
       },
     ],
   },

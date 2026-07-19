@@ -74,6 +74,16 @@ function transportForDay(dayDate: string, segments: TransportSegment[]) {
   return segments.filter((segment) => dayDate.startsWith(segment.date));
 }
 
+function isPrimarySegment(day: LocalizedItineraryDay, segment: TransportSegment) {
+  if (day.transportKind === "flight") return segment.category === "flight-direct" || segment.category === "flight-connection";
+  if (day.transportKind === "transfer") return segment.category === "taxi";
+  return segment.category === day.transportKind;
+}
+
+function orderedTransportForDay(day: LocalizedItineraryDay, segments: TransportSegment[]) {
+  return transportForDay(day.date, segments).sort((left, right) => Number(isPrimarySegment(day, right)) - Number(isPrimarySegment(day, left)));
+}
+
 function agencyTasksForDay(dayDate: string, tasks: AgencyTask[]) {
   return tasks.filter((task) => {
     const baseDate = task.date.split(" or ")[0].split(" o ")[0];
@@ -89,20 +99,36 @@ function downloadFullItineraryCsv(days: LocalizedItineraryDay[], language: Langu
   const transportSegments = getTransportSegments(language);
   const agencyTasks = getAgencyTasks(language);
   const mustSee = language === "it" ? mustSeeByDateIt : mustSeeByDate;
-  const header = [
-    "Date",
-    "Day",
-    "Base",
-    "Sleep city",
-    "Must-see focus",
-    "Route check",
-    "Length",
-    "Pace",
-    "Notes",
-    "Agency booking actions",
-  ];
+  const header =
+    language === "it"
+      ? [
+          "Data",
+          "Giorno",
+          "Base",
+          "Città dove si dorme",
+          "Focus da vedere",
+          "Modalità principale consigliata",
+          "Controllo percorso",
+          "Durata",
+          "Ritmo",
+          "Note",
+          "Prenotazioni agenzia",
+        ]
+      : [
+          "Date",
+          "Day",
+          "Base",
+          "Sleep city",
+          "Must-see focus",
+          "Recommended main mode",
+          "Route check",
+          "Length",
+          "Pace",
+          "Notes",
+          "Agency booking actions",
+        ];
   const rows = days.map((day) => {
-    const daySegments = transportForDay(day.date, transportSegments);
+    const daySegments = orderedTransportForDay(day, transportSegments);
     const dayAgencyTasks = agencyTasksForDay(day.date, agencyTasks);
     return [
       day.date,
@@ -110,12 +136,16 @@ function downloadFullItineraryCsv(days: LocalizedItineraryDay[], language: Langu
       day.baseCity,
       day.sleepIn,
       mustSee[day.date] ?? day.plan,
+      day.transport,
       daySegments.map((leg) => `${leg.from} -> ${leg.to}: ${leg.mode} (${leg.status}, ${leg.duration})`).join(" | ") || day.transport,
       daySegments.length > 0 ? daySegments.map((leg) => leg.duration).join(" + ") : day.travelTime,
       day.pace,
       day.notes,
       dayAgencyTasks
-        .map((task) => `${task.optional ? "Optional: " : ""}${task.service}; ${task.pickup} -> ${task.dropoff}; ${task.duration}; ${task.action}`)
+        .map(
+          (task) =>
+            `${task.optional ? (language === "it" ? "Opzionale: " : "Optional: ") : ""}${task.service}; ${task.pickup} -> ${task.dropoff}; ${task.duration}; ${task.action}`,
+        )
         .join(" | "),
     ];
   });
@@ -215,14 +245,14 @@ export function Itinerary({ language }: { language: Language }) {
             <span>{language === "it" ? "Base" : "Base"}</span>
             <span>{t.sleepIn}</span>
             <span>{pt.mustSeeHeader}</span>
-            <span>{language === "it" ? "Controllo percorso" : "Route check"}</span>
+            <span>{language === "it" ? "Modalità consigliata + percorso" : "Recommended mode + route"}</span>
             <span>{t.lengthHeader}</span>
             <span>{language === "it" ? "Ritmo" : "Pace"}</span>
             <span>{pt.notesHeader}</span>
             <span>{language === "it" ? "Prenotazioni agenzia" : "Agency booking"}</span>
           </div>
           {localizedItinerary.map((day) => {
-            const daySegments = transportForDay(day.date, transportSegments);
+            const daySegments = orderedTransportForDay(day, transportSegments);
             const dayAgencyTasks = agencyTasksForDay(day.date, agencyTasks);
             return (
               <div className={`itinerary-table__row transport-row--${day.transportKind}`} role="row" key={`${day.date}-${day.day}-table`}>
@@ -232,6 +262,12 @@ export function Itinerary({ language }: { language: Language }) {
                 <span>{day.sleepIn}</span>
                 <span>{mustSee[day.date] ?? day.plan}</span>
                 <span className="route-check-cell">
+                  <span className={`recommended-mode recommended-mode--${day.transportKind}`}>
+                    <small>{language === "it" ? "Modalità principale consigliata" : "Recommended main mode"}</small>
+                    <strong>
+                      <span aria-hidden="true">{transportEmoji[day.transportKind]}</span> {day.transport}
+                    </strong>
+                  </span>
                   {daySegments.length > 0 ? (
                     daySegments.map((leg) => (
                       <span className={`route-leg-pill route-leg-pill--${leg.category}`} key={`${leg.date}-${leg.from}-${leg.to}`}>
@@ -248,11 +284,7 @@ export function Itinerary({ language }: { language: Language }) {
                         </small>
                       </span>
                     ))
-                  ) : (
-                    <span className={`mode-pill mode-pill--${day.transportKind === "flight" ? "flight-direct" : day.transportKind}`}>
-                      {day.transport}
-                    </span>
-                  )}
+                  ) : null}
                 </span>
                 <span>{daySegments.length > 0 ? daySegments.map((leg) => leg.duration).join(" + ") : day.travelTime}</span>
                 <span>

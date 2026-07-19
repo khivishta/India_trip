@@ -532,7 +532,6 @@ export function polishItalianText(text: string) {
     .replace(/\bRishikesh e inclusa\b/g, "Rishikesh è inclusa")
     .replace(/\bRishikesh e associata\b/g, "Rishikesh è associata")
     .replace(/\bAgra e inclusa\b/g, "Agra è inclusa")
-    .replace(/\bEllora e il\b/g, "Ellora è il")
     .replace(/\bDelhi e il\b/g, "Delhi è il")
     .replace(/\bJaipur e il\b/g, "Jaipur è il")
     .replace(/\bRishikesh non e\b/g, "Rishikesh non è")
@@ -682,9 +681,9 @@ export const transportSegments: TransportSegment[] = [
     mode: "Vande Bharat Express 20706",
     category: "train",
     duration: "About 5h30",
-    status: "Premium fast daytime train",
+    status: "Premium train faster than car",
     evidence: "https://indianexpress.com/article/india/railways-revises-timings-of-mumbai-hazur-sahib-nanded-vande-bharat-train-check-new-schedule-10646659/",
-    action: "Book Executive Chair Car when reservations open",
+    action: "Book Executive Chair Car when reservations open; the current timetable beats the typical 7-8h drive",
   },
   {
     date: "Nov 11",
@@ -837,32 +836,35 @@ export const transportSegments: TransportSegment[] = [
 
 const transportSegmentsIt: TransportSegment[] = transportSegments.map((segment, index) => {
   const translations = [
-    ["Voli prenotati QR20 + QR556", "Prenotato", "Tenere gli essenziali per la prima notte nel bagaglio a mano"],
-    ["Trasferimento aeroporto", "Prenotare trasferimento privato arrivo", "Accoglienza autista, flessibile per ritardi immigrazione"],
-    ["Trasferimento privato alla stazione", "Trasferimento sensibile al traffico", "Partire con ampio margine prima del treno"],
-    ["Vande Bharat Express 20706", "Treno diurno veloce premium", "Prenotare Executive Chair Car quando aprono le prenotazioni"],
-    ["Auto privata", "Strada breve", "Prenotare auto e guida Ellora"],
-    ["Trasferimento privato aeroporto", "Breve trasferimento aeroporto", "Lasciare margine extra per la coincidenza nazionale"],
-    ["Volo con uno scalo", "Nessun diretto; coincidenza su un solo biglietto", "Confermare il 12 novembre; prenotare IXU-BOM-UDR senza self-transfer"],
-    ["Auto locale privata + guida", "Visite locali", "Tenere rilassata la giornata sul lago dopo il volo"],
-    ["Auto privata con guida", "Auto più rapida porta a porta del treno non premium", "Usare un veicolo comodo e lasciare libera la sera"],
-    ["Auto locale privata + guida", "Visite locali", "Usare una sola guida e tenere lo shopping opzionale"],
-    ["Auto privata con guida", "L'auto vince porta a porta; nessun treno premium più rapido", "Aggiungere Fatehpur Sikri solo se il gruppo vuole un altro monumento"],
-    ["Auto locale privata + guida", "Taj aperto martedì; chiuso solo venerdì", "Prenotare il primo ingresso e finire in tempo per Agra Cantt"],
-    ["Gatimaan Express 12049", "Treno premium molto più rapido dell'auto", "Prenotare Executive Chair Car quando aprono le prenotazioni"],
-    ["Auto locale privata + guida", "Mercoledì evita le chiusure del lunedì", "Tenere la giornata mirata e partire presto per Anand Vihar"],
-    ["Vande Bharat 22457 + auto privata", "Treno premium più rapido dell'auto", "Prenotare Executive Chair Car e il trasferimento Haridwar-Rishikesh"],
-    ["Guida locale + auto/a piedi", "Giornata locale leggera", "Ritmo lento e supporto Aarti se desiderato"],
-    ["Auto aeroporto + volo diretto", "Volo diretto; orario invernale da confermare", "Prenotare BOM, non Navi Mumbai (NMI), e proteggere il cuscinetto finale"],
-    ["Voli prenotati 6E1303 + QR17", "Prenotato", "Seguire terminale e indicazioni di check-in sulla prenotazione"],
+    ["8 nov", "Dublino (DUB)", "Mumbai (BOM) via Doha", "Voli prenotati QR20 + QR556", "7h05 + scalo 2h50 + 3h25", "Prenotato", "Tenere gli essenziali per la prima notte nel bagaglio a mano"],
+    ["9 nov", "Aeroporto di Mumbai", "Hotel di Mumbai", "Trasferimento aeroporto", "45-90 min", "Prenotare il trasferimento privato di arrivo", "Accoglienza autista, flessibile per ritardi all'immigrazione"],
+    ["10 nov", "Hotel di Mumbai", "Stazione CSMT", "Trasferimento privato alla stazione", "45-90 min", "Trasferimento sensibile al traffico", "Partire con ampio margine prima del treno"],
+    ["10 nov", "Mumbai CSMT", "Aurangabad / CPSN", "Vande Bharat Express 20706", "Circa 5h30", "Treno premium più rapido dell'auto", "Prenotare Executive Chair Car; l'orario attuale batte le tipiche 7-8h in auto"],
+    ["11 nov", "Aurangabad", "Grotte di Ellora, andata e ritorno", "Auto privata", "Circa 1h per tratta", "Strada breve", "Prenotare auto e guida per Ellora"],
+    ["12 nov", "Hotel di Aurangabad", "Aeroporto di Aurangabad (IXU)", "Trasferimento privato aeroporto", "20-40 min", "Breve trasferimento aeroporto", "Lasciare margine extra per la coincidenza nazionale"],
+    ["12 nov", "Aurangabad (IXU)", "Udaipur (UDR) via Mumbai", "Volo con uno scalo", "Indicazione attuale circa 5h; orario invernale da confermare", "Nessun diretto; coincidenza su un solo biglietto", "Confermare il 12 novembre; prenotare IXU-BOM-UDR senza self-transfer"],
+    ["13 nov", "Hotel di Udaipur", "City Palace / Jagdish Temple / Lake Pichola", "Auto locale privata + guida", "Giornata intera flessibile", "Visite locali", "Tenere rilassata la giornata sul lago dopo il volo"],
+    ["14 nov", "Hotel di Udaipur", "Hotel di Jaipur", "Auto privata con guida", "Circa 6h30-7h più soste", "Auto più rapida porta a porta del treno non premium", "Usare un veicolo comodo e lasciare libera la sera"],
+    ["15 nov", "Hotel di Jaipur", "Amber Fort / City Palace / Hawa Mahal", "Auto locale privata + guida", "Giornata intera flessibile", "Visite locali", "Usare una sola guida e tenere lo shopping opzionale"],
+    ["16 nov", "Hotel di Jaipur", "Hotel di Agra", "Auto privata con guida", "Circa 4h diretto; 5-6h con Fatehpur Sikri", "L'auto vince porta a porta; nessun treno premium più rapido", "Aggiungere Fatehpur Sikri solo se il gruppo vuole un altro monumento"],
+    ["17 nov", "Hotel di Agra", "Taj Mahal / Agra Fort", "Auto locale privata + guida", "Dall'alba a metà pomeriggio", "Taj aperto martedì; chiuso solo venerdì", "Prenotare il primo ingresso e finire in tempo per Agra Cantt"],
+    ["17 nov", "Agra Cantt (AGC)", "Delhi Hazrat Nizamuddin (NZM)", "Gatimaan Express 12049", "Orario attuale circa 1h55, 17:35-19:30", "Treno premium molto più rapido dell'auto", "Prenotare Executive Chair Car quando aprono le prenotazioni"],
+    ["18 nov", "Hotel di Delhi", "Tomba di Humayun / selezione Old e New Delhi", "Auto locale privata + guida", "Mattina fino alle 15:30 circa", "Mercoledì evita le chiusure del lunedì", "Tenere la giornata mirata e partire presto per Anand Vihar"],
+    ["18 nov", "Anand Vihar (ANVT)", "Haridwar (HW), poi Rishikesh", "Vande Bharat 22457 + auto privata", "Treno 17:50-21:11 + circa 45-60 min in auto", "Treno premium più rapido dell'auto", "Prenotare Executive Chair Car e il trasferimento Haridwar-Rishikesh"],
+    ["19 nov", "Hotel di Rishikesh", "Lungofiume del Ganga / Beatles Ashram", "Guida locale + auto/a piedi", "Flessibile", "Giornata locale leggera", "Ritmo lento e supporto Aarti se desiderato"],
+    ["20 nov", "Hotel di Rishikesh via Dehradun (DED)", "Mumbai (BOM)", "Auto aeroporto + volo diretto", "Strada 30-60 min + volo diretto circa 2h35", "Volo diretto; orario invernale da confermare", "Prenotare BOM, non Navi Mumbai (NMI), e proteggere il cuscinetto finale"],
+    ["21 nov", "Mumbai (BOM)", "Dublino (DUB) via Doha", "Voli prenotati 6E1303 + QR17", "4h05 + scalo 3h15 + 7h30", "Prenotato", "Seguire terminale e indicazioni di check-in sulla prenotazione"],
   ][index];
 
   return {
     ...segment,
-    date: ["8 nov", "9 nov", "10 nov", "10 nov", "11 nov", "12 nov", "12 nov", "13 nov", "14 nov", "15 nov", "16 nov", "17 nov", "17 nov", "18 nov", "18 nov", "19 nov", "20 nov", "21 nov"][index],
-    mode: translations[0],
-    status: translations[1],
-    action: translations[2],
+    date: translations[0],
+    from: translations[1],
+    to: translations[2],
+    mode: translations[3],
+    duration: translations[4],
+    status: translations[5],
+    action: translations[6],
   };
 });
 
@@ -889,27 +891,35 @@ export const agencyTasks: AgencyTask[] = [
 
 const agencyTasksIt: AgencyTask[] = agencyTasks.map((task, index) => {
   const translations = [
-    ["9 nov", "Trasferimento arrivo", "Accoglienza privata per QR556 in arrivo alle 02:35"],
-    ["10 nov", "Auto locale privata opzionale", "Tenere opzionale prima del treno"],
-    ["10 nov", "Trasferimento privato alla stazione", "Proteggere ampio margine traffico prima del Vande Bharat 20706"],
-    ["11 nov", "Auto privata + guida Ellora", "Prenotare guida focalizzata sul Tempio Kailasa; mercoledì è aperto"],
-    ["12 nov", "Trasferimento privato aeroporto", "Coordinare con l'itinerario IXU -> BOM -> UDR su un solo biglietto"],
-    ["13 nov", "Guida + supporto barca opzionale", "Prenotare guida City Palace; barca se il meteo va bene"],
-    ["14 nov", "Auto privata con guida", "Usare veicolo comodo; l'auto è più rapida porta a porta del treno attuale"],
-    ["15 nov", "Auto privata + guida forte/palazzo", "Prenotare supporto Amber Fort e City Palace"],
-    ["16 nov", "Auto privata con guida", "Tenere Fatehpur Sikri opzionale; altrimenti percorso diretto"],
-    ["17 nov", "Taj all'alba VIP/guida/biglietti", "Prenotare guida al primo ingresso di martedì e biglietti richiesti"],
-    ["17 nov", "Trasferimento privato alla stazione", "Proteggere il Gatimaan delle 17:35"],
-    ["17 nov", "Trasferimento privato arrivo", "Autista in attesa all'arrivo del Gatimaan"],
-    ["18 nov", "Auto privata + guida Delhi", "Tenere la visita mirata prima del treno"],
-    ["18 nov", "Trasferimento privato alla stazione", "Arrivare presto ad ANVT per Vande Bharat 22457"],
-    ["18 nov", "Trasferimento privato serale", "Prenotare l'autista per l'arrivo del treno alle 21:11"],
-    ["19 nov", "Guida locale o supporto Aarti", "Tenere scenico e leggero"],
-    ["20 nov", "Trasferimento privato aeroporto", "Coordinare con un volo diretto DED -> BOM; non usare NMI"],
-    ["20 / 21 nov", "Trasferimenti arrivo e partenza", "Proteggere l'hotel cuscinetto e partire verso mezzanotte per 6E1303"],
+    ["9 nov", "Aeroporto BOM", "Hotel di Mumbai", "Trasferimento arrivo", "45-90 min", "Accoglienza privata per QR556 in arrivo alle 02:35"],
+    ["10 nov", "Hotel di Mumbai", "Gateway / Colaba", "Auto locale privata opzionale", "Mattina breve", "Tenere opzionale prima del treno"],
+    ["10 nov", "Hotel di Mumbai", "Stazione CSMT", "Trasferimento privato alla stazione", "45-90 min", "Proteggere ampio margine traffico prima del Vande Bharat 20706"],
+    ["11 nov", "Hotel di Aurangabad", "Ellora, andata e ritorno", "Auto privata + guida Ellora", "Giornata intera", "Prenotare guida focalizzata sul Tempio Kailasa; mercoledì è aperto"],
+    ["12 nov", "Hotel di Aurangabad", "Aeroporto IXU", "Trasferimento privato aeroporto", "20-40 min", "Coordinare con l'itinerario IXU -> BOM -> UDR su un solo biglietto"],
+    ["13 nov", "Hotel di Udaipur", "City Palace / Lake Pichola", "Guida + supporto barca opzionale", "Giornata intera", "Prenotare guida City Palace; barca se il meteo va bene"],
+    ["14 nov", "Hotel di Udaipur", "Hotel di Jaipur", "Auto privata con guida", "6h30-7h con soste", "Usare veicolo comodo; l'auto è più rapida porta a porta del treno attuale"],
+    ["15 nov", "Hotel di Jaipur", "Amber Fort / City Palace", "Auto privata + guida forte/palazzo", "Giornata intera", "Prenotare supporto Amber Fort e City Palace"],
+    ["16 nov", "Hotel di Jaipur", "Hotel di Agra", "Auto privata con guida", "4h diretto; 5-6h via Fatehpur Sikri", "Tenere Fatehpur Sikri opzionale; altrimenti percorso diretto"],
+    ["17 nov", "Hotel di Agra", "Taj Mahal / Agra Fort", "Taj all'alba VIP/guida/biglietti", "Mattina fino a metà pomeriggio", "Prenotare guida al primo ingresso di martedì e biglietti richiesti"],
+    ["17 nov", "Hotel di Agra", "Stazione Agra Cantt", "Trasferimento privato alla stazione", "20-40 min", "Proteggere il Gatimaan delle 17:35"],
+    ["17 nov", "Stazione Hazrat Nizamuddin", "Hotel di Delhi", "Trasferimento privato arrivo", "30-75 min", "Autista in attesa all'arrivo del Gatimaan"],
+    ["18 nov", "Hotel di Delhi", "Tomba di Humayun / selezione Old e New Delhi", "Auto privata + guida Delhi", "Mattina fino alle 15:30", "Tenere la visita mirata prima del treno"],
+    ["18 nov", "Visite a Delhi", "Terminal Anand Vihar", "Trasferimento privato alla stazione", "Secondo il traffico", "Arrivare presto ad ANVT per Vande Bharat 22457"],
+    ["18 nov", "Stazione di Haridwar", "Hotel di Rishikesh", "Trasferimento privato serale", "45-60 min", "Prenotare l'autista per l'arrivo del treno alle 21:11"],
+    ["19 nov", "Hotel di Rishikesh", "Beatles Ashram / Ganga Aarti", "Guida locale o supporto Aarti", "Mezza giornata / sera", "Tenere scenico e leggero"],
+    ["20 nov", "Hotel di Rishikesh", "Aeroporto DED", "Trasferimento privato aeroporto", "30-60 min", "Coordinare con un volo diretto DED -> BOM; non usare NMI"],
+    ["20 / 21 nov", "Aeroporto BOM", "Hotel di Mumbai, poi aeroporto BOM", "Trasferimenti arrivo e partenza", "45-90 min ciascuno", "Proteggere l'hotel cuscinetto e partire verso mezzanotte per 6E1303"],
   ][index];
 
-  return { ...task, date: translations[0], service: translations[1], action: translations[2] };
+  return {
+    ...task,
+    date: translations[0],
+    pickup: translations[1],
+    dropoff: translations[2],
+    service: translations[3],
+    duration: translations[4],
+    action: translations[5],
+  };
 });
 
 function commonsImage(fileName: string) {
