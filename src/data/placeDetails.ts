@@ -43,14 +43,14 @@ export const uiText = {
     eyebrow: "India 2026 relaxed family route",
     heroTitle: "Mumbai to mountains, palaces, caves and lake country",
     heroLead:
-      "A comfort-first itinerary built around the booked Dublin-Mumbai flights for Nov 8-21, 2026, keeping Ellora Caves, Rishikesh, Udaipur and a final Mumbai buffer.",
+      "A distance-optimized itinerary built around the booked Dublin-Mumbai flights for Nov 8-21, 2026, using a premium train, guide-driven cars and only two domestic flight journeys.",
     dailyPlanCta: "Daily plan",
     placeGuideCta: "Place guide",
     routeCheckCta: "Route check",
     dates: "Nov 8-21, 2026",
     nights: "12 nights in India",
-    flights: "Booked DUB-BOM return + 5 planned domestic legs",
-    drives: "6 short or moderate drives",
+    flights: "Booked DUB-BOM return + only 2 domestic flight journeys",
+    drives: "Guide drives capped at about 6-8 hours",
     rishikeshIncluded: "Rishikesh included as the mountain/river stop",
     buffer: "Protected Mumbai buffer on Nov 20 before the 03:15 departure",
     placeEyebrow: "Place detail guide",
@@ -71,24 +71,25 @@ export const uiText = {
     caution: "Keep it relaxed",
     imageLink: "Open image inspiration",
     footer:
-      "Comfort rule: protect the Rishikesh mountain stop, keep Ellora focused, and preserve the Nov 20 Mumbai buffer.",
+      "Route rule: use the shortest practical loop, favor Vande Bharat and guide-driven cars, and preserve the Nov 20 Mumbai buffer.",
     navLabel: "Trip sections",
     routeEyebrow: "Route flow",
     routeTitle: "Built around beauty without overworking the trip",
     requiredStop: "Required stop:",
     rishikeshCallout:
-      "Rishikesh is included for Nov 16-Nov 18, with one full day by the Ganga and Himalayan foothills before continuing to Udaipur.",
+      "Rishikesh is included for Nov 14-Nov 16, with one full day by the Ganga and Himalayan foothills before the guide-driven journey to Jaipur.",
     itineraryEyebrow: "Daily itinerary",
     itineraryTitle: "Dates, sleep city, transport and comfort notes",
     sleepIn: "Sleep in",
     flight: "Flight",
+    train: "Train",
     privateCar: "Private car",
     taxiTransfer: "Taxi / transfer",
     boatFerry: "Boat / ferry",
     routeCheckEyebrow: "Route check",
     routeCheckTitle: "Flight, car and connection details",
     routeCheckIntro:
-      "The two caution legs are Jaipur to Dehradun and Dehradun to Udaipur; current IndiGo information shows connections, so book clean same-ticket itineraries.",
+      "The only air compromise is Aurangabad to Agra, currently requiring a connection. Everything else uses Vande Bharat, direct Udaipur-Mumbai air service, or guide-driven legs of about 6-8 hours.",
     dateHeader: "Date",
     transferHeader: "Transfer",
     modeHeader: "Mode",
@@ -117,14 +118,14 @@ export const uiText = {
     eyebrow: "India 2026, itinerario rilassato in famiglia",
     heroTitle: "Da Mumbai alle montagne, ai palazzi, alle grotte e alla città dei laghi",
     heroLead:
-      "Un itinerario comodo costruito intorno ai voli Dublino-Mumbai prenotati per l'8-21 novembre 2026, con Ellora, Rishikesh, Udaipur e un cuscinetto finale a Mumbai.",
+      "Un itinerario ottimizzato per distanza, costruito intorno ai voli Dublino-Mumbai prenotati per l'8-21 novembre 2026, con treno premium, auto con guida e solo due viaggi aerei interni.",
     dailyPlanCta: "Programma",
     placeGuideCta: "Guida luoghi",
     routeCheckCta: "Controllo percorso",
     dates: "8-21 novembre 2026",
     nights: "12 notti in India",
-    flights: "Andata/ritorno DUB-BOM prenotato + 5 tratte interne pianificate",
-    drives: "6 spostamenti brevi o moderati in auto",
+    flights: "Andata/ritorno DUB-BOM prenotato + solo 2 viaggi aerei interni",
+    drives: "Viaggi in auto con guida limitati a circa 6-8 ore",
     rishikeshIncluded: "Rishikesh incluso come tappa montagna/fiume",
     buffer: "Cuscinetto protetto a Mumbai il 20 novembre prima della partenza alle 03:15",
     placeEyebrow: "Guida dettagliata",
@@ -145,24 +146,25 @@ export const uiText = {
     caution: "Per restare rilassati",
     imageLink: "Apri immagini",
     footer:
-      "Regola di comfort: proteggere Rishikesh, tenere Ellora focalizzata e conservare il cuscinetto a Mumbai del 20 novembre.",
+      "Regola del percorso: usare il circuito pratico più breve, preferire Vande Bharat e auto con guida, e conservare il cuscinetto a Mumbai del 20 novembre.",
     navLabel: "Sezioni del viaggio",
     routeEyebrow: "Percorso",
     routeTitle: "Pensato per vedere luoghi belli senza sovraccaricare il viaggio",
     requiredStop: "Tappa necessaria:",
     rishikeshCallout:
-      "Rishikesh è inclusa dal 16 al 18 novembre, con una giornata intera sul Ganga e ai piedi dell'Himalaya prima di proseguire verso Udaipur.",
+      "Rishikesh è inclusa dal 14 al 16 novembre, con una giornata intera sul Ganga e ai piedi dell'Himalaya prima del viaggio con guida verso Jaipur.",
     itineraryEyebrow: "Programma giorno per giorno",
     itineraryTitle: "Date, città dove si dorme, trasporti e note di comfort",
     sleepIn: "Si dorme a",
     flight: "Volo",
+    train: "Treno",
     privateCar: "Auto privata",
     taxiTransfer: "Taxi / trasferimento",
     boatFerry: "Barca / traghetto",
     routeCheckEyebrow: "Controllo percorso",
     routeCheckTitle: "Dettagli su voli, auto e coincidenze",
     routeCheckIntro:
-      "Le due tratte delicate sono Jaipur-Dehradun e Dehradun-Udaipur: le informazioni IndiGo attuali indicano coincidenze, quindi prenotare itinerari puliti sullo stesso biglietto.",
+      "L'unico compromesso aereo è Aurangabad-Agra, che attualmente richiede una coincidenza. Tutto il resto usa Vande Bharat, il volo diretto Udaipur-Mumbai o auto con guida per circa 6-8 ore.",
     dateHeader: "Data",
     transferHeader: "Spostamento",
     modeHeader: "Mezzo",
@@ -494,7 +496,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       name: "Jaipur",
       role: "Rajasthan forts, palace culture, color, craft, and planned-city geometry",
       overview:
-        "Jaipur gives the trip its Rajasthan chapter: hill forts, pink facades, royal courtyards, textiles, jewelry, and a very different urban rhythm from Delhi or Mumbai.",
+        "Jaipur gives the trip its Rajasthan chapter: hill forts, pink facades, royal courtyards, textiles, jewelry, and a very different urban rhythm from coastal Mumbai.",
       context:
         "Founded in 1727 by Maharaja Sawai Jai Singh II, Jaipur was planned with organized markets and broad streets. It sits between older Rajput hill power and a more formal planned capital.",
       bestUse:
@@ -538,7 +540,7 @@ export const placeDetails: Record<string, Record<Language, LocalizedPlaceDetail>
       name: "Jaipur",
       role: "Fortezze del Rajasthan, cultura di palazzo, colore, artigianato e citta pianificata",
       overview:
-        "Jaipur e il capitolo Rajasthan del viaggio: fortezze sulle colline, facciate rosa, cortili reali, tessuti, gioielli e un ritmo urbano diverso da Delhi o Mumbai.",
+        "Jaipur è il capitolo Rajasthan del viaggio: fortezze sulle colline, facciate rosa, cortili reali, tessuti, gioielli e un ritmo urbano diverso dalla Mumbai costiera.",
       context:
         "Fondata nel 1727 da Maharaja Sawai Jai Singh II, Jaipur fu pianificata con mercati organizzati e strade ampie. Collega il potere Rajput delle colline a una capitale formale.",
       bestUse:
@@ -821,7 +823,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
   jaipur: {
     en: {
       overview:
-        "Jaipur gives the trip its Rajasthan chapter: forts, palaces, planned streets, pink facades, craft markets and desert-edge color. It feels different from Delhi because the city was deliberately planned, with broad roads and organized bazaars set against older hill power.\n\nThe two-night stay allows the family to see Amber Fort properly and still have time for City Palace, Hawa Mahal and selected markets without turning the day into a race.",
+        "Jaipur gives the trip its Rajasthan chapter: forts, palaces, planned streets, pink facades, craft markets and desert-edge color. The city was deliberately planned, with broad roads and organized bazaars set against older hill power.\n\nThe two-night stay allows the family to see Amber Fort properly and still have time for City Palace, Hawa Mahal and selected markets without turning the day into a race.",
       context:
         "Founded in 1727 by Sawai Jai Singh II, Jaipur became a planned capital that balanced royal ceremony, commerce and astronomy. Its old city plan, bazaars and monuments show a ruler interested not only in defense, but also in order, measurement and public urban form.\n\nAmber Fort adds the older layer. It explains the hilltop Rajput world before the planned city, while City Palace and Jantar Mantar show the shift toward an organized capital with court life and scientific ambition.",
       bestUse:
@@ -829,7 +831,7 @@ const cityChapterExpansions: Record<string, Record<Language, Pick<LocalizedPlace
     },
     it: {
       overview:
-        "Jaipur dà al viaggio il capitolo Rajasthan: fortezze, palazzi, strade pianificate, facciate rosa, mercati artigianali e colori ai margini del deserto. È diversa da Delhi perché fu progettata intenzionalmente, con strade ampie e bazar organizzati accanto al più antico potere delle colline.\n\nLe due notti permettono alla famiglia di vedere bene Amber Fort e avere ancora tempo per City Palace, Hawa Mahal e mercati scelti senza trasformare la giornata in una corsa.",
+        "Jaipur dà al viaggio il capitolo Rajasthan: fortezze, palazzi, strade pianificate, facciate rosa, mercati artigianali e colori ai margini del deserto. Fu progettata intenzionalmente, con strade ampie e bazar organizzati accanto al più antico potere delle colline.\n\nLe due notti permettono alla famiglia di vedere bene Amber Fort e avere ancora tempo per City Palace, Hawa Mahal e mercati scelti senza trasformare la giornata in una corsa.",
       context:
         "Fondata nel 1727 da Sawai Jai Singh II, Jaipur divenne una capitale pianificata che univa cerimonia reale, commercio e astronomia. La pianta della città vecchia, i bazar e i monumenti mostrano un sovrano interessato non solo alla difesa, ma anche a ordine, misurazione e forma urbana pubblica.\n\nAmber Fort aggiunge lo strato più antico. Spiega il mondo rajput di collina precedente alla città pianificata, mentre City Palace e Jantar Mantar mostrano il passaggio a una capitale ordinata, con vita di corte e ambizione scientifica.",
       bestUse:

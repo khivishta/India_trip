@@ -14,6 +14,7 @@ import { type Language, uiText } from "../data/placeDetails";
 
 const transportEmoji = {
   flight: "✈️",
+  train: "🚆",
   car: "🚗",
   taxi: "🚕",
   transfer: "🚐",
@@ -170,6 +171,7 @@ export function Itinerary({ language }: { language: Language }) {
           VIP · {language === "it" ? "Guida / pass" : "Guide / passes"}
         </span>
         <span className="legend__item legend__item--flight">✈️ {t.flight}</span>
+        <span className="legend__item legend__item--train">🚆 {t.train}</span>
         <span className="legend__item legend__item--car">🚗 {t.privateCar}</span>
         <span className="legend__item legend__item--taxi">🚕 {t.taxiTransfer}</span>
         <span className="legend__item legend__item--boat">⛴️ {t.boatFerry}</span>

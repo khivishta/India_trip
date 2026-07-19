@@ -48,7 +48,7 @@ const healthCopy = {
       "Small medical kit: oral rehydration salts, thermometer, pain/fever medicine, stomach medicine advised by a clinician, plasters, antiseptic wipes and hand sanitizer.",
       "High-SPF sunscreen, hat, sunglasses and breathable clothing for heat and sun.",
       "Mosquito repellent and lightweight long sleeves for evenings.",
-      "Masks can be useful for poor air quality or crowded indoor spaces, especially in Delhi/Agra.",
+      "Masks can be useful for poor air quality or crowded indoor spaces, especially in Agra and northern India.",
     ],
     cautionTitle: "Special precautions to confirm",
     cautions: [
@@ -105,7 +105,7 @@ const healthCopy = {
       "Piccolo kit medico: sali di reidratazione orale, termometro, farmaco per dolore/febbre, farmaci per lo stomaco consigliati da un medico, cerotti, salviette antisettiche e gel mani.",
       "Crema solare alta protezione, cappello, occhiali da sole e abiti traspiranti per caldo e sole.",
       "Repellente zanzare e maniche lunghe leggere per la sera.",
-      "Mascherine utili per qualità dell'aria scarsa o spazi chiusi affollati, soprattutto a Delhi/Agra.",
+      "Mascherine utili per qualità dell'aria scarsa o spazi chiusi affollati, soprattutto ad Agra e nel Nord India.",
     ],
     cautionTitle: "Precauzioni speciali da confermare",
     cautions: [

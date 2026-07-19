@@ -384,6 +384,11 @@ h3 {
   color: #8a4f0f;
 }
 
+.legend__item--train {
+  background: #e0f2fe;
+  color: #075985;
+}
+
 .legend__item--taxi {
   background: var(--orange-soft);
   color: #9a3412;
@@ -422,6 +427,10 @@ h3 {
 
 .day-card--car {
   border-left-color: var(--gold);
+}
+
+.day-card--train {
+  border-left-color: #0284c7;
 }
 
 .day-card--flight {
@@ -555,6 +564,11 @@ h3 {
 .transport-row--car {
   background: var(--gold-soft);
   border-left: 6px solid var(--gold);
+}
+
+.transport-row--train {
+  background: #e0f2fe;
+  border-left: 6px solid #0284c7;
 }
 
 .transport-row--taxi {
@@ -853,6 +867,10 @@ h3 {
   background: transparent;
 }
 
+.itinerary-table__row.transport-row--train > span {
+  background: transparent;
+}
+
 .itinerary-table__row.transport-row--taxi > span,
 .itinerary-table__row.transport-row--transfer > span {
   background: transparent;
@@ -870,6 +888,11 @@ h3 {
 .itinerary-table__row.transport-row--car {
   --row-accent: #d97706;
   --row-bg: #fef3c7;
+}
+
+.itinerary-table__row.transport-row--train {
+  --row-accent: #0284c7;
+  --row-bg: #e0f2fe;
 }
 
 .itinerary-table__row.transport-row--taxi,
@@ -1132,6 +1155,10 @@ h3 {
   background: var(--gold);
 }
 
+.mode-pill--train {
+  background: #0284c7;
+}
+
 .mode-pill--taxi {
   background: #c05621;
 }
@@ -1203,6 +1230,11 @@ h3 {
 .route-leg-pill--car {
   background: rgba(217, 119, 6, 0.16);
   color: #78350f;
+}
+
+.route-leg-pill--train {
+  background: rgba(2, 132, 199, 0.14);
+  color: #075985;
 }
 
 .route-leg-pill--taxi {

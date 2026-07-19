@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import { places } from "../data/trip";
+import { getPlaces } from "../data/localizedTrip";
 import { getAttractions, planningText, polishItalianText } from "../data/planning";
 import { type Language, placeDetails, uiText } from "../data/placeDetails";
 
@@ -10,6 +10,7 @@ function renderParagraphs(text: string) {
 export function PlaceGuide({ language }: { language: Language }) {
   const t = uiText[language];
   const pt = planningText[language];
+  const places = getPlaces(language);
   return (
     <section className="section" id="places">
       <div className="section__heading">
